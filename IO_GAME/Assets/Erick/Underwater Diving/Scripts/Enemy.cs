@@ -19,9 +19,10 @@ public class Enemy : MonoBehaviour {
  
 
 	// Use this for initialization
-	void Start () {
-		thePlayer = FindObjectOfType<PlayerController> ();	
-		myRigidbody = GetComponent<Rigidbody2D> ();
+	void Start () 
+	{
+		thePlayer = Object.FindFirstObjectByType<PlayerController> ();
+        myRigidbody = GetComponent<Rigidbody2D> ();
 
 		turnTimer = 0;
 		timeTrigger = 3f;

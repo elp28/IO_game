@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour{
 
 
 
-		myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.velocity.x));
+		myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.linearVelocity.x));
 
 	 
 		
@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour{
 			transform.localScale = new Vector3(-1f,1f,1f);
 			movePlayer ();
 		} else if (Input.GetAxisRaw ("Vertical") > 0f) {
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, moveSpeed, 0f);
+			myRigidBody.linearVelocity = new Vector3 (myRigidBody.linearVelocity.x, moveSpeed, 0f);
 		} else if (Input.GetAxis ("Vertical") < 0f) {
-			myRigidBody.velocity = new Vector3 (myRigidBody.velocity.x, -moveSpeed, 0f);
+			myRigidBody.linearVelocity = new Vector3 (myRigidBody.linearVelocity.x, -moveSpeed, 0f);
 		}
 
 		if(Input.GetButtonDown("Jump") && !rushing ){
@@ -59,9 +59,9 @@ public class PlayerController : MonoBehaviour{
 
 	void movePlayer(){
 		if (transform.localScale.x == 1) {
-			myRigidBody.velocity = new Vector3 (moveSpeed + speedMod, myRigidBody.velocity.y, 0f);	
+			myRigidBody.linearVelocity = new Vector3 (moveSpeed + speedMod, myRigidBody.linearVelocity.y, 0f);	
 		} else {
-			myRigidBody.velocity = new Vector3 (- (moveSpeed + speedMod), myRigidBody.velocity.y, 0f);
+			myRigidBody.linearVelocity = new Vector3 (- (moveSpeed + speedMod), myRigidBody.linearVelocity.y, 0f);
 		}	
 	}
 

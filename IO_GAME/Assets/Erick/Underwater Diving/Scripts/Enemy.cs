@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update (){
-		myRigidbody.velocity = new Vector3 (myRigidbody.transform.localScale.x * speed, myRigidbody.velocity.y, 0f);
+		myRigidbody.linearVelocity = new Vector3 (myRigidbody.transform.localScale.x * speed, myRigidbody.linearVelocity.y, 0f);
 
 		turnTimer += Time.deltaTime;
 		if(turnTimer >= timeTrigger){

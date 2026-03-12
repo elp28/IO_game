@@ -7,7 +7,8 @@ public class GenericEnemy : MonoBehaviour
     public BoxCollider2D fisCollider;
     public CircleCollider2D areaCollider;
     public Rigidbody2D rb;
-    public bool feltPlayer;
+    bool feltPlayer;
+    public bool FeltPlayer => feltPlayer;
     public  float life;
     public  float damage;
     public PlayerSwimming player;
@@ -17,9 +18,7 @@ public class GenericEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        fisCollider = GetComponent<BoxCollider2D>();
-        areaCollider = GetComponentInChildren<CircleCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
+     
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class GenericEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player = GetComponent<PlayerSwimming>();
+        player = collision.gameObject.GetComponent<PlayerSwimming>();
         if (player != null)
         {
             feltPlayer = true;
@@ -41,6 +40,8 @@ public class GenericEnemy : MonoBehaviour
     {
 
     }
+
+    
 
 
 }

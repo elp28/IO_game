@@ -23907,7 +23907,6 @@ GameObject:
   - component: {fileID: 1615282463}
   - component: {fileID: 1615282464}
   - component: {fileID: 1615282465}
-  - component: {fileID: 1615282466}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -24047,14 +24046,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379a3e608f9341c4eb733632d7f0e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTrashEnemy
-  speed: 5
+  speed: 10
   fisCollider: {fileID: 0}
   areaCollider: {fileID: 0}
   rb: {fileID: 0}
-  feltPlayer: 0
   life: 5
   damage: 5
   player: {fileID: 0}
+  cooldown: 1
 --- !u!50 &1615282465
 Rigidbody2D:
   serializedVersion: 5
@@ -24080,28 +24079,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1615282466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615282460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54763499f0827714b9d58cfa674e0e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenericEnemy
-  speed: 0
-  fisCollider: {fileID: 0}
-  areaCollider: {fileID: 0}
-  rb: {fileID: 0}
-  feltPlayer: 0
-  life: 0
-  damage: 0
-  player: {fileID: 0}
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1653266701
 GameObject:
   m_ObjectHideFlags: 0
@@ -24117,6 +24096,7 @@ GameObject:
   - component: {fileID: 1653266705}
   - component: {fileID: 1653266704}
   - component: {fileID: 1653266703}
+  - component: {fileID: 1653266709}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -24233,7 +24213,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1653266707
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24329,6 +24309,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1653266709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653266701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4daa8c0408274479e232140f3ff1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
+  life: 100
 --- !u!1 &1772073291
 GameObject:
   m_ObjectHideFlags: 0

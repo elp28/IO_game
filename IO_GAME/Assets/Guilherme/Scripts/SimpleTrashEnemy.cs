@@ -35,6 +35,8 @@ public class SimpleTrashEnemy : GenericEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
+        if (playerLife != null) 
         canAttack = true;
     }
     void OnCollisionExit2D(Collision2D collision) 

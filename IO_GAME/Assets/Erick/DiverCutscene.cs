@@ -1,56 +1,108 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class DiverCutscene : MonoBehaviour
 {
-    [Header("Referências")]
+    [Header("Referências do Player")]
     public GameObject player;
     public Animator playerAnimator;
-    public MonoBehaviour playerMovementScript; // Arraste o script de movimentação aqui
+    public MonoBehaviour playerMovementScript;
+    public Transform targetPoint;
+
+    [Header("Referências da UI")]
+    public Image fadePanel;
+    public CanvasGroup textoGrupo1;   // Seus textos precisam desse componente!
+    public CanvasGroup textoGrupo2;
+
+    [Header("Efeitos & Sons")]
     public GameObject bubblePrefab;
     public Transform bubbleSpawnPoint;
     public AudioSource sfxSource;
+    public AudioSource musicSource;
 
-    [Header("Configurações")]
-    public float moveDistance = 2f;
-    public float moveSpeed = 1f;
+    [Header("Configurações de Tempo")]
+    public float tempoPretoSolido = 5.0f;
+    public float duracaoFadeTextos = 1.5f;
+    public float duracaoFadePainel = 2.0f;
+    public float moveSpeed = 1.5f;
 
     void Start()
     {
-        StartCoroutine(ExecuteCutscene());
+        // Garante o estado inicial
+        if (fadePanel != null)
+        {
+            fadePanel.gameObject.SetActive(true);
+            fadePanel.color = new Color(0, 0, 0, 1);
+        }
+        if (textoGrupo1 != null) textoGrupo1.alpha = 1f;
+        if (textoGrupo2 != null) textoGrupo2.alpha = 1f;
+
+        StartCoroutine(ExecuteCutsceneSequence());
     }
 
-    IEnumerator ExecuteCutscene()
+    IEnumerator ExecuteCutsceneSequence()
     {
-        // 1. Bloqueia o controle do jogador
+        // TRAVA O PLAYER
         playerMovementScript.enabled = false;
-
-        // 2. Inicia animação e áudio
         playerAnimator.SetBool("isSwimming", true);
-        if (sfxSource) sfxSource.Play();
 
-        // 3. Instancia as 5 bolhas
+        // 1. ESPERA COM TEXTO NA TELA
+        yield return new WaitForSeconds(tempoPretoSolido);
+
+        // 2. FADE DOS TEXTOS (SUMINDO)
+        float timer = 0f;
+        while (timer < duracaoFadeTextos)
+        {
+            timer += Time.deltaTime;
+            float alphaValue = Mathf.Lerp(1f, 0f, timer / duracaoFadeTextos);
+            if (textoGrupo1) textoGrupo1.alpha = alphaValue;
+            if (textoGrupo2) textoGrupo2.alpha = alphaValue;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        // 3. FADE DO PAINEL PRETO (REVELANDO O JOGO)
+        timer = 0f;
+        while (timer < duracaoFadePainel)
+        {
+            timer += Time.deltaTime;
+            if (fadePanel != null)
+            {
+                Color c = fadePanel.color;
+                c.a = Mathf.Lerp(1f, 0f, timer / duracaoFadePainel);
+                fadePanel.color = c;
+            }
+            yield return null;
+        }
+        if (fadePanel != null) fadePanel.gameObject.SetActive(false);
+
+        // 4. SOM + MÚSICA + BOLHAS (TUDO JUNTO AGORA)
+        if (sfxSource) sfxSource.Play();
+        if (musicSource) musicSource.Play();
+
         for (int i = 0; i < 5; i++)
         {
-            Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity);
+            if (bubblePrefab && bubbleSpawnPoint)
+                Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity);
         }
 
-        // 4. Movimenta o player (2 metros para frente)
-        Vector3 targetPosition = player.transform.position + player.transform.forward * moveDistance;
-        while (Vector3.Distance(player.transform.position, targetPosition) > 0.05f)
+        // 5. MOVIMENTAÇÃO
+        float direcaoX = targetPoint.position.x - player.transform.position.x;
+        player.transform.eulerAngles = new Vector3(0, direcaoX > 0 ? 0 : 180, 0);
+
+        while (Vector3.Distance(player.transform.position, targetPoint.position) > 0.1f)
         {
-            player.transform.position = Vector3.MoveTowards(
-                player.transform.position,
-                targetPosition,
-                moveSpeed * Time.deltaTime
-            );
-            yield return null; // Espera o próximo frame
+            player.transform.position = Vector3.MoveTowards(player.transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
+            yield return null;
         }
+        player.transform.position = targetPoint.position;
 
-        // 5. Finaliza: devolve o controle ao jogador
+        // 6. FINALIZAÇÃO
+        playerAnimator.SetBool("isSwimming", false);
+        playerAnimator.SetTrigger("standIdle");
+        yield return new WaitForSeconds(0.5f);
         playerMovementScript.enabled = true;
-        // playerAnimator.SetBool("isSwimming", false); // Se quiser que pare de nadar após os 2m
-
-        Debug.Log("Cutscene Finalizada!");
     }
 }

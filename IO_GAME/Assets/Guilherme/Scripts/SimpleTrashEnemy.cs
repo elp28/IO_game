@@ -18,6 +18,8 @@ public class SimpleTrashEnemy : GenericEnemy
         areaCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         agent = GetComponent<NavMeshAgent>();
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
 
     // Update is called once per frame

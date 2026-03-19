@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Foreground
+    uniqueID: 4133057913
+    locked: 0
   - name: enmey
     uniqueID: 299120707
     locked: 0

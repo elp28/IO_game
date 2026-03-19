@@ -1,9 +1,10 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class GenericEnemy : MonoBehaviour
 {
-    public float speed;
+    public NavMeshAgent agent;
     public BoxCollider2D fisCollider;
     public CircleCollider2D areaCollider;
     public Rigidbody2D rb;
@@ -12,7 +13,9 @@ public class GenericEnemy : MonoBehaviour
     public  float life;
     public  float damage;
     public PlayerSwimming player;
-
+    public bool isAttack;
+    public bool canAttack;
+    public float cooldown;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

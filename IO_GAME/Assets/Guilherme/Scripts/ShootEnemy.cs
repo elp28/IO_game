@@ -1,15 +1,17 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
-public class SimpleTrashEnemy : GenericEnemy
+public class ShootEnemy : GenericEnemy
 {
     GenericEnemy genericEnemy;
+    [SerializeField] GameObject shotPrefab;
+   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       genericEnemy = this;
+        genericEnemy = this;
         fisCollider = GetComponent<BoxCollider2D>();
         areaCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -21,36 +23,22 @@ public class SimpleTrashEnemy : GenericEnemy
     // Update is called once per frame
     void Update()
     {
-        if(genericEnemy.FeltPlayer && !canAttack)
+        if (genericEnemy.FeltPlayer && !canAttack)
         {
-            
             agent.SetDestination(player.transform.position);
         }
 
-        if(canAttack && !isAttack)
+        if (canAttack && !isAttack)
         {
             StartCoroutine(CicleDamage());
         }
-
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
-        if (playerLife != null) 
-        canAttack = true;
-    }
-    void OnCollisionExit2D(Collision2D collision) 
-    {
-        canAttack = false;
-    }
-   
     IEnumerator CicleDamage()
     {
         isAttack = true;
-        genericEnemy.player.GetComponent<PlayerLife>().TakeDamage(genericEnemy.damage);
-        yield return new WaitForSeconds(cooldown);
+        Instantiate(shotPrefab, transform.localPosition, Quaternion.identity);
+        yield return new WaitForSeconds(5);
         isAttack = false;
     }
 }

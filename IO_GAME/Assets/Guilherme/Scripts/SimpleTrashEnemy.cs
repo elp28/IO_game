@@ -9,6 +9,7 @@ public class SimpleTrashEnemy : GenericEnemy
     [SerializeField] float cooldown;
     bool isAttack;
     bool canAttack;
+    NavMeshAgent agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,7 @@ public class SimpleTrashEnemy : GenericEnemy
         fisCollider = GetComponent<BoxCollider2D>();
         areaCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class SimpleTrashEnemy : GenericEnemy
     {
         if(genericEnemy.FeltPlayer && !canAttack)
         {
-            rb.MovePosition(Vector2.MoveTowards(transform.localPosition, new Vector2(player.transform.position.x, player.transform.position.y), speed * Time.deltaTime));
+            //rb.MovePosition(Vector2.MoveTowards(transform.localPosition, new Vector2(player.transform.position.x, player.transform.position.y), speed * Time.deltaTime));
+            agent.SetDestination(player.transform.position);
         }
 
         if(canAttack && !isAttack)

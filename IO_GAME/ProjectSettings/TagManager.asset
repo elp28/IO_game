@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Cenario
-  - 
+  - Enmey
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: enmey
+    uniqueID: 299120707
     locked: 0
   m_RenderingLayers:
   - Default

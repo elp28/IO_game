@@ -34,8 +34,18 @@ public class GenericEnemy : MonoBehaviour
     {
         player = collision.gameObject.GetComponent<PlayerSwimming>();
         if (player != null)
-        {
+        {   
             feltPlayer = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        player = collision.gameObject.GetComponent<PlayerSwimming>();
+        if (player != null)
+        {
+            feltPlayer = false;
+            player = null;
         }
     }
 

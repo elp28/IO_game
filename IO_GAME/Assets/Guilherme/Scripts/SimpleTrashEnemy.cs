@@ -21,10 +21,12 @@ public class SimpleTrashEnemy : GenericEnemy
     // Update is called once per frame
     void Update()
     {
-        if(genericEnemy.FeltPlayer && !canAttack)
+        if(genericEnemy.FeltPlayer && player != null)
         {
-            
-            agent.SetDestination(player.transform.position);
+            if(!canAttack)
+            {
+                agent.SetDestination(player.transform.position);
+            }
         }
 
         if(canAttack && !isAttack)

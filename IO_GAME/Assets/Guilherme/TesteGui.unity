@@ -746,7 +746,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 20
 --- !u!1 &593177019
 GameObject:
   m_ObjectHideFlags: 0
@@ -23545,7 +23545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1485398397
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23583,7 +23583,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -23593,7 +23593,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1485398399
 BoxCollider2D:
@@ -23737,7 +23737,7 @@ MonoBehaviour:
   isAttack: 0
   canAttack: 0
   cooldown: 0
-  shotPrefab: {fileID: 0}
+  shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
 --- !u!1 &1493530763
 GameObject:
   m_ObjectHideFlags: 0
@@ -25952,10 +25952,6 @@ PrefabInstance:
     - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_Name
       value: EnemyTrashGeneric
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805222047747603142, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_LocalPosition.x

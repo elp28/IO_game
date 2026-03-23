@@ -23,9 +23,20 @@ public class ShootEnemy : GenericEnemy
     // Update is called once per frame
     void Update()
     {
-        if (genericEnemy.FeltPlayer && !canAttack)
+        if (genericEnemy.FeltPlayer && player != null)
         {
-            agent.SetDestination(player.transform.position);
+            if(!canAttack)
+            {
+                 agent.SetDestination(player.transform.position);
+
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    {
+                        canAttack = true;
+                    }
+                }
+            }
         }
 
         if (canAttack && !isAttack)
@@ -37,8 +48,9 @@ public class ShootEnemy : GenericEnemy
     IEnumerator CicleDamage()
     {
         isAttack = true;
-        Instantiate(shotPrefab, transform.localPosition, Quaternion.identity);
+        Instantiate(shotPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(5);
         isAttack = false;
+        canAttack = false;
     }
 }

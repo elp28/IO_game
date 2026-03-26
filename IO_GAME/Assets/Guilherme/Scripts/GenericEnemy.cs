@@ -4,19 +4,19 @@ using UnityEngine.AI;
 
 public class GenericEnemy : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public BoxCollider2D fisCollider;
-    public CircleCollider2D areaCollider;
-    public Rigidbody2D rb;
+    protected NavMeshAgent agent;
+    protected BoxCollider2D fisCollider;
+    protected CircleCollider2D areaCollider;
+    protected Rigidbody2D rb;
 
     // Deixei public para os filhos poderem acessar facilmente, 
     // ou você pode continuar usando a Propriedade se preferir.
-    public bool feltPlayer;
+    protected bool feltPlayer;
     public float life;
     public float damage;
-    public PlayerSwimming player;
-    public bool isAttack;
-    public bool canAttack;
+    protected PlayerSwimming player;
+   protected bool isAttack;
+    protected bool canAttack;
     public float cooldown;
 
     private void OnTriggerEnter2D(Collider2D collision)

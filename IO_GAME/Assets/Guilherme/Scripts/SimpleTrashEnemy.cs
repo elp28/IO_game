@@ -1,15 +1,11 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class SimpleTrashEnemy : GenericEnemy
 {
-    GenericEnemy genericEnemy;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       genericEnemy = this;
         fisCollider = GetComponent<BoxCollider2D>();
         areaCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -18,40 +14,44 @@ public class SimpleTrashEnemy : GenericEnemy
         agent.updateRotation = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(genericEnemy.FeltPlayer && player != null)
+        // Se sentiu o player, vá até ele constantemente a cada frame
+        if (feltPlayer && player != null)
         {
-            if(!canAttack)
-            {
-                agent.SetDestination(player.transform.position);
-            }
+            agent.SetDestination(player.transform.position);
         }
 
-        if(canAttack && !isAttack)
+        if (canAttack && !isAttack)
         {
             StartCoroutine(CicleDamage());
         }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        agent.isStopped = true;
         PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
-        if (playerLife != null) 
-        canAttack = true;
+        if (playerLife != null)
+            canAttack = true;
+        
     }
-    void OnCollisionExit2D(Collision2D collision) 
+
+    void OnCollisionExit2D(Collision2D collision)
     {
+        agent.isStopped = false;
+        PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
+        if (playerLife != null)
         canAttack = false;
     }
-   
+    
+
     IEnumerator CicleDamage()
     {
         isAttack = true;
-        genericEnemy.player.GetComponent<PlayerLife>().TakeDamage(genericEnemy.damage);
+        if (player != null)
+        player.GetComponent<PlayerLife>().TakeDamage(damage);
+
         yield return new WaitForSeconds(cooldown);
         isAttack = false;
     }

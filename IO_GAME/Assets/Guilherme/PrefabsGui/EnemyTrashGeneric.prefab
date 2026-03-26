@@ -225,6 +225,7 @@ MonoBehaviour:
   fisCollider: {fileID: 0}
   areaCollider: {fileID: 0}
   rb: {fileID: 0}
+  feltPlayer: 0
   life: 5
   damage: 5
   player: {fileID: 0}

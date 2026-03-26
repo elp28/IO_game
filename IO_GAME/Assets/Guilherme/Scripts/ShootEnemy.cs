@@ -4,14 +4,10 @@ using System.Collections;
 
 public class ShootEnemy : GenericEnemy
 {
-    GenericEnemy genericEnemy;
     [SerializeField] GameObject shotPrefab;
-   
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        genericEnemy = this;
         fisCollider = GetComponent<BoxCollider2D>();
         areaCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -20,22 +16,25 @@ public class ShootEnemy : GenericEnemy
         agent.updateRotation = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (genericEnemy.FeltPlayer && player != null)
+        if (feltPlayer && player != null)
         {
-            if(!canAttack)
-            {
-                 agent.SetDestination(player.transform.position);
+            // Calcula a distância real matematicamente
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
-                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-                {
-                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                    {
-                        canAttack = true;
-                    }
-                }
+            if (distanceToPlayer > agent.stoppingDistance)
+            {
+                // Player está longe: anda até ele
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+                canAttack = false;
+            }
+            else
+            {
+                // Player está perto: para de andar e começa a atirar
+                agent.isStopped = true;
+                canAttack = true;
             }
         }
 
@@ -49,8 +48,10 @@ public class ShootEnemy : GenericEnemy
     {
         isAttack = true;
         Instantiate(shotPrefab, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(5);
+
+        // Troquei o número "5" fixo pela variável cooldown que você já tem na classe base!
+        yield return new WaitForSeconds(cooldown);
+
         isAttack = false;
-        canAttack = false;
     }
 }

@@ -427,7 +427,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.07
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
@@ -746,7 +746,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 20
+  m_Radius: 14.29
 --- !u!1 &593177019
 GameObject:
   m_ObjectHideFlags: 0
@@ -23708,7 +23708,7 @@ Transform:
   m_GameObject: {fileID: 1485398396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.95, y: -3.07, z: 0}
+  m_LocalPosition: {x: 18.09, y: 0.42, z: 0}
   m_LocalScale: {x: 0.60225, y: 0.60225, z: 0.60225}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23731,12 +23731,13 @@ MonoBehaviour:
   fisCollider: {fileID: 0}
   areaCollider: {fileID: 0}
   rb: {fileID: 0}
+  feltPlayer: 0
   life: 0
   damage: 0
   player: {fileID: 0}
   isAttack: 0
   canAttack: 0
-  cooldown: 0
+  cooldown: 5
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
 --- !u!1 &1493530763
 GameObject:

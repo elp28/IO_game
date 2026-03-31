@@ -20,19 +20,19 @@ public class ShootEnemy : GenericEnemy
     {
         if (feltPlayer && player != null)
         {
-            // Calcula a distância real matematicamente
+            
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
             if (distanceToPlayer > agent.stoppingDistance)
             {
-                // Player está longe: anda até ele
+                
                 agent.isStopped = false;
                 agent.SetDestination(player.transform.position);
                 canAttack = false;
             }
             else
             {
-                // Player está perto: para de andar e começa a atirar
+                
                 agent.isStopped = true;
                 canAttack = true;
             }
@@ -48,10 +48,7 @@ public class ShootEnemy : GenericEnemy
     {
         isAttack = true;
         Instantiate(shotPrefab, transform.position, Quaternion.identity);
-
-        // Troquei o número "5" fixo pela variável cooldown que você já tem na classe base!
         yield return new WaitForSeconds(cooldown);
-
         isAttack = false;
     }
 }

@@ -4,18 +4,17 @@ using UnityEngine.AI;
 
 public class GenericEnemy : MonoBehaviour
 {
+    public enum TypeEnemy { contact, shooter}
+    public TypeEnemy type;
     protected NavMeshAgent agent;
     protected BoxCollider2D fisCollider;
     protected CircleCollider2D areaCollider;
     protected Rigidbody2D rb;
-
-    // Deixei public para os filhos poderem acessar facilmente, 
-    // ou você pode continuar usando a Propriedade se preferir.
     protected bool feltPlayer;
     public float life;
     public float damage;
     protected PlayerSwimming player;
-   protected bool isAttack;
+    protected bool isAttack;
     protected bool canAttack;
     public float cooldown;
 

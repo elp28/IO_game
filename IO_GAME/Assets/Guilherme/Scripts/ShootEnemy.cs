@@ -18,6 +18,8 @@ public class ShootEnemy : GenericEnemy
 
     void Update()
     {
+        if (IsFree) { return; }
+
         if (feltPlayer && player != null)
         {
             

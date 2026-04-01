@@ -16,13 +16,15 @@ public class SimpleTrashEnemy : GenericEnemy
 
     void Update()
     {
-        // Se sentiu o player, vá até ele constantemente a cada frame
+        if (IsFree) { return; }
+    
+
         if (feltPlayer && player != null)
         {
             agent.SetDestination(player.transform.position);
         }
 
-        if (canAttack && !isAttack)
+        if (canAttack && !isAttack && !IsFree)
         {
             StartCoroutine(CicleDamage());
         }
@@ -30,15 +32,19 @@ public class SimpleTrashEnemy : GenericEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (IsFree) { return; }
         agent.isStopped = true;
         PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
         if (playerLife != null)
             canAttack = true;
+
+        
         
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        if (IsFree) { return; }
         agent.isStopped = false;
         PlayerLife playerLife = collision.gameObject.GetComponent<PlayerLife>();
         if (playerLife != null)
@@ -48,6 +54,7 @@ public class SimpleTrashEnemy : GenericEnemy
 
     IEnumerator CicleDamage()
     {
+       
         isAttack = true;
         if (player != null)
         player.GetComponent<PlayerLife>().TakeDamage(damage);
@@ -55,4 +62,6 @@ public class SimpleTrashEnemy : GenericEnemy
         yield return new WaitForSeconds(cooldown);
         isAttack = false;
     }
+
+  
 }

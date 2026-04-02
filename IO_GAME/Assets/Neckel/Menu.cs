@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     public Button optionsButton;
     public Button quitButton;
     public string gameSceneName = "Fase1";
+    public GameObject optionsPanel;
 
     void Start()
     {
@@ -20,13 +21,22 @@ public class Menu : MonoBehaviour
         }
         else
             Debug.LogError("Play button é NULL!");
-    }
 
-    void Update()
-    {
-        // Só pra debug - vê se o botão ainda existe
-        if (playButton == null && Input.anyKeyDown)
-            Debug.LogError("PlayButton foi deletado!");
+        if (optionsButton != null)
+        {
+            optionsButton.onClick.AddListener(OpenOptions);
+            Debug.Log("Options button configurado");
+        }
+        else
+            Debug.LogError("Options button é NULL!");
+
+        if (quitButton != null)
+        {
+            quitButton.onClick.AddListener(QuitGame);
+            Debug.Log("Quit button configurado");
+        }
+        else
+            Debug.LogError("Quit button é NULL!");
     }
 
     public void PlayGame()
@@ -38,6 +48,14 @@ public class Menu : MonoBehaviour
     public void OpenOptions()
     {
         Debug.Log("Opções");
+        if (optionsPanel != null)
+            optionsPanel.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        if (optionsPanel != null)
+            optionsPanel.SetActive(false);
     }
 
     public void QuitGame()
@@ -45,7 +63,7 @@ public class Menu : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+        Application.Quit();
 #endif
     }
 }

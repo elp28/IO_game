@@ -19,25 +19,28 @@ public class GenericEnemy : MonoBehaviour
     public float cooldown;
     [SerializeField] bool isFree;
     public bool IsFree => isFree;
+    public float pullSpeed = 3;
     
 
-    private void Start()
+    protected virtual void Start()
     {
         isFree = true;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (!IsFree)
+        if (!IsFree && player != null)
         {
-            agent.stoppingDistance = 0;
-            agent.speed = agent.speed * 10;
-            agent.SetDestination(player.transform.position);
+            print("aiai");
+            if (agent != null && agent.enabled) agent.enabled = false;
+
+            if(player != null)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime);
 
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
@@ -49,7 +52,7 @@ public class GenericEnemy : MonoBehaviour
         
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
@@ -59,7 +62,7 @@ public class GenericEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
@@ -73,12 +76,17 @@ public class GenericEnemy : MonoBehaviour
         }
     }
 
-    public void ItsOverForTrash()
+    protected virtual void OnCollisionExit2D(Collision2D collision)
     {
-        isFree = !isFree;
+
     }
 
-    protected void Die()
+    public virtual void ItsOverForTrash(bool state)
+    {
+        isFree = state;
+    }
+
+    public virtual void Die()
     {
         Destroy(gameObject);
     }

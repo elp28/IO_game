@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &256222099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1824,6 +1824,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 444989531}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120304686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 444989531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135219505
 GameObject:
   m_ObjectHideFlags: 0
@@ -23258,7 +23269,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5556, y: 2.5556, z: 2.5556}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1653266702}
@@ -23275,6 +23286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e47843f04bef6449f4a86a8b51c4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAttackPlayer
+  numTrashsInBag: 0
 --- !u!212 &1338942304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23363,7 +23375,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -23875,7 +23887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1485398397
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24061,6 +24073,8 @@ MonoBehaviour:
   life: 5
   damage: 0
   cooldown: 5
+  isFree: 0
+  pullSpeed: 0
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
 --- !u!1 &1493530763
 GameObject:
@@ -24920,7 +24934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 5
   rotationSpeed: 5
-  joy: {fileID: 1764683791}
+  joy: {fileID: 1120304686}
 --- !u!1001 &1764683789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25015,7 +25029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135886326569738825, guid: 56fae09712773584fb63896d473a98ee, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25027,17 +25041,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
   m_PrefabInstance: {fileID: 1764683789}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1764683791 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee, type: 3}
-  m_PrefabInstance: {fileID: 1764683789}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1772073291
 GameObject:
   m_ObjectHideFlags: 0
@@ -26714,9 +26717,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2229741526301107354, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
+      propertyPath: pullSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_Name
       value: EnemyTrashGeneric
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805222047747603142, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_LocalPosition.x

@@ -38,19 +38,22 @@ public class SimpleAttackPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Se o que encostou for um Trigger (área de visão), ignore!
+        if (collision.isTrigger) return; 
+
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
         if(trash != null)
         {
-            trash.ItsOverForTrash();
+            trash.ItsOverForTrash(false);
         }
-    }
+    }   
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
         if (trash != null)
         {
-            trash.ItsOverForTrash();
+            trash.ItsOverForTrash(true);
         }
     }
 

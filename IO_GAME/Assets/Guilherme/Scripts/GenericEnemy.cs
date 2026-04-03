@@ -31,12 +31,16 @@ public class GenericEnemy : MonoBehaviour
     {
         if (!IsFree && player != null)
         {
-            print("aiai");
             if (agent != null && agent.enabled) agent.enabled = false;
-
+                
             if(player != null)
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime);
 
+        }
+        else if(IsFree && player != null)
+        {
+            if(agent.enabled == false)
+            agent.enabled = true;
         }
     }
 
@@ -67,11 +71,9 @@ public class GenericEnemy : MonoBehaviour
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {
-            print("eai");
             if (!isFree)
             {
-                print ("iai");
-                Destroy(gameObject);
+                Die();
             }
         }
     }
@@ -86,7 +88,7 @@ public class GenericEnemy : MonoBehaviour
         isFree = state;
     }
 
-    public virtual void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

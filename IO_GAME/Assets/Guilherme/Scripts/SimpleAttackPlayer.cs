@@ -9,7 +9,6 @@ public class SimpleAttackPlayer : MonoBehaviour
     void Start()
     {
         colliderArea = GetComponent<CircleCollider2D>();
-        colliderArea.radius = transform.localScale.x / 2;
     }
 
     // Update is called once per frame
@@ -18,32 +17,15 @@ public class SimpleAttackPlayer : MonoBehaviour
         
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GenericEnemy[] trash = collision.gameObject.GetComponent<GenericEnemy[]>();
-        foreach (GenericEnemy trashReal in trash)
-        {
-            trashReal.ItsOverForTrash();
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        GenericEnemy[] trash = collision.gameObject.GetComponent<GenericEnemy[]>();
-        foreach (GenericEnemy trashReal in trash)
-        {
-            trashReal.ItsOverForTrash();
-        }
-    }*/
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Se o que encostou for um Trigger (área de visão), ignore!
+    
         if (collision.isTrigger) return; 
 
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
         if(trash != null)
         {
+            print(trash);
             trash.ItsOverForTrash(false);
         }
     }   

@@ -19,7 +19,7 @@ public class SimpleTrashEnemy : GenericEnemy
     {
         base.Update();
         
-        // Se NÃO está livre (sugado), para de agir normalmente
+       
         if (!IsFree) { return; } 
 
         if (feltPlayer && player != null)
@@ -27,7 +27,7 @@ public class SimpleTrashEnemy : GenericEnemy
             agent.SetDestination(player.transform.position);
         }
 
-        // CORREÇÃO: Removido o !IsFree daqui para ele conseguir atacar
+     
         if (canAttack && !isAttack)
         {
             isAttack = true;
@@ -37,13 +37,13 @@ public class SimpleTrashEnemy : GenericEnemy
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        // Roda a lógica de ser destruído caso esteja sendo sugado
+     
         base.OnCollisionEnter2D(collision);
         
-        // CORREÇÃO: Se ele NÃO estiver livre (sugado), ignora o resto
+     
         if (!IsFree) { return; } 
 
-        // Proteção do NavMesh
+
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             agent.isStopped = true;
@@ -58,10 +58,10 @@ public class SimpleTrashEnemy : GenericEnemy
     {
         base.OnCollisionExit2D(collision);
         
-        // CORREÇÃO: Se ele NÃO estiver livre, ignora o resto
+  
         if (!IsFree) { return; } 
 
-        // Proteção do NavMesh
+   
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             agent.isStopped = false;

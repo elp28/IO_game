@@ -19,12 +19,14 @@ public class GenericEnemy : MonoBehaviour
     public float cooldown;
     [SerializeField] bool isFree;
     public bool IsFree => isFree;
-    public float pullSpeed = 3;
+    public float pullSpeed = 10f; 
+    SimpleAttackPlayer bagOfPlayer;
     
-
     protected virtual void Start()
     {
         isFree = true;
+
+        player = FindObjectOfType<PlayerMove>(); 
     }
 
     protected virtual void Update()
@@ -33,14 +35,12 @@ public class GenericEnemy : MonoBehaviour
         {
             if (agent != null && agent.enabled) agent.enabled = false;
                 
-            if(player != null)
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime);
-
         }
         else if(IsFree && player != null)
         {
-            if(agent.enabled == false)
-            agent.enabled = true;
+            if(agent != null && !agent.enabled)
+                agent.enabled = true;
         }
     }
 
@@ -52,8 +52,6 @@ public class GenericEnemy : MonoBehaviour
             player = tempPlayer;
             feltPlayer = true;
         }
-
-        
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision)
@@ -62,7 +60,6 @@ public class GenericEnemy : MonoBehaviour
         if (tempPlayer != null)
         {
             feltPlayer = false;
-            player = null;
         }
     }
 
@@ -73,6 +70,7 @@ public class GenericEnemy : MonoBehaviour
         {
             if (!isFree)
             {
+                bagOfPlayer.PickedTrash();
                 Die();
             }
         }
@@ -83,9 +81,10 @@ public class GenericEnemy : MonoBehaviour
 
     }
 
-    public virtual void ItsOverForTrash(bool state)
+    public virtual void ItsOverForTrash(bool state, SimpleAttackPlayer playerBag)
     {
         isFree = state;
+        bagOfPlayer = playerBag;
     }
 
     protected virtual void Die()

@@ -3,12 +3,14 @@ using UnityEngine;
 public class SimpleAttackPlayer : MonoBehaviour
 {
     CircleCollider2D colliderArea;
-    [SerializeField] float numTrashsInBag;
-
+    float numTrashInBag;
+    [SerializeField] float maxTrashInBag;
+    SpriteRenderer sp;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         colliderArea = GetComponent<CircleCollider2D>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,8 +27,7 @@ public class SimpleAttackPlayer : MonoBehaviour
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
         if(trash != null)
         {
-            print(trash);
-            trash.ItsOverForTrash(false);
+            trash.ItsOverForTrash(false, this);
         }
     }   
 
@@ -35,8 +36,26 @@ public class SimpleAttackPlayer : MonoBehaviour
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
         if (trash != null)
         {
-            trash.ItsOverForTrash(true);
+            trash.ItsOverForTrash(true, this );
+            
         }
+    }
+
+    public void PickedTrash()
+    {
+        if(numTrashInBag < maxTrashInBag)
+        numTrashInBag ++;
+        else
+        {
+            DesactiveThisAttack();
+        }
+        
+    }
+
+    void DesactiveThisAttack()
+    {
+        colliderArea.enabled = false;
+        sp.enabled = false;
     }
 
 

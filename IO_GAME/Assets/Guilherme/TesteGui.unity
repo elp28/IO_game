@@ -23269,8 +23269,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5556, y: 2.5556, z: 2.5556}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1653266702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23286,7 +23286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e47843f04bef6449f4a86a8b51c4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAttackPlayer
-  numTrashsInBag: 0
+  maxTrashInBag: 5
 --- !u!212 &1338942304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23887,7 +23887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1485398397
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24074,7 +24074,7 @@ MonoBehaviour:
   damage: 0
   cooldown: 5
   isFree: 0
-  pullSpeed: 0
+  pullSpeed: 10
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
 --- !u!1 &1493530763
 GameObject:
@@ -26717,17 +26717,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2229741526301107354, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
-      propertyPath: pullSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_Name
       value: EnemyTrashGeneric
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805222047747603142, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_LocalPosition.x

@@ -221,17 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379a3e608f9341c4eb733632d7f0e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTrashEnemy
-  agent: {fileID: 0}
-  fisCollider: {fileID: 0}
-  areaCollider: {fileID: 0}
-  rb: {fileID: 0}
-  feltPlayer: 0
+  type: 0
   life: 5
   damage: 5
-  player: {fileID: 0}
-  isAttack: 0
-  canAttack: 0
   cooldown: 1
+  isFree: 0
+  pullSpeed: 10
 --- !u!50 &8714237362674292109
 Rigidbody2D:
   serializedVersion: 5

@@ -46,6 +46,9 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+       
+        if (collision.isTrigger) return;
+
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {
@@ -54,8 +57,22 @@ public class GenericEnemy : MonoBehaviour
         }
     }
 
+    
+    protected virtual void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.isTrigger) return;
+
+        PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
+        if (tempPlayer != null)
+        {
+            feltPlayer = true;
+        }
+    }
+
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.isTrigger) return;
+
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {

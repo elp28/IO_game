@@ -874,7 +874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558816249}
   - component: {fileID: 558816250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColiderArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23881,7 +23881,7 @@ GameObject:
   - component: {fileID: 1485398398}
   - component: {fileID: 1485398397}
   - component: {fileID: 1485398402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyGru
   m_TagString: Untagged
   m_Icon: {fileID: 0}

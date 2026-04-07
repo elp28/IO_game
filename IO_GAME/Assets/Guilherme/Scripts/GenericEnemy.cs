@@ -20,7 +20,7 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] bool isFree;
     public bool IsFree => isFree;
     public float pullSpeed = 10f; 
-    SimpleAttackPlayer bagOfPlayer;
+    PlayerCollect bagOfPlayer;
     
     protected virtual void Start()
     {
@@ -98,7 +98,7 @@ public class GenericEnemy : MonoBehaviour
 
     }
 
-    public virtual void ItsOverForTrash(bool state, SimpleAttackPlayer playerBag)
+    public virtual void ItsOverForTrash(bool state, PlayerCollect playerBag)
     {
         isFree = state;
         bagOfPlayer = playerBag;

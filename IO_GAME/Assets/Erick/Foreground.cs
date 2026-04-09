@@ -5,12 +5,12 @@ public class Foreground : MonoBehaviour
 {
     [Header("Configurações de Parallax")]
     public Transform cameraTransform;
-    public float parallaxFactor = -0.5f; // Valor negativo faz ele vir "na frente"
+    public float parallaxFactor = -0.5f; 
 
     [Header("Configurações de Visibilidade")]
     public Transform player;
     public float detectionRadius = 2.0f;
-    public float minAlpha = 0.3f; // Transparência quando o player está atrás
+    public float minAlpha = 0.3f; 
     public float fadeSpeed = 5f;
 
     private Tilemap tilemap;
@@ -25,12 +25,12 @@ public class Foreground : MonoBehaviour
 
     void LateUpdate()
     {
-        // 1. Efeito de Parallax (Movimento)
+       
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
         transform.position += deltaMovement * parallaxFactor;
         lastCameraPosition = cameraTransform.position;
 
-        // 2. Game Juice: Fade Alpha se o Player estiver perto/atrás
+        
         HandleAlphaFade();
     }
 

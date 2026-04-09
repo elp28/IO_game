@@ -6,6 +6,7 @@ public class PlayerCollect : MonoBehaviour
     int numTrashInBag;
     [SerializeField] int maxTrashInBag;
     SpriteRenderer sp;
+    bool bagIsFull;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,20 +17,20 @@ public class PlayerCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(numTrashInBag < maxTrashInBag)
-        {
-            colliderArea.enabled = true;
-            sp.enabled = true;
-        }
+       if(numTrashInBag >=  maxTrashInBag)
+       {
+           bagIsFull = true;
+           DesactiveCollector();
+       }
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.GetComponent<GenericEnemy>() || collision.GetComponent<BoxCollect>())return;
 
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
-        if (trash != null)
+        if (trash != null && !bagIsFull)
         {
             trash.ItsOverForTrash(false, this);
         }
@@ -38,13 +39,14 @@ public class PlayerCollect : MonoBehaviour
         if(collector != null && numTrashInBag > 0)
         {
             collector.CollectFromPlayer(numTrashInBag);
+            ActiveCollected();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
-        if (trash != null)
+        if (trash != null && !bagIsFull)
         {
             trash.ItsOverForTrash(true, this);
 
@@ -53,19 +55,24 @@ public class PlayerCollect : MonoBehaviour
 
     public void PickedTrash()
     {
-        if (numTrashInBag < maxTrashInBag)
-            numTrashInBag++;
-        else
+        if (!bagIsFull)
         {
-            DesactiveThisAttack();
+            print("pegou o dog");
+            numTrashInBag++;
         }
 
     }
 
-    void DesactiveThisAttack()
-    {
-        colliderArea.enabled = false;
+    void DesactiveCollector()
+    { 
         sp.enabled = false;
+    }
+
+    void ActiveCollected()
+    {
+        sp.enabled = true;
+        numTrashInBag = 0;
+        bagIsFull = false;
     }
 
 }

@@ -6,6 +6,8 @@ public class GenericEnemy : MonoBehaviour
 {
     public enum TypeEnemy { contact, shooter}
     public TypeEnemy type;
+    public enum State { patrol, chase}
+    public State currentState;
     protected NavMeshAgent agent;
     protected BoxCollider2D fisCollider;
     protected CircleCollider2D areaCollider;
@@ -31,6 +33,7 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        
         if (!IsFree && player != null)
         {
             if (agent != null && agent.enabled) agent.enabled = false;
@@ -77,6 +80,7 @@ public class GenericEnemy : MonoBehaviour
         if (tempPlayer != null)
         {
             feltPlayer = false;
+            player = null;
         }
     }
 
@@ -107,5 +111,15 @@ public class GenericEnemy : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    void StateEnemy()
+    {
+        switch (currentState)
+        {
+            case State.patrol:
+                break;
+
+        }
     }
 }

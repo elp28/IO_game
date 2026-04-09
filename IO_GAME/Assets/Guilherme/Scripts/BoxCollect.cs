@@ -4,6 +4,7 @@ public class BoxCollect : MonoBehaviour
 {
     CircleCollider2D areaCollider;
     int trashCollected;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

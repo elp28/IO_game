@@ -6,7 +6,7 @@ public class GenericEnemy : MonoBehaviour
 {
     public enum TypeEnemy { contact, shooter}
     public TypeEnemy type;
-    public enum State { patrol, chase}
+    public enum State { patrol, chase, caught}
     public State currentState;
     protected NavMeshAgent agent;
     protected BoxCollider2D fisCollider;
@@ -33,7 +33,11 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+        /*SwitchStates();
+        if (!IsFree && player != null)
+        {
+            currentState = State.caught;
+        }*/
         if (!IsFree && player != null)
         {
             if (agent != null && agent.enabled) agent.enabled = false;
@@ -113,13 +117,36 @@ public class GenericEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void StateEnemy()
+    protected virtual void Chase()
+    {
+
+    }
+
+    protected virtual void Patrol()
+    {
+
+    }
+
+    protected virtual void Caught()
+    {
+
+    }
+
+    protected virtual void SwitchStates()
     {
         switch (currentState)
         {
             case State.patrol:
+                Patrol();
                 break;
 
+            case State.chase:
+                Chase();
+                break;
+
+            case State.caught:
+                Caught();
+                break;
         }
     }
 }

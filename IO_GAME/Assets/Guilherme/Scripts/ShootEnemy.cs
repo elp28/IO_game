@@ -22,27 +22,7 @@
             base.Update();
             if (!IsFree) { return; }
 
-            if (feltPlayer && player != null)
-            {
-                
-                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-
-                if (distanceToPlayer > agent.stoppingDistance)
-                {
-                    
-                    agent.isStopped = false;
-                    if(player != null)
-                    agent.SetDestination(player.transform.position);
-
-                    canAttack = false;
-                }
-                else
-                {
-                    
-                    agent.isStopped = true;
-                    canAttack = true;
-                }
-            }
+            
 
             if (canAttack && !isAttack)
             {
@@ -58,4 +38,40 @@
             yield return new WaitForSeconds(cooldown);
             isAttack = false;
         }
+
+        protected override void Patrol()
+        {
+            base.Patrol();
+        }
+
+        protected override void Chase()
+        {
+            base.Chase();
+        if (feltPlayer && player != null)
+        {
+
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+            if (distanceToPlayer > agent.stoppingDistance)
+            {
+
+                agent.isStopped = false;
+                if (player != null)
+                    agent.SetDestination(player.transform.position);
+
+                canAttack = false;
+            }
+            else
+            {
+                agent.isStopped = true;
+                canAttack = true;
+            }
+        }
+    }
+
+        protected override void Caught()
+        {
+            base.Caught();
+        }
+
     }

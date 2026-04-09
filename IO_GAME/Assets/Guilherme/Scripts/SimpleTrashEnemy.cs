@@ -22,12 +22,6 @@ public class SimpleTrashEnemy : GenericEnemy
        
         if (!IsFree) { return; } 
 
-        if (feltPlayer && player != null)
-        {
-            agent.SetDestination(player.transform.position);
-        }
-
-     
         if (canAttack && !isAttack)
         {
             isAttack = true;
@@ -79,5 +73,21 @@ public class SimpleTrashEnemy : GenericEnemy
 
         yield return new WaitForSeconds(cooldown);
         isAttack = false;
+    }
+
+    protected override void Caught()
+    {
+        base.Caught();
+    }
+
+    protected override void Chase()
+    {
+        base.Chase();      
+        agent.SetDestination(player.transform.position);
+    }
+
+    protected override void Patrol()
+    {
+        base.Patrol();
     }
 }

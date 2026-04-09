@@ -27,41 +27,27 @@ public class GenericEnemy : MonoBehaviour
     protected virtual void Start()
     {
         isFree = true;
-
+        currentState = State.patrol;
         player = FindObjectOfType<PlayerMove>(); 
     }
 
     protected virtual void Update()
     {
-        /*SwitchStates();
-        if (!IsFree && player != null)
-        {
-            currentState = State.caught;
-        }*/
-        if (!IsFree && player != null)
-        {
-            if (agent != null && agent.enabled) agent.enabled = false;
-                
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime);
-        }
-        else if(IsFree && player != null)
-        {
-            if(agent != null && !agent.enabled)
-                agent.enabled = true;
-        }
+        SwitchStates();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-       
         if (collision.isTrigger) return;
-
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {
             player = tempPlayer;
             feltPlayer = true;
+            currentState = State.chase;
+            print(currentState);
         }
+
     }
 
     
@@ -85,6 +71,8 @@ public class GenericEnemy : MonoBehaviour
         {
             feltPlayer = false;
             player = null;
+            currentState = State.patrol;
+            print(currentState);
         }
     }
 
@@ -108,6 +96,8 @@ public class GenericEnemy : MonoBehaviour
 
     public virtual void ItsOverForTrash(bool state, PlayerCollect playerBag)
     {
+        currentState = State.caught;
+        print(currentState);
         isFree = state;
         bagOfPlayer = playerBag;
     }
@@ -119,17 +109,26 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Chase()
     {
-
+        if (agent != null && !agent.enabled)
+            agent.enabled = true;
     }
 
     protected virtual void Patrol()
     {
+        if (agent != null && !agent.enabled)
+            agent.enabled = true;
 
+        agent.isStopped = false;
+
+        Vector2 inicialPoint = new Vector2(18, 0);
+        agent.SetDestination(inicialPoint);
     }
 
     protected virtual void Caught()
     {
+        if (agent != null && agent.enabled) agent.enabled = false;
 
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, pullSpeed * Time.deltaTime);
     }
 
     protected virtual void SwitchStates()

@@ -129,9 +129,9 @@
                 randomValueX = Random.Range(-5, 5f);
                 randomValueY = Random.Range(-5f, 5f);
                 randomPoint = new Vector2(transform.localPosition.x - randomValueX, transform.localPosition.y - randomValueY);
+                haveAPoint = true;
    
             }
-            
 
             agent.SetDestination(randomPoint);
             if (!agent.pathPending) // O agente já terminou de calcular a rota?
@@ -140,7 +140,7 @@
                 {
                     if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f) // Ele não tem mais caminho ou parou de se mover?
                     {
-                    haveAPoint = false;
+                        haveAPoint = false;
                     }
                 }
             }
@@ -161,17 +161,17 @@
             {
                 
                 case State.patrol:
-                    if(!haveAPoint) Patrol();
+                    Patrol();
                     break;
 
                 case State.chase:
-                    haveAPoint = false;
                     Chase();
+                    haveAPoint = false;
                     break;
 
                 case State.caught:
-                    haveAPoint = false;
                     Caught();
+                    haveAPoint = false;
                     break;
             }
         }

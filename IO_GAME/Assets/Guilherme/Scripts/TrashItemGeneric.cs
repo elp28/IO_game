@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class TrashItemGeneric : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class TrashItemGeneric : MonoBehaviour
     private float faseAleatoria; // Desincroniza os itens
     
     private Vector3 posicaoInicial;
+
+    [SerializeField] float suctionSpeed = 0.5f;
+   
 
     void Start()
     {
@@ -60,5 +64,15 @@ public class TrashItemGeneric : MonoBehaviour
 
         // Aplica a nova posição mantendo o X e Z originais
         transform.position = posicaoInicial + new Vector3(0, novoY, 0);
+
+      
     }
+
+    public void GoToPlayer(Transform posPlayer)
+    {
+        transform.DOMove(posPlayer.position, suctionSpeed);
+        
+    }
+
+  
 }

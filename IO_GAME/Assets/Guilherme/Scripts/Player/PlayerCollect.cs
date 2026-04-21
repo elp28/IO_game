@@ -8,21 +8,23 @@ public class PlayerCollect : MonoBehaviour
     // Contagem temporária (o que está na mochila agora)
     private int glassCount, plasticCount, metalCount;
     private int currentTotal;
+    TrashItemGeneric trash;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // Coleta de Lixo
+        
         if (collision.CompareTag("coletable") && currentTotal < maxCapacity)
         {
-            TrashItemGeneric trash = collision.GetComponent<TrashItemGeneric>();
+            trash = collision.GetComponent<TrashItemGeneric>();
             if (trash != null)
             {
-                AddToBag(trash.typeItem);
+                trash.GoToPlayer(transform);  
+                AddToBag(trash.typeItem);   
                 Destroy(collision.gameObject);
             }
         }
 
-        // Entrega na Estação
+      
         if (collision.gameObject.GetComponent<BoxCollect>()) 
         {
             DeliverTrash();
@@ -45,12 +47,12 @@ public class PlayerCollect : MonoBehaviour
     {
         if (currentTotal <= 0) return;
 
-        // Envia os dados para o ResourceManager validar e somar
+        
         if (ResourceManager.instance != null)
         {
             ResourceManager.instance.ConvertTrashToResource(glassCount, plasticCount, metalCount);
             
-            // Só limpamos a mochila DEPOIS que o gerenciador validou o recebimento
+            
             ClearBag();
             Debug.Log("Lixo descarregado e transformado em recurso!");
         }
@@ -63,4 +65,6 @@ public class PlayerCollect : MonoBehaviour
         metalCount = 0;
         currentTotal = 0;
     }
+
+ 
 }

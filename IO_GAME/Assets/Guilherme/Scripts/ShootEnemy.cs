@@ -22,7 +22,6 @@
         protected override void Update()
         {
             base.Update();
-            if (!IsFree) { return; }
 
             if(currentState != GenericEnemy.State.patrol) DistacePlayer();
 
@@ -72,11 +71,6 @@
                     canAttack = true;
                 }
             }
-        }
-
-        protected override void Caught()
-        {
-            base.Caught();
         }
 
         void DistacePlayer()

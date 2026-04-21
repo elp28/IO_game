@@ -20,7 +20,7 @@ public class SimpleTrashEnemy : GenericEnemy
         base.Update();
         
        
-        if (!IsFree) { return; } 
+        
 
         if (canAttack && !isAttack)
         {
@@ -35,7 +35,7 @@ public class SimpleTrashEnemy : GenericEnemy
         base.OnCollisionEnter2D(collision);
         
      
-        if (!IsFree) { return; } 
+       
 
 
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
@@ -53,7 +53,7 @@ public class SimpleTrashEnemy : GenericEnemy
         base.OnCollisionExit2D(collision);
         
   
-        if (!IsFree) { return; } 
+      
 
    
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
@@ -73,11 +73,6 @@ public class SimpleTrashEnemy : GenericEnemy
 
         yield return new WaitForSeconds(cooldown);
         isAttack = false;
-    }
-
-    protected override void Caught()
-    {
-        base.Caught();
     }
 
     protected override void Chase()

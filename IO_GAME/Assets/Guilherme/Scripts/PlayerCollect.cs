@@ -2,77 +2,46 @@ using UnityEngine;
 
 public class PlayerCollect : MonoBehaviour
 {
-    CircleCollider2D colliderArea;
-    int numTrashInBag;
-    [SerializeField] int maxTrashInBag;
+    public int numTrashInBag;
+    [SerializeField] int maxTrashInBag = 10;
     SpriteRenderer sp;
     bool bagIsFull;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        colliderArea = GetComponent<CircleCollider2D>();
         sp = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       if(numTrashInBag >=  maxTrashInBag)
-       {
-           bagIsFull = true;
-           DesactiveCollector();
-       }
-      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-        GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
-        if (trash != null && !bagIsFull)
+        // 1. Lógica para coletar o lixo solto no chão (precisa ter a tag "Trash")
+        if (collision.CompareTag("Trash") && !bagIsFull)
         {
-            trash.ItsOverForTrash(false, this);
-        }
-
-        BoxCollect collector = collision.gameObject.GetComponent<BoxCollect>();
-        if(collector != null && numTrashInBag > 0)
-        {
-            collector.CollectFromPlayer(numTrashInBag);
-            ActiveCollected();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        GenericEnemy trash = collision.gameObject.GetComponent<GenericEnemy>();
-        if (trash != null && !bagIsFull)
-        {
-            trash.ItsOverForTrash(true, this);
-
-        }
-    }
-
-    public void PickedTrash()
-    {
-        if (!bagIsFull)
-        {
-            print("pegou o dog");
             numTrashInBag++;
+            Destroy(collision.gameObject); // Destrói o item do chão
+            print("Lixo coletado: " + numTrashInBag + "/" + maxTrashInBag);
+
+            if (numTrashInBag >= maxTrashInBag)
+            {
+                bagIsFull = true;
+                print("Mochila Cheia! Volte para a base.");
+            }
         }
 
+        // 2. Lógica para descarregar na Estação
+        BoxCollect station = collision.gameObject.GetComponent<BoxCollect>();
+        if (station != null && numTrashInBag > 0)
+        {
+            station.CollectFromPlayer(numTrashInBag);
+            ClearBag();
+        }
     }
 
-    void DesactiveCollector()
-    { 
-        sp.enabled = false;
-    }
-
-    void ActiveCollected()
+    // Usado pela estação ou quando o jogador morre (para perder os itens)
+    public void ClearBag()
     {
-        sp.enabled = true;
         numTrashInBag = 0;
         bagIsFull = false;
+        print("Mochila esvaziada.");
     }
-
 }

@@ -1,23 +1,40 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Necessário para recarregar a cena
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField] float life;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] float maxLife = 100f;
+    private float currentLife;
+    private PlayerCollect playerBag;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        currentLife = maxLife;
+        playerBag = GetComponent<PlayerCollect>();
     }
 
     public void TakeDamage(float damage)
     {
-        life -= damage;
-        print(life);
+        currentLife -= damage;
+        print("Vida do Jogador: " + currentLife);
+
+        if (currentLife <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        print("O Jogador Morreu!");
+        
+        // Esvazia a mochila antes de morrer (como dita o GDD)
+        if(playerBag != null)
+        {
+            playerBag.ClearBag();
+        }
+
+        // Simula o retorno à base recarregando a cena atual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

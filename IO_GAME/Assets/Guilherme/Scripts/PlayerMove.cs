@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     Animator anim;
     SpriteRenderer sp;
     bool isLeft;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,17 +19,19 @@ public class PlayerMove : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-   void Update()
+    void Update()
     {
         movement.x = joy.Horizontal;
         movement.y = joy.Vertical;
+
         if (movement != Vector2.zero)
         {
             sp.flipX = false;
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
             isMoving = true;
+
+            // Evita que o peixe/personagem fique de ponta cabeça ao nadar para a esquerda
             if (movement.x < 0)
             {
                 isLeft = true;
@@ -44,10 +46,19 @@ public class PlayerMove : MonoBehaviour
         else
         {
             isMoving = false;
-            rb.rotation = 0;
+            sp.flipX = false; // Não usamos mais o flipX para simular que virou
+
+            // CORREÇÃO: Mantemos a rotação física para a direção correta
             if(isLeft)
-                sp.flipX = true;
-            sp.flipY = false;
+            {
+                rb.rotation = 180f; // Rotaciona o corpo todo para a esquerda
+                sp.flipY = true;    // Mantém o sprite em pé
+            }
+            else
+            {
+                rb.rotation = 0f;   // Mantém o corpo para a direita
+                sp.flipY = false;
+            }
         }
         
         anim.SetBool("isSwimming", isMoving);
@@ -56,6 +67,5 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-
     }
 }

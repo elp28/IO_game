@@ -1,9 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class GenericEnemy : MonoBehaviour
 {
+    [System.Serializable]
+    public struct TrashDrop
+    {
+        public GameObject prefab;
+        public int amount;
+    }
     public enum TypeEnemy { contact, shooter }
     public TypeEnemy type;
     public enum State { patrol, chase }
@@ -19,8 +26,8 @@ public class GenericEnemy : MonoBehaviour
     public float damage = 10f;
     public float cooldown = 1f;
     
-    [Header("Drop de Lixo")]
-    public GameObject trashDropPrefab; // Coloque o prefab do lixo aqui no Inspector
+   [Header("Configuração de Drops")]
+    [SerializeField] private List<TrashDrop> listTrashDrops;
 
     protected bool feltPlayer;
     protected bool isAttack;
@@ -58,13 +65,23 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        // Dropa o recurso no chão ao morrer
-        if (trashDropPrefab != null)
+        foreach (TrashDrop drop in listTrashDrops)
         {
-            Instantiate(trashDropPrefab, transform.position, Quaternion.identity);
+            if (drop.prefab != null)
+            {
+                // Faz o spawn da quantidade definida para este item
+                for (int i = 0; i < drop.amount; i++)
+                {
+                    // Adicionamos um pequeno "offset" aleatório para os itens não nascerem um dentro do outro
+                    Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+                    Instantiate(drop.prefab, transform.position + spawnOffset, Quaternion.identity);
+                }
+            }
         }
+
         Destroy(gameObject);
     }
+    
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

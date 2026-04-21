@@ -222,11 +222,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTrashEnemy
   type: 0
+  currentState: 0
   life: 5
   damage: 5
   cooldown: 1
-  isFree: 0
-  pullSpeed: 10
+  listTrashDrops:
+  - prefab: {fileID: 389683222883019373, guid: 3f9c2edb2fe30684eafde96a4e8ec970, type: 3}
+    amount: 1
+  - prefab: {fileID: 8060071050681930887, guid: 44857c48c09ab414bad1dfb0df96b9a3, type: 3}
+    amount: 1
 --- !u!50 &8714237362674292109
 Rigidbody2D:
   serializedVersion: 5

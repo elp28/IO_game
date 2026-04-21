@@ -5,42 +5,40 @@ public class PlayerCollect : MonoBehaviour
     [Header("Configurações")]
     [SerializeField] private int maxCapacity = 10;
     
-    // Contagem temporária (o que está na mochila agora)
     private int glassCount, plasticCount, metalCount;
     private int currentTotal;
-    TrashItemGeneric trash;
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("coletable") && currentTotal < maxCapacity)
         {
-            trash = collision.GetComponent<TrashItemGeneric>();
+            TrashItemGeneric trash = collision.GetComponent<TrashItemGeneric>();
             if (trash != null)
             {
-                trash.GoToPlayer(transform);  
-                AddToBag(trash.typeItem);   
-                Destroy(collision.gameObject);
+                // Manda o lixo vir até aqui, passando a referência desta mochila
+                trash.GoToPlayer(this.transform, this);
+                
+                // IMPORTANTE: Aumentamos o contador ANTES para não pegar lixo demais 
+                // enquanto os outros ainda estão voando
+                currentTotal++; 
             }
         }
 
-      
         if (collision.gameObject.GetComponent<BoxCollect>()) 
         {
             DeliverTrash();
         }
     }
 
-    private void AddToBag(TrashItemGeneric.TypeItem type)
+    public void FinalizeCollection(TrashItemGeneric trash)
     {
-        switch (type)
+        switch (trash.typeItem)
         {
             case TrashItemGeneric.TypeItem.glass: glassCount++; break;
             case TrashItemGeneric.TypeItem.plastic: plasticCount++; break;
             case TrashItemGeneric.TypeItem.metal: metalCount++; break;
         }
-        currentTotal++;
-        Debug.Log($"Mochila: {currentTotal}/{maxCapacity} Itens");
+        
+        Debug.Log($"Item processado! Total na mochila: {currentTotal}");
     }
 
     private void DeliverTrash()

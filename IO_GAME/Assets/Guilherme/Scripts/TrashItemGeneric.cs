@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;   
 
 public class TrashItemGeneric : MonoBehaviour
 {
@@ -25,7 +27,10 @@ public class TrashItemGeneric : MonoBehaviour
     
     private Vector3 posicaoInicial;
 
-    [SerializeField] float suctionSpeed = 0.5f;
+    [SerializeField] float suctionSpeed = 10f; // Agora trataremos como velocidade de movimento
+    private bool isBeingCollected = false;
+    private Transform targetPlayer;
+    private PlayerCollect bagReference;
    
 
     void Start()
@@ -43,6 +48,22 @@ public class TrashItemGeneric : MonoBehaviour
 
     void Update()
     {
+        if (isBeingCollected)
+        {
+            // Se o player ainda existir, move o lixo na direção da posição ATUAL do player
+            if (targetPlayer != null)
+            {
+                // Move o objeto em direção ao player a cada frame (Perseguição)
+                transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, suctionSpeed * Time.deltaTime);
+
+                // Verifica se chegou perto o suficiente para "entrar" na mochila
+                if (Vector3.Distance(transform.position, targetPlayer.position) < 0.1f)
+                {
+                    FinishCollection();
+                }
+            }
+            return;
+        }
         float novoY;
 
         // Se o desenvolvedor desenhou uma curva no Inspector, usamos ela
@@ -67,12 +88,25 @@ public class TrashItemGeneric : MonoBehaviour
 
       
     }
-
-    public void GoToPlayer(Transform posPlayer)
+    public void GoToPlayer(Transform playerTransform, PlayerCollect bag)
     {
-        transform.DOMove(posPlayer.position, suctionSpeed);
+        if (isBeingCollected) return; 
         
+        targetPlayer = playerTransform;
+        bagReference = bag;
+        isBeingCollected = true;
+
+        // Efeito de "escala" com DOTween só para dar o Game Juice (opcional)
+        //transform.DOScale(Vector3.one * 0.5f, 0.2f); 
     }
 
-  
+    private void FinishCollection()
+    {
+        bagReference.FinalizeCollection(this);
+        // Usamos uma pequena animação de escala antes de destruir para ficar bonito
+        transform.DOScale(Vector3.zero, 0.1f).OnComplete(() => Destroy(gameObject));
+        isBeingCollected = false; // Evita múltiplas chamadas
+    }
 }
+
+  

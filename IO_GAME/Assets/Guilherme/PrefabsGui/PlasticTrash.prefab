@@ -179,3 +179,4 @@ MonoBehaviour:
   maxAmplitude: 0.3
   minFrequencia: 1
   maxFrequencia: 3
+  suctionSpeed: 10

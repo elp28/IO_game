@@ -10,53 +10,59 @@ public class TrashItemGeneric : MonoBehaviour
     [Header("Tipo de Recurso")]
     public TypeItem typeItem; 
 
+    [Header("Animação de Spawn")]
+    [SerializeField] private float forcaDoPulo = 1.5f; // Altura que ele vai subir ao nascer
+    [SerializeField] private float tempoDoPulo = 0.5f; // Quanto tempo dura o pulo até cair
+    private bool isSpawning = true; // Trava o Update enquanto estiver na animação inicial
+
     [Header("Efeito Flutuante (Bobbing)")]
-    // Se esta curva estiver definida, ela controlará o movimento
     [SerializeField] private AnimationCurve curvaDeMovimento;
-    
-    // Se a curva estiver vazia, usamos os valores abaixo como padrão (Seno)
     [SerializeField] private float minAmplitude = 0.1f;
     [SerializeField] private float maxAmplitude = 0.3f;
     [SerializeField] private float minFrequencia = 1f;
     [SerializeField] private float maxFrequencia = 3f;
     
-    // Variáveis que serão randomizadas no Start
     private float amplitudeAleatoria;
     private float frequenciaAleatoria;
-    private float faseAleatoria; // Desincroniza os itens
+    private float faseAleatoria;
     
     private Vector3 posicaoInicial;
 
-    [SerializeField] float suctionSpeed = 10f; // Agora trataremos como velocidade de movimento
+    [Header("Coleta")]
+    [SerializeField] float suctionSpeed = 10f;
     private bool isBeingCollected = false;
     private Transform targetPlayer;
     private PlayerCollect bagReference;
-   
 
     void Start()
     {
-        // Salva a posição onde o item nasceu
-        posicaoInicial = transform.position;
+        // 1. Salva o tamanho original que você definiu no Unity/Inspector
+        Vector3 escalaOriginal = transform.localScale;
 
-        // Randomiza os parâmetros de altura e velocidade dentro dos intervalos definidos
+        // Randomiza os parâmetros do Bobbing
         amplitudeAleatoria = Random.Range(minAmplitude, maxAmplitude);
         frequenciaAleatoria = Random.Range(minFrequencia, maxFrequencia);
-        
-        // Randomiza o ponto de partida do ciclo (de 0 a 2PI radianos)
         faseAleatoria = Random.Range(0f, Mathf.PI * 2f);
+
+        // 2. Começa do zero e cresce até a ESCALA ORIGINAL (em vez de Vector3.one)
+        transform.localScale = Vector3.zero;
+        transform.DOScale(escalaOriginal, tempoDoPulo).SetEase(Ease.OutBack);
+
+        // Faz o pulo
+        transform.DOJump(transform.position, forcaDoPulo, 1, tempoDoPulo).SetEase(Ease.OutQuad).OnComplete(() => {posicaoInicial = transform.position; isSpawning = false; });
     }
 
     void Update()
     {
+        // Se estiver na animação de nascer, não faz o bobbing ainda!
+        if (isSpawning) return;
+
         if (isBeingCollected)
         {
-            // Se o player ainda existir, move o lixo na direção da posição ATUAL do player
             if (targetPlayer != null)
             {
-                // Move o objeto em direção ao player a cada frame (Perseguição)
                 transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, suctionSpeed * Time.deltaTime);
 
-                // Verifica se chegou perto o suficiente para "entrar" na mochila
                 if (Vector3.Distance(transform.position, targetPlayer.position) < 0.1f)
                 {
                     FinishCollection();
@@ -64,30 +70,24 @@ public class TrashItemGeneric : MonoBehaviour
             }
             return;
         }
+
         float novoY;
 
-        // Se o desenvolvedor desenhou uma curva no Inspector, usamos ela
         if (curvaDeMovimento != null && curvaDeMovimento.length > 0)
         {
-            // Avalia a curva baseada no tempo.
-            // Para curvas padrão que vão de 0 a 1 no tempo, usamos Mathf.PingPong para loop infinito.
             float tempoCiclo = Mathf.PingPong(Time.time * frequenciaAleatoria + faseAleatoria, 1f);
             float valorDaCurva = curvaDeMovimento.Evaluate(tempoCiclo);
-            
-            // Aplica a amplitude aleatória ao resultado da curva
             novoY = valorDaCurva * amplitudeAleatoria;
         }
         else
         {
-            // Se não houver curva, usamos o Seno padrão (vai de -1 a 1)
             novoY = Mathf.Sin(Time.time * frequenciaAleatoria + faseAleatoria) * amplitudeAleatoria;
         }
 
-        // Aplica a nova posição mantendo o X e Z originais
+        // Aplica a nova posição mantendo o X e Z originais (que foram definidos após o pulo)
         transform.position = posicaoInicial + new Vector3(0, novoY, 0);
-
-      
     }
+
     public void GoToPlayer(Transform playerTransform, PlayerCollect bag)
     {
         if (isBeingCollected) return; 
@@ -95,18 +95,12 @@ public class TrashItemGeneric : MonoBehaviour
         targetPlayer = playerTransform;
         bagReference = bag;
         isBeingCollected = true;
-
-        // Efeito de "escala" com DOTween só para dar o Game Juice (opcional)
-        //transform.DOScale(Vector3.one * 0.5f, 0.2f); 
     }
 
     private void FinishCollection()
     {
         bagReference.FinalizeCollection(this);
-        // Usamos uma pequena animação de escala antes de destruir para ficar bonito
         transform.DOScale(Vector3.zero, 0.1f).OnComplete(() => Destroy(gameObject));
-        isBeingCollected = false; // Evita múltiplas chamadas
+        isBeingCollected = false; 
     }
 }
-
-  

@@ -1,9 +1,10 @@
 using UnityEngine;
-
+using System.Collections.Generic;
+using System.Collections;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance;
-
+    
     [Header("Banco de Materiais (Pós-Processamento)")]
     public int totalGlass;
     public int totalPlastic;
@@ -23,4 +24,6 @@ public class ResourceManager : MonoBehaviour
 
         Debug.Log($"[BASE] Processamento concluído! Vidro: {totalGlass} | Plástico: {totalPlastic} | Metal: {totalMetal}");
     }
+
+   
 }

@@ -2248,6 +2248,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassTrash
       objectReference: {fileID: 0}
+    - target: {fileID: 143129740929959980, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
+      propertyPath: gravityValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 143129740929959980, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
+      propertyPath: timeToStopGravity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5525176392561978032, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.56
@@ -23527,6 +23535,7 @@ MonoBehaviour:
     amount: 1
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
   distacePlayer: 5
+  maxSpawnedEnemies: 4
 --- !u!195 &1290810786
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24131,7 +24140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1421384433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24156,6 +24165,7 @@ MonoBehaviour:
     amount: 1
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
   distacePlayer: 5
+  maxSpawnedEnemies: 4
 --- !u!195 &1421384434
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24972,6 +24982,7 @@ MonoBehaviour:
     amount: 1
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
   distacePlayer: 5
+  maxSpawnedEnemies: 4
 --- !u!1 &1493530763
 GameObject:
   m_ObjectHideFlags: 0
@@ -26467,7 +26478,7 @@ GameObject:
   - component: {fileID: 2010494193}
   - component: {fileID: 2010494195}
   m_Layer: 0
-  m_Name: AreaCollect
+  m_Name: Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28014,7 +28025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7805222047747603142, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,17 +6,18 @@ TagManager:
   tags:
   - Trash
   - coletable
+  - Harpoon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Cenario
   - Enmey
-  - 
-  - 
+  - Harpoon
+  - ColliderAreaEnemy
   - 
   - 
   - 

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class GenericEnemy : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class GenericEnemy : MonoBehaviour
     bool haveAPoint = false;
     Vector2 randomPoint;
 
+    [Header("Efeitos de Dano")]
+    [SerializeField] private GameObject damageNumberPrefab;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private float flashDuration = 0.12f;
+    [SerializeField] private float knockbackForce = 4f;
+
     protected virtual void Start()
     {
         currentState = State.patrol;
@@ -53,14 +60,15 @@ public class GenericEnemy : MonoBehaviour
         SwitchStates();
     }
 
-    // NOVA FUNÇÃO: Receber dano do Arpão
     public virtual void TakeDamage(float amount)
     {
         life -= amount;
-        if (life <= 0)
-        {
-            Die();
-        }
+
+        SpawnDamageNumber(amount);
+        StartCoroutine(FlashRed());
+        StartCoroutine(Knockback());
+
+        if (life <= 0) Die();
     }
 
     protected virtual void Die()
@@ -159,4 +167,45 @@ public class GenericEnemy : MonoBehaviour
                 break;
         }
     }
+
+    private void SpawnDamageNumber(float amount)
+{
+    if (damageNumberPrefab == null) return;
+
+    // Aparece um pouco acima do inimigo com offset aleatório
+    Vector3 spawnPos = transform.position + new Vector3(
+        Random.Range(-0.3f, 0.3f), 0.5f, 0);
+
+    GameObject obj = Instantiate(damageNumberPrefab, spawnPos, Quaternion.identity);
+    obj.GetComponent<DamageNumber>().Init(amount);
+}
+
+private IEnumerator FlashRed()
+{
+    if (spriteRenderer == null) yield break;
+
+    spriteRenderer.color = Color.red;
+    yield return new WaitForSeconds(flashDuration);
+    spriteRenderer.color = Color.white;
+}
+
+private IEnumerator Knockback()
+{
+    if (agent == null || player == null) yield break;
+
+    agent.isStopped = true;
+    agent.updatePosition = false;
+
+    Vector3 direction = (transform.position - player.transform.position).normalized;
+    Vector3 targetPos = transform.position + direction * 0.6f;
+
+    yield return transform.DOMove(targetPos, 0.08f)
+        .SetEase(Ease.OutQuad)
+        .WaitForCompletion();
+
+    // Resincroniza e devolve o controle pro NavMesh
+    agent.Warp(transform.position);
+    agent.updatePosition = true;
+    agent.isStopped = false;
+}
 }

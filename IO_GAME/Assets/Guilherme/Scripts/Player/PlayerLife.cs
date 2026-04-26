@@ -6,6 +6,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float maxLife = 100f;
     private float currentLife;
     private PlayerCollect playerBag;
+    public float LifePercent => currentLife / maxLife;
 
     void Start()
     {

@@ -212,6 +212,10 @@ MonoBehaviour:
     amount: 3
   - prefab: {fileID: 136027075920195957, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
     amount: 1
+  damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
+  spriteRenderer: {fileID: 4116816303612947449}
+  flashDuration: 0.12
+  knockbackForce: 4
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
   distacePlayer: 5
   maxSpawnedEnemies: 4

@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4350662e5b66fcf4caaaa85b5209c3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Harpoon
-  damage: 10
+  damage: 3
   returnSpeed: 10
   lineRenderer: {fileID: 6359743101705554382}
 --- !u!120 &6359743101705554382

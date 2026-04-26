@@ -231,6 +231,10 @@ MonoBehaviour:
     amount: 1
   - prefab: {fileID: 8060071050681930887, guid: 44857c48c09ab414bad1dfb0df96b9a3, type: 3}
     amount: 1
+  damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
+  spriteRenderer: {fileID: 1946044819978301241}
+  flashDuration: 0.12
+  knockbackForce: 4
 --- !u!50 &8714237362674292109
 Rigidbody2D:
   serializedVersion: 5

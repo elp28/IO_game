@@ -7,6 +7,9 @@ public class PlayerCollect : MonoBehaviour
     
     private int glassCount, plasticCount, metalCount;
     private int currentTotal;
+    public int CurrentTotal => currentTotal;
+    public int MaxCapacity => maxCapacity;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("coletable") && currentTotal < maxCapacity)

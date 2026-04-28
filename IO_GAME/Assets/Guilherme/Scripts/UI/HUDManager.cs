@@ -13,19 +13,33 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Image lifeBarFill;
     [SerializeField] private float lifeAnimDuration = 0.3f;
 
+    [Header("Barra de Oxigênio")]
+    [SerializeField] private Image oxyBarFill;
+
     [Header("Mochila")]
     [SerializeField] private TextMeshProUGUI bagText;
 
+    private readonly Color oxyColorFull     = new Color(0.2f, 0.3f, 0.8f);
     private readonly Color colorFull     = new Color(0.2f, 0.8f, 0.3f);
+    private readonly Color oxyColorMid      = new Color(0.5f,   0f, 0.7f);
     private readonly Color colorMid      = new Color(1f,   0.7f, 0f);
+    private readonly Color oxyColorCritical = new Color(0.9f, 0.1f, 0.2f);
     private readonly Color colorCritical = new Color(0.9f, 0.2f, 0.2f);
 
     private float lastLifePercent = 1f;
     private int lastBagTotal = 0;
+    float lastOxygen;
 
     void Update()
     {
         RefreshLife();
+        RefreshBag();
+        RefreshOxygen();
+    }
+
+    void Start()
+    {
+        lastBagTotal = -1; // força atualização inicial
         RefreshBag();
     }
 
@@ -72,5 +86,28 @@ public class HUDManager : MonoBehaviour
 
         // Cor laranja quando cheio
         bagText.color = (current >= max) ? new Color(1f, 0.5f, 0f) : Color.white;
+    }
+
+    void RefreshOxygen()
+    {
+        if (playerLife == null || oxyBarFill == null) return;
+
+        float percent = playerLife.oxygenPercent;
+
+        // Só anima se mudou
+        if (Mathf.Approximately(percent, lastOxygen)) return;
+        lastOxygen = percent;
+
+        // Anima o fillAmount suavemente
+        oxyBarFill.DOFillAmount(percent, 0.1f).SetEase(Ease.OutCubic);
+
+        // Anima a cor junto
+        Color targetColor = percent > 0.6f ? oxyColorFull :
+                            percent > 0.3f ? oxyColorMid  : oxyColorCritical;
+        oxyBarFill.DOColor(targetColor, 0.1f);
+
+        // Shake na barra quando toma dano e está crítico
+        if (percent <= 0.3f)
+            oxyBarFill.rectTransform.DOShakePosition(0.3f, strength: 1.5f, vibrato: 10);
     }
 }

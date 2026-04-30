@@ -1,5 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necessário para recarregar a cena
+using UnityEngine.SceneManagement;
+using DG.Tweening;
+using System.Collections.Generic;
+using System.Collections;
 
 
 public class PlayerLife : MonoBehaviour
@@ -11,6 +14,9 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float maxOxygen; 
     float currentOxygen;
     public float oxygenPercent => currentOxygen / maxOxygen;
+    [SerializeField] private GameObject damageNumberPrefab;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private float flashDuration = 0.12f;
 
     bool isAtStation;
     
@@ -39,6 +45,9 @@ public class PlayerLife : MonoBehaviour
     {
         currentLife -= damage;
         print("Vida do Jogador: " + currentLife);
+        SpawnDamageNumber(damage);    
+        StartCoroutine(FlashRed());
+
 
         if (currentLife <= 0)
         {
@@ -69,20 +78,31 @@ public class PlayerLife : MonoBehaviour
     {
         currentOxygen = maxOxygen;
     }
-
- 
-
     void Die()
     {
-        print("O Jogador Morreu!");
-        
-        // Esvazia a mochila antes de morrer (como dita o GDD)
         if(playerBag != null)
         {
             playerBag.ClearBag();
         }
-
-        // Simula o retorno à base recarregando a cena atual
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void SpawnDamageNumber(float amount)
+    {
+        if (damageNumberPrefab == null) return;
+
+        Vector3 spawnPos = transform.position + new Vector3(Random.Range(-0.3f, 0.3f), 0.5f, 0);
+
+        GameObject obj = Instantiate(damageNumberPrefab, spawnPos, Quaternion.identity);
+        obj.GetComponent<DamageNumber>().Init(amount);
+    }
+
+    private IEnumerator FlashRed()
+    {
+        if (spriteRenderer == null) yield break;
+
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = Color.white;
     }
 }

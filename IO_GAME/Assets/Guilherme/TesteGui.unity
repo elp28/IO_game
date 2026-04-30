@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Intensity: 0.38
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Intensity: 1.46
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_Intensity: 1.46
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Intensity: 0.91
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2295,7 +2295,7 @@ MonoBehaviour:
   m_Intensity: 1.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -23560,7 +23560,7 @@ MonoBehaviour:
   m_Intensity: 1.89
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -23644,7 +23644,7 @@ MonoBehaviour:
   m_Intensity: 1.46
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -23759,7 +23759,7 @@ MonoBehaviour:
   m_Intensity: 1.46
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -24006,7 +24006,7 @@ MonoBehaviour:
   m_Intensity: 0.65
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -24257,7 +24257,7 @@ Camera:
   field of view: 40
   orthographic: 1
   orthographic size: 4
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -24324,7 +24324,7 @@ MonoBehaviour:
   m_Intensity: 0.65
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -25420,6 +25420,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   maxLife: 100
   maxOxygen: 10
+  damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
+  spriteRenderer: {fileID: 1653266708}
+  flashDuration: 0.12
 --- !u!114 &1653266710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25870,7 +25873,7 @@ MonoBehaviour:
   m_Intensity: 0.65
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000004338d411
+  m_ApplyToSortingLayers: 000000004338d4110d9930c6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

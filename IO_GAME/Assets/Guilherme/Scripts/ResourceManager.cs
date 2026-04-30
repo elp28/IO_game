@@ -15,7 +15,7 @@ public class ResourceManager : MonoBehaviour
         if (instance == null) instance = this;
     }
 
-    // O Player só chama isso quando descarrega na base
+    
     public void ConvertTrashToResource(int glass, int plastic, int metal)
     {
         totalGlass += glass;

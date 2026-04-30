@@ -77,10 +77,8 @@ public class GenericEnemy : MonoBehaviour
         {
             if (drop.prefab != null)
             {
-                // Faz o spawn da quantidade definida para este item
                 for (int i = 0; i < drop.amount; i++)
                 {
-                    // Adicionamos um pequeno "offset" aleatório para os itens não nascerem um dentro do outro
                     Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
                     Instantiate(drop.prefab, transform.position + spawnOffset, Quaternion.identity);
                 }
@@ -172,7 +170,6 @@ public class GenericEnemy : MonoBehaviour
 {
     if (damageNumberPrefab == null) return;
 
-    // Aparece um pouco acima do inimigo com offset aleatório
     Vector3 spawnPos = transform.position + new Vector3(
         Random.Range(-0.3f, 0.3f), 0.5f, 0);
 
@@ -203,7 +200,6 @@ private IEnumerator Knockback()
         .SetEase(Ease.OutQuad)
         .WaitForCompletion();
 
-    // Resincroniza e devolve o controle pro NavMesh
     agent.Warp(transform.position);
     agent.updatePosition = true;
     agent.isStopped = false;

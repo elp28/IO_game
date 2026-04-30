@@ -11,22 +11,22 @@ public class TrashItemGeneric : MonoBehaviour
     public TypeItem typeItem; 
 
     [Header("Animação de Spawn")]
-    [SerializeField] private float forcaDoPulo = 1.5f; // Altura que ele vai subir ao nascer
-    [SerializeField] private float tempoDoPulo = 0.5f; // Quanto tempo dura o pulo até cair
-    private bool isSpawning = true; // Trava o Update enquanto estiver na animação inicial
+    [SerializeField] private float jumpForce = 1.5f; 
+    [SerializeField] private float jumpTime = 0.5f; 
+    private bool isSpawning = true; 
 
     [Header("Efeito Flutuante (Bobbing)")]
-    [SerializeField] private AnimationCurve curvaDeMovimento;
+    [SerializeField] private AnimationCurve movementCurve;
     [SerializeField] private float minAmplitude = 0.1f;
     [SerializeField] private float maxAmplitude = 0.3f;
-    [SerializeField] private float minFrequencia = 1f;
-    [SerializeField] private float maxFrequencia = 3f;
+    [SerializeField] private float minFrequencie = 1f;
+    [SerializeField] private float maxFrequencie = 3f;
     
-    private float amplitudeAleatoria;
-    private float frequenciaAleatoria;
-    private float faseAleatoria;
+    private float randomAmplitude;
+    private float randomFrequencie;
+    private float randomState;
     
-    private Vector3 posicaoInicial;
+    private Vector3 inicialPosition;
 
     [Header("Coleta")]
     [SerializeField] float suctionSpeed = 10f;
@@ -36,25 +36,20 @@ public class TrashItemGeneric : MonoBehaviour
 
     void Start()
     {
-        // 1. Salva o tamanho original que você definiu no Unity/Inspector
-        Vector3 escalaOriginal = transform.localScale;
+        Vector3 originalScale = transform.localScale;
 
-        // Randomiza os parâmetros do Bobbing
-        amplitudeAleatoria = Random.Range(minAmplitude, maxAmplitude);
-        frequenciaAleatoria = Random.Range(minFrequencia, maxFrequencia);
-        faseAleatoria = Random.Range(0f, Mathf.PI * 2f);
+        randomAmplitude = Random.Range(minAmplitude, maxAmplitude);
+        randomFrequencie = Random.Range(minFrequencie, maxFrequencie);
+        randomState = Random.Range(0f, Mathf.PI * 2f);
 
-        // 2. Começa do zero e cresce até a ESCALA ORIGINAL (em vez de Vector3.one)
         transform.localScale = Vector3.zero;
-        transform.DOScale(escalaOriginal, tempoDoPulo).SetEase(Ease.OutBack);
+        transform.DOScale(originalScale, jumpTime).SetEase(Ease.OutBack);
 
-        // Faz o pulo
-        transform.DOJump(transform.position, forcaDoPulo, 1, tempoDoPulo).SetEase(Ease.OutQuad).OnComplete(() => {posicaoInicial = transform.position; isSpawning = false; });
+        transform.DOJump(transform.position, jumpForce, 1, jumpTime).SetEase(Ease.OutQuad).OnComplete(() => {inicialPosition = transform.position; isSpawning = false; });
     }
 
     void Update()
     {
-        // Se estiver na animação de nascer, não faz o bobbing ainda!
         if (isSpawning) return;
 
         if (isBeingCollected)
@@ -71,21 +66,19 @@ public class TrashItemGeneric : MonoBehaviour
             return;
         }
 
-        float novoY;
+        float newY;
 
-        if (curvaDeMovimento != null && curvaDeMovimento.length > 0)
+        if (movementCurve != null && movementCurve.length > 0)
         {
-            float tempoCiclo = Mathf.PingPong(Time.time * frequenciaAleatoria + faseAleatoria, 1f);
-            float valorDaCurva = curvaDeMovimento.Evaluate(tempoCiclo);
-            novoY = valorDaCurva * amplitudeAleatoria;
+            float cicleTime = Mathf.PingPong(Time.time * randomFrequencie + randomState, 1f);
+            float curveValue = movementCurve.Evaluate(cicleTime);
+            newY = curveValue * randomAmplitude;
         }
         else
         {
-            novoY = Mathf.Sin(Time.time * frequenciaAleatoria + faseAleatoria) * amplitudeAleatoria;
+            newY = Mathf.Sin(Time.time * randomFrequencie + randomState) * randomAmplitude;
         }
-
-        // Aplica a nova posição mantendo o X e Z originais (que foram definidos após o pulo)
-        transform.position = posicaoInicial + new Vector3(0, novoY, 0);
+        transform.position = inicialPosition + new Vector3(0, newY, 0);
     }
 
     public void GoToPlayer(Transform playerTransform, PlayerCollect bag)

@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Arma: Arpão")]
     [SerializeField] private GameObject harpoonPrefab;
     [SerializeField] private Transform firePoint; 
-    [SerializeField] private float fireForce = 20f; // Usaremos como "Velocidade" agora
+    [SerializeField] private float fireForce = 20f;
     
     [Header("Mira Automática")]
     [SerializeField] private float detectionRadius = 8f;
@@ -61,18 +61,15 @@ public class PlayerCombat : MonoBehaviour
 
             if (target != null)
             {
-                // Calcula a direção e define o alvo exatamente no inimigo
                 Vector2 direction = (target.position - firePoint.position).normalized;
                 targetPosition = target.position;
                 harpoonObj.transform.right = direction; 
             }
             else
             {
-                // Se não tem inimigo, atira reto até o limite do radar
                 targetPosition = firePoint.position + (firePoint.right * detectionRadius);
             }
 
-            // Dispara passando quem é a origem, para onde vai, e a velocidade
             harpoonScript.Fire(firePoint, targetPosition, fireForce);
         }
     }

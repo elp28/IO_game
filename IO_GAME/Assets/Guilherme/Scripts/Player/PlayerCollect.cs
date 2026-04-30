@@ -17,11 +17,8 @@ public class PlayerCollect : MonoBehaviour
             TrashItemGeneric trash = collision.GetComponent<TrashItemGeneric>();
             if (trash != null)
             {
-                // Manda o lixo vir até aqui, passando a referência desta mochila
                 trash.GoToPlayer(this.transform, this);
                 
-                // IMPORTANTE: Aumentamos o contador ANTES para não pegar lixo demais 
-                // enquanto os outros ainda estão voando
                 currentTotal++; 
             }
         }

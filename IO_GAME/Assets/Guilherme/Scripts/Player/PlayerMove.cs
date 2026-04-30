@@ -31,7 +31,7 @@ public class PlayerMove : MonoBehaviour
             rb.rotation = angle;
             isMoving = true;
 
-            // Evita que o peixe/personagem fique de ponta cabeça ao nadar para a esquerda
+            
             if (movement.x < 0)
             {
                 isLeft = true;
@@ -46,17 +46,17 @@ public class PlayerMove : MonoBehaviour
         else
         {
             isMoving = false;
-            sp.flipX = false; // Não usamos mais o flipX para simular que virou
+            sp.flipX = false; 
 
-            // CORREÇÃO: Mantemos a rotação física para a direção correta
+            
             if(isLeft)
             {
-                rb.rotation = 180f; // Rotaciona o corpo todo para a esquerda
-                sp.flipY = true;    // Mantém o sprite em pé
+                rb.rotation = 180f; 
+                sp.flipY = true;   
             }
             else
             {
-                rb.rotation = 0f;   // Mantém o corpo para a direita
+                rb.rotation = 0f;   
                 sp.flipY = false;
             }
         }

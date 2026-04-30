@@ -21,7 +21,7 @@ public class HUDManager : MonoBehaviour
 
     private readonly Color oxyColorFull     = new Color(0.2f, 0.3f, 0.8f);
     private readonly Color colorFull     = new Color(0.2f, 0.8f, 0.3f);
-    private readonly Color oxyColorMid      = new Color(0.5f,   0f, 0.7f);
+    private readonly Color oxyColorMid      = new Color(0.5f,   0.4f, 0.7f);
     private readonly Color colorMid      = new Color(1f,   0.7f, 0f);
     private readonly Color oxyColorCritical = new Color(0.9f, 0.1f, 0.2f);
     private readonly Color colorCritical = new Color(0.9f, 0.2f, 0.2f);
@@ -49,19 +49,15 @@ public class HUDManager : MonoBehaviour
 
         float percent = playerLife.LifePercent;
 
-        // Só anima se mudou
         if (Mathf.Approximately(percent, lastLifePercent)) return;
         lastLifePercent = percent;
 
-        // Anima o fillAmount suavemente
         lifeBarFill.DOFillAmount(percent, lifeAnimDuration).SetEase(Ease.OutCubic);
 
-        // Anima a cor junto
         Color targetColor = percent > 0.6f ? colorFull :
                             percent > 0.3f ? colorMid  : colorCritical;
         lifeBarFill.DOColor(targetColor, lifeAnimDuration);
 
-        // Shake na barra quando toma dano e está crítico
         if (percent <= 0.3f)
             lifeBarFill.rectTransform.DOShakePosition(0.3f, strength: 6f, vibrato: 20);
     }
@@ -73,18 +69,15 @@ public class HUDManager : MonoBehaviour
         int current = playerCollect.CurrentTotal;
         int max     = playerCollect.MaxCapacity;
 
-        // Só anima se mudou
         if (current == lastBagTotal) return;
         lastBagTotal = current;
 
         bagText.text = $"{current}/{max}";
 
-        // Pulse no texto ao coletar
         bagText.rectTransform.DOKill();
         bagText.rectTransform.localScale = Vector3.one;
         bagText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.25f, vibrato: 6);
 
-        // Cor laranja quando cheio
         bagText.color = (current >= max) ? new Color(1f, 0.5f, 0f) : Color.white;
     }
 
@@ -94,19 +87,15 @@ public class HUDManager : MonoBehaviour
 
         float percent = playerLife.oxygenPercent;
 
-        // Só anima se mudou
         if (Mathf.Approximately(percent, lastOxygen)) return;
         lastOxygen = percent;
 
-        // Anima o fillAmount suavemente
         oxyBarFill.DOFillAmount(percent, 0.1f).SetEase(Ease.OutCubic);
 
-        // Anima a cor junto
         Color targetColor = percent > 0.6f ? oxyColorFull :
                             percent > 0.3f ? oxyColorMid  : oxyColorCritical;
         oxyBarFill.DOColor(targetColor, 0.1f);
 
-        // Shake na barra quando toma dano e está crítico
         if (percent <= 0.3f)
             oxyBarFill.rectTransform.DOShakePosition(0.3f, strength: 1.5f, vibrato: 10);
     }

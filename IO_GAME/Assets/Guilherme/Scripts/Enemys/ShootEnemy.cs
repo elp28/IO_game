@@ -1,16 +1,16 @@
 using UnityEngine;
     using UnityEngine.AI;
     using System.Collections;
-    using System.Collections.Generic; // Necessário para usar List<>
+    using System.Collections.Generic;
 
     public class ShootEnemy : GenericEnemy
     {
         [Header("Spawn Settings")]
-        [SerializeField] GameObject shotPrefab; // O seu SimpleTrashEnemy
+        [SerializeField] GameObject shotPrefab; 
         [SerializeField] float distacePlayer = 5;
-        [SerializeField] int maxSpawnedEnemies = 4; // Limite de inimigos vivos
+        [SerializeField] int maxSpawnedEnemies = 4; 
 
-        // Lista para rastrear os inimigos que estão vivos
+        
         private List<GameObject> activeSpawns = new List<GameObject>();
 
         protected override void Start()

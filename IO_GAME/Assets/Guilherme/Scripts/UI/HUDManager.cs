@@ -19,6 +19,12 @@ public class HUDManager : MonoBehaviour
     [Header("Mochila")]
     [SerializeField] private TextMeshProUGUI bagText;
 
+    [Header("Estação")]
+    [SerializeField] Button butStation;
+    [SerializeField] GameObject panelStation;
+
+
+
     private readonly Color oxyColorFull     = new Color(0.2f, 0.3f, 0.8f);
     private readonly Color colorFull     = new Color(0.2f, 0.8f, 0.3f);
     private readonly Color oxyColorMid      = new Color(0.5f,   0.4f, 0.7f);
@@ -41,6 +47,9 @@ public class HUDManager : MonoBehaviour
     {
         lastBagTotal = -1; // força atualização inicial
         RefreshBag();
+
+        ActiveButtonStation(false);
+        panelStation.gameObject.SetActive(false);
     }
 
     void RefreshLife()
@@ -98,5 +107,22 @@ public class HUDManager : MonoBehaviour
 
         if (percent <= 0.3f)
             oxyBarFill.rectTransform.DOShakePosition(0.3f, strength: 1.5f, vibrato: 10);
+    }
+
+    public void ActiveButtonStation(bool isInStation)
+    {
+        Color color = butStation.gameObject.GetComponent<Image>().color;
+        float alpha = 0.5f;
+        butStation.GetComponent<Button>().interactable = isInStation;
+
+        if(isInStation == true)
+            color.a = alpha;   
+        else
+            color.a = 0.07f;
+    }
+
+    public void ActivePanelStation(bool onStation)
+    {
+        panelStation.SetActive(onStation);
     }
 }

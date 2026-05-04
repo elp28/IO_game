@@ -4,6 +4,9 @@ public class PlayerCollect : MonoBehaviour
 {
     [Header("Configurações")]
     [SerializeField] private int maxCapacity = 10;
+
+    [Header("Managers")]
+    [SerializeField] HUDManager hudManager;
     
     private int glassCount, plasticCount, metalCount;
     private int currentTotal;
@@ -26,6 +29,16 @@ public class PlayerCollect : MonoBehaviour
         if (collision.gameObject.GetComponent<BoxCollect>()) 
         {
             DeliverTrash();
+            print("oiCheguei");
+            hudManager.ActiveButtonStation(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.GetComponent<BoxCollect>())
+        {
+            hudManager.ActiveButtonStation(false);
         }
     }
 
@@ -63,6 +76,8 @@ public class PlayerCollect : MonoBehaviour
         metalCount = 0;
         currentTotal = 0;
     }
+
+
 
  
 }

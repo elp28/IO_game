@@ -10,6 +10,9 @@ public class ResourceManager : MonoBehaviour
     public int totalPlastic;
     public int totalMetal;
 
+  
+
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -24,6 +27,8 @@ public class ResourceManager : MonoBehaviour
 
         Debug.Log($"[BASE] Processamento concluído! Vidro: {totalGlass} | Plástico: {totalPlastic} | Metal: {totalMetal}");
     }
+
+
 
    
 }

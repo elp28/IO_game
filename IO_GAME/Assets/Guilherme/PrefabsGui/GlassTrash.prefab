@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.52
 --- !u!114 &143129740929959980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,37 +152,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashItemGeneric
   typeItem: 0
-  curvaDeMovimento:
+  jumpForce: 1.5
+  jumpTime: 0.5
+  movementCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   minAmplitude: 0.1
   maxAmplitude: 0.3
-  minFrequencia: 1
-  maxFrequencia: 3
+  minFrequencie: 1
+  maxFrequencie: 3
   suctionSpeed: 10
-  gravityValue: 0.5
-  timeToStopGravity: 0.5
 --- !u!50 &-3747675135362701775
 Rigidbody2D:
   serializedVersion: 5

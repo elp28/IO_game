@@ -1882,6 +1882,7 @@ MonoBehaviour:
   totalGlass: 0
   totalPlastic: 0
   totalMetal: 0
+  hudManager: {fileID: 740491816}
 --- !u!4 &740491815
 Transform:
   m_ObjectHideFlags: 0
@@ -1917,6 +1918,9 @@ MonoBehaviour:
   bagText: {fileID: 1599225235}
   butStation: {fileID: 833982159}
   panelStation: {fileID: 1789792526}
+  glassText: {fileID: 1648494243}
+  metalText: {fileID: 759869471}
+  plasticText: {fileID: 1420575134}
 --- !u!1 &748854746
 GameObject:
   m_ObjectHideFlags: 0
@@ -26305,7 +26309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   maxLife: 100
-  maxOxygen: 10
+  maxOxygen: 60
   damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
   spriteRenderer: {fileID: 1653266708}
   flashDuration: 0.12

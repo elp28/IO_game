@@ -92,7 +92,6 @@ public class TrashItemGeneric : MonoBehaviour
 
     private void FinishCollection()
     {
-        bagReference.FinalizeCollection(this);
         transform.DOScale(Vector3.zero, 0.1f).OnComplete(() => Destroy(gameObject));
         isBeingCollected = false; 
     }

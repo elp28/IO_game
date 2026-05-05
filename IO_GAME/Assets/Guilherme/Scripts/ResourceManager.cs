@@ -10,12 +10,19 @@ public class ResourceManager : MonoBehaviour
     public int totalPlastic;
     public int totalMetal;
 
+    [Header("HudManager")]
+    [SerializeField] HUDManager hudManager;
   
 
 
     void Awake()
     {
         if (instance == null) instance = this;
+    }
+
+    void Start()
+    {
+        hudManager.UpdateResources(totalGlass, totalPlastic, totalMetal);
     }
 
     
@@ -26,6 +33,8 @@ public class ResourceManager : MonoBehaviour
         totalMetal += metal;
 
         Debug.Log($"[BASE] Processamento concluído! Vidro: {totalGlass} | Plástico: {totalPlastic} | Metal: {totalMetal}");
+
+        hudManager.UpdateResources(totalGlass, totalPlastic, totalMetal);
     }
 
 

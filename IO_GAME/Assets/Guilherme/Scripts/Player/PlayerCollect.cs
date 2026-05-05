@@ -15,14 +15,22 @@ public class PlayerCollect : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+      
         if (collision.CompareTag("coletable") && currentTotal < maxCapacity)
         {
             TrashItemGeneric trash = collision.GetComponent<TrashItemGeneric>();
             if (trash != null)
             {
+        
+                switch (trash.typeItem)
+                {
+                    case TrashItemGeneric.TypeItem.glass:   glassCount++;   break;
+                    case TrashItemGeneric.TypeItem.plastic: plasticCount++; break;
+                    case TrashItemGeneric.TypeItem.metal:   metalCount++;   break;
+                }
+
+                currentTotal++;
                 trash.GoToPlayer(this.transform, this);
-                
-                currentTotal++; 
             }
         }
 
@@ -40,18 +48,6 @@ public class PlayerCollect : MonoBehaviour
         {
             hudManager.ActiveButtonStation(false);
         }
-    }
-
-    public void FinalizeCollection(TrashItemGeneric trash)
-    {
-        switch (trash.typeItem)
-        {
-            case TrashItemGeneric.TypeItem.glass: glassCount++; break;
-            case TrashItemGeneric.TypeItem.plastic: plasticCount++; break;
-            case TrashItemGeneric.TypeItem.metal: metalCount++; break;
-        }
-        
-        Debug.Log($"Item processado! Total na mochila: {currentTotal}");
     }
 
     private void DeliverTrash()

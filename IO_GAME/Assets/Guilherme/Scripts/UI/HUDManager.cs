@@ -23,6 +23,11 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Button butStation;
     [SerializeField] GameObject panelStation;
 
+    [Header("Textos Recursos")]
+    [SerializeField] TextMeshProUGUI glassText;
+    [SerializeField] TextMeshProUGUI metalText;
+    [SerializeField] TextMeshProUGUI plasticText;
+
 
 
     private readonly Color oxyColorFull     = new Color(0.2f, 0.3f, 0.8f);
@@ -83,9 +88,7 @@ public class HUDManager : MonoBehaviour
 
         bagText.text = $"{current}/{max}";
 
-        bagText.rectTransform.DOKill();
-        bagText.rectTransform.localScale = Vector3.one;
-        bagText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.25f, vibrato: 6);
+        DoAnimText(bagText);
 
         bagText.color = (current >= max) ? new Color(1f, 0.5f, 0f) : Color.white;
     }
@@ -124,5 +127,19 @@ public class HUDManager : MonoBehaviour
     public void ActivePanelStation(bool onStation)
     {
         panelStation.SetActive(onStation);
+    }
+    
+    public void UpdateResources(int Glass, int Plastic, int Metal)
+    {
+        glassText.text = $"Vidro: {Glass}";
+        metalText.text = $"Metal: {Metal}";
+        plasticText.text = $"Plástico: {Plastic}";
+    }
+
+    void DoAnimText(TextMeshProUGUI typeText)
+    {
+        typeText.rectTransform.DOKill();
+        typeText.rectTransform.localScale = Vector3.one;
+        typeText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.25f, vibrato: 6);
     }
 }

@@ -7,7 +7,7 @@ public class PlayerCollect : MonoBehaviour
 
     [Header("Managers")]
     [SerializeField] HUDManager hudManager;
-    
+
     private int glassCount, plasticCount, metalCount;
     private int currentTotal;
     public int CurrentTotal => currentTotal;
@@ -15,13 +15,11 @@ public class PlayerCollect : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-      
         if (collision.CompareTag("coletable") && currentTotal < maxCapacity)
         {
             TrashItemGeneric trash = collision.GetComponent<TrashItemGeneric>();
             if (trash != null)
             {
-        
                 switch (trash.typeItem)
                 {
                     case TrashItemGeneric.TypeItem.glass:   glassCount++;   break;
@@ -34,7 +32,7 @@ public class PlayerCollect : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.GetComponent<BoxCollect>()) 
+        if (collision.gameObject.GetComponent<BoxCollect>())
         {
             DeliverTrash();
             print("oiCheguei");
@@ -44,7 +42,7 @@ public class PlayerCollect : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<BoxCollect>())
+        if (collision.gameObject.GetComponent<BoxCollect>())
         {
             hudManager.ActiveButtonStation(false);
         }
@@ -54,12 +52,9 @@ public class PlayerCollect : MonoBehaviour
     {
         if (currentTotal <= 0) return;
 
-        
         if (ResourceManager.instance != null)
         {
             ResourceManager.instance.ConvertTrashToResource(glassCount, plasticCount, metalCount);
-            
-            
             ClearBag();
             Debug.Log("Lixo descarregado e transformado em recurso!");
         }
@@ -73,7 +68,15 @@ public class PlayerCollect : MonoBehaviour
         currentTotal = 0;
     }
 
+    // ─────────────────────────────────────────────
+    // API DE UPGRADES
+    // ─────────────────────────────────────────────
 
-
- 
+    /// <summary>
+    /// Define a nova capacidade máxima da mochila.
+    /// </summary>
+    public void SetMaxCapacity(int newCapacity)
+    {
+        maxCapacity = newCapacity;
+    }
 }

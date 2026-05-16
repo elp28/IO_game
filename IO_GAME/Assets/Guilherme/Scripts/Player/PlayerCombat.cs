@@ -3,17 +3,20 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public enum WeaponType { Harpoon, Laser, Bomba }
-    
+
     [Header("Sistema de Armas")]
     public WeaponType currentWeapon = WeaponType.Harpoon;
     [SerializeField] private float cooldown = 0.5f;
     private float nextFireTime = 0f;
 
+    [Header("Dano Base")]
+    [SerializeField] private float baseDamage = 10f;
+
     [Header("Arma: Arpão")]
     [SerializeField] private GameObject harpoonPrefab;
-    [SerializeField] private Transform firePoint; 
+    [SerializeField] private Transform firePoint;
     [SerializeField] private float fireForce = 20f;
-    
+
     [Header("Mira Automática")]
     [SerializeField] private float detectionRadius = 8f;
     [SerializeField] private LayerMask enemyLayer;
@@ -53,9 +56,12 @@ public class PlayerCombat : MonoBehaviour
 
         GameObject harpoonObj = Instantiate(harpoonPrefab, firePoint.position, firePoint.rotation);
         Harpoon harpoonScript = harpoonObj.GetComponent<Harpoon>();
-        
+
         if (harpoonScript != null)
         {
+            // Passa o dano atual para o arpão recém-instanciado
+            harpoonScript.SetDamage(GetDamage());
+
             Transform target = GetNearestEnemy();
             Vector3 targetPosition;
 
@@ -63,7 +69,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 Vector2 direction = (target.position - firePoint.position).normalized;
                 targetPosition = target.position;
-                harpoonObj.transform.right = direction; 
+                harpoonObj.transform.right = direction;
             }
             else
             {
@@ -104,4 +110,21 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
+
+    // ─────────────────────────────────────────────
+    // API DE UPGRADES
+    // ─────────────────────────────────────────────
+
+    /// <summary>
+    /// Atualiza o dano base. Chamado pelo PlayerUpgradeManager.
+    /// </summary>
+    public void SetDamage(float newDamage)
+    {
+        baseDamage = newDamage;
+    }
+
+    /// <summary>
+    /// Retorna o dano base atual. Chamado pelo Harpoon ao ser instanciado.
+    /// </summary>
+    public float GetDamage() => baseDamage;
 }

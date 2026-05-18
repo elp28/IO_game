@@ -1,17 +1,29 @@
 using UnityEngine;
-using DG.Tweening; // Necessário para o DoTween
+using DG.Tweening;
 
 public class Harpoon : MonoBehaviour
 {
-    [SerializeField] private float damage = 10f;
-    [SerializeField] private float returnSpeed = 30f; 
-    [SerializeField] private LineRenderer lineRenderer; 
+    // Dano não é mais serializado — recebido do PlayerCombat no momento do disparo
+    private float damage;
+
+    [SerializeField] private float returnSpeed = 30f;
+    [SerializeField] private LineRenderer lineRenderer;
 
     private Transform firePoint;
     private bool isReturning = false;
     private Tween moveTween;
 
-    // Método chamado pelo PlayerCombat para iniciar o tiro
+    /// <summary>
+    /// Chamado pelo PlayerCombat logo após instanciar o arpão.
+    /// </summary>
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+
+    /// <summary>
+    /// Inicia o disparo em direção ao alvo.
+    /// </summary>
     public void Fire(Transform origin, Vector3 targetPosition, float speed)
     {
         firePoint = origin;
@@ -19,23 +31,23 @@ public class Harpoon : MonoBehaviour
 
         if (lineRenderer != null)
         {
-            lineRenderer.positionCount = 2; 
+            lineRenderer.positionCount = 2;
         }
 
         float distance = Vector3.Distance(transform.position, targetPosition);
         float duration = distance / speed;
 
         moveTween = transform.DOMove(targetPosition, duration)
-            .SetEase(Ease.Linear) 
-            .OnComplete(() => ReturnToPlayer()); 
+            .SetEase(Ease.Linear)
+            .OnComplete(() => ReturnToPlayer());
     }
 
     void Update()
     {
         if (lineRenderer != null && firePoint != null)
         {
-            lineRenderer.SetPosition(0, firePoint.position); 
-            lineRenderer.SetPosition(1, transform.position); 
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, transform.position);
         }
 
         if (isReturning && firePoint != null)
@@ -53,31 +65,27 @@ public class Harpoon : MonoBehaviour
         }
     }
 
-   private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.isTrigger) return;
-
-    
-    if (collision.CompareTag("Player") || collision.CompareTag("Trash")) return;
-
-   
-    GenericEnemy enemy = collision.GetComponent<GenericEnemy>();
-    if (enemy != null)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        enemy.TakeDamage(damage);
-    }
+        if (collision.isTrigger) return;
+        if (collision.CompareTag("Player") || collision.CompareTag("Trash")) return;
 
-    if (!isReturning)
-    {
-        ReturnToPlayer();
+        GenericEnemy enemy = collision.GetComponent<GenericEnemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
+        if (!isReturning)
+        {
+            ReturnToPlayer();
+        }
     }
-}
 
     private void ReturnToPlayer()
     {
-        if (isReturning) return; 
+        if (isReturning) return;
         isReturning = true;
-
 
         if (moveTween != null)
         {

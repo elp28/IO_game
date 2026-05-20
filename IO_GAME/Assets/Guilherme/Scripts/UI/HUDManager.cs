@@ -142,4 +142,9 @@ public class HUDManager : MonoBehaviour
         typeText.rectTransform.localScale = Vector3.one;
         typeText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.25f, vibrato: 6);
     }
+
+    public void OpenShop()
+    {
+        ShopCanvasController.instance.OpenShop();
+    }
 }

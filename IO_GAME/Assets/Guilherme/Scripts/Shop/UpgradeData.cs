@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Shop/Upgrade Data", order = 0)]
 public class UpgradeData : ScriptableObject
@@ -16,6 +17,7 @@ public class UpgradeData : ScriptableObject
     public string description = "";
 
     [Tooltip("Ícone exibido na UI.")]
+    [ShowAssetPreview(64,64)]
     public Sprite icon;
 
     [Header("Progressão")]

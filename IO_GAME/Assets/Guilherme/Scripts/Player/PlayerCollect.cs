@@ -22,9 +22,9 @@ public class PlayerCollect : MonoBehaviour
             {
                 switch (trash.typeItem)
                 {
-                    case TrashItemGeneric.TypeItem.glass:   glassCount++;   break;
+                    case TrashItemGeneric.TypeItem.glass: glassCount++; break;
                     case TrashItemGeneric.TypeItem.plastic: plasticCount++; break;
-                    case TrashItemGeneric.TypeItem.metal:   metalCount++;   break;
+                    case TrashItemGeneric.TypeItem.metal: metalCount++; break;
                 }
 
                 currentTotal++;

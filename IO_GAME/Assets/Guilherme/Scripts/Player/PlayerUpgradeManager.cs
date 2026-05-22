@@ -12,9 +12,9 @@ public class PlayerUpgradeManager : MonoBehaviour
     public static PlayerUpgradeManager instance;
 
     [Header("Referências do Jogador")]
-    [SerializeField] private PlayerLife    playerLife;
+    [SerializeField] private PlayerLife playerLife;
     [SerializeField] private PlayerCollect playerCollect;
-    [SerializeField] private PlayerCombat  playerCombat;
+    [SerializeField] private PlayerCombat playerCombat;
 
     // ─────────────────────────────────────────────
     // ESTADO INTERNO — níveis atuais por upgrade

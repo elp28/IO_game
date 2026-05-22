@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Mochila
   description: Aumenta o tamanho da mochila
   icon: {fileID: 8755054611862819910, guid: 66fabb405731f7b4db185834fbf135e4, type: 3}
-  baseValue: 5
+  baseValue: 15
   valuePerLevel: 1
   maxLevel: 4
   baseCosts:

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Upgrade_Oxigenio
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: "Oxig\xEAnio"
-  description: "Aumenta a capacidade do tanque de oxig\xEAnio. Permite explorar \xE1reas
-    hostis por mais tempo."
-  icon: {fileID: 0}
+  description: "Aumenta o tanque de oxig\xEAnio"
+  icon: {fileID: -2276259661975475453, guid: 8edb79495bc58ea4c91b5c266dc46bb0, type: 3}
   baseValue: 30
   valuePerLevel: 15
   maxLevel: 4

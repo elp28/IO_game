@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Upgrade_Vida
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Vida
-  description: "Aumenta o HP m\xE1ximo do personagem. Essencial para sobreviver mais
-    tempo em campo."
-  icon: {fileID: 0}
+  description: "Melhora a prote\xE7\xE3o do traje"
+  icon: {fileID: 801451789778697559, guid: 257a465854093534790fd631e7febc20, type: 3}
   baseValue: 20
   valuePerLevel: 10
   maxLevel: 5

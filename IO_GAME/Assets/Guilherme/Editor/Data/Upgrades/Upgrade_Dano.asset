@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Upgrade_Dano
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Dano
-  description: "Aumenta o dano base de todos os ataques. Mais letal a cada n\xEDvel."
-  icon: {fileID: 0}
+  description: Aumenta o dano base em 5
+  icon: {fileID: -412924043903456810, guid: 66fabb405731f7b4db185834fbf135e4, type: 3}
   baseValue: 5
   valuePerLevel: 1.5
   maxLevel: 5

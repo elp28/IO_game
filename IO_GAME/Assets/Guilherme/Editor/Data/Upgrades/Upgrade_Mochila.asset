@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Upgrade_Mochila
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Mochila
-  description: "Aumenta o invent\xE1rio. Permite carregar mais itens e recursos por
-    expedi\xE7\xE3o."
-  icon: {fileID: 0}
+  description: Aumenta o tamanho da mochila
+  icon: {fileID: 8755054611862819910, guid: 66fabb405731f7b4db185834fbf135e4, type: 3}
   baseValue: 5
   valuePerLevel: 1
   maxLevel: 4

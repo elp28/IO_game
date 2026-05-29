@@ -18,9 +18,6 @@ public class SimpleTrashEnemy : GenericEnemy
     protected override void Update()
     {
         base.Update();
-        
-       
-        
 
         if (canAttack && !isAttack)
         {
@@ -51,11 +48,7 @@ public class SimpleTrashEnemy : GenericEnemy
     protected override void OnCollisionExit2D(Collision2D collision)
     {
         base.OnCollisionExit2D(collision);
-        
-  
-      
 
-   
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             agent.isStopped = false;

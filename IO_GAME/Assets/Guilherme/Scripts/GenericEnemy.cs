@@ -9,26 +9,29 @@ public class GenericEnemy : MonoBehaviour
     [System.Serializable]
     public struct TrashDrop
     {
-        public GameObject prefab;
+        public GameObject prefab; // Voltamos para um único prefab por item da lista
         public int amount;
+        
     }
-    public enum TypeEnemy { contact, shooter }
-    public TypeEnemy type;
+
+    public enum TypeDrop { fix, random }
+    public TypeDrop type;
     public enum State { patrol, chase }
     public State currentState;
-    
+
     protected NavMeshAgent agent;
     protected BoxCollider2D fisCollider;
     protected CircleCollider2D areaCollider;
     protected Rigidbody2D rb;
     protected PlayerMove player;
-    
+
     public float life = 30f;
     public float damage = 10f;
     public float cooldown = 1f;
-    
-   [Header("Configuração de Drops")]
+
+    [Header("Configuração de Drops")]
     [SerializeField] private List<TrashDrop> listTrashDrops;
+    public int maxAmount;
 
     protected bool feltPlayer;
     protected bool isAttack;
@@ -47,8 +50,8 @@ public class GenericEnemy : MonoBehaviour
         currentState = State.patrol;
         player = FindObjectOfType<PlayerMove>();
         agent = GetComponent<NavMeshAgent>();
-        
-        if(agent != null)
+
+        if (agent != null)
         {
             agent.updateUpAxis = false;
             agent.updateRotation = false;
@@ -73,21 +76,49 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        foreach (TrashDrop drop in listTrashDrops)
+        if (type == TypeDrop.fix)
         {
-            if (drop.prefab != null)
+            // Modo Fixo: Spawna a quantidade exata de cada item da lista
+            foreach (TrashDrop drop in listTrashDrops)
             {
-                for (int i = 0; i < drop.amount; i++)
+                if (drop.prefab != null)
                 {
+                    for (int i = 0; i < drop.amount; i++)
+                    {
+                        Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+                        Instantiate(drop.prefab, transform.position + spawnOffset, Quaternion.identity);
+                    }
+                }
+            }
+        }
+        else // Modo Random
+        {
+            List<GameObject> poolDePrefabs = new List<GameObject>();
+
+            // 1. Reúne todos os prefabs da lista e descobre o maior maxAmount definido
+            foreach (TrashDrop drop in listTrashDrops)
+            {
+                if (drop.prefab != null)
+                {
+                    poolDePrefabs.Add(drop.prefab);
+                }
+            }
+            if (poolDePrefabs.Count > 0 && maxAmount > 0)
+            {
+                for (int i = 0; i < maxAmount; i++)
+                {
+                    int randomIndex = Random.Range(0, poolDePrefabs.Count);
+                    GameObject prefabSorteado = poolDePrefabs[randomIndex];
+
                     Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
-                    Instantiate(drop.prefab, transform.position + spawnOffset, Quaternion.identity);
+                    Instantiate(prefabSorteado, transform.position + spawnOffset, Quaternion.identity);
                 }
             }
         }
 
         Destroy(gameObject);
     }
-    
+
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -119,7 +150,7 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void OnCollisionExit2D(Collision2D collision)
     {
-        
+
     }
 
     protected virtual void Chase()
@@ -161,47 +192,46 @@ public class GenericEnemy : MonoBehaviour
                 break;
             case State.chase:
                 Chase();
-                haveAPoint = false;
                 break;
         }
     }
 
     private void SpawnDamageNumber(float amount)
-{
-    if (damageNumberPrefab == null) return;
+    {
+        if (damageNumberPrefab == null) return;
 
-    Vector3 spawnPos = transform.position + new Vector3(
-        Random.Range(-0.3f, 0.3f), 0.5f, 0);
+        Vector3 spawnPos = transform.position + new Vector3(
+            Random.Range(-0.3f, 0.3f), 0.5f, 0);
 
-    GameObject obj = Instantiate(damageNumberPrefab, spawnPos, Quaternion.identity);
-    obj.GetComponent<DamageNumber>().Init(amount);
-}
+        GameObject obj = Instantiate(damageNumberPrefab, spawnPos, Quaternion.identity);
+        obj.GetComponent<DamageNumber>().Init(amount);
+    }
 
-private IEnumerator FlashRed()
-{
-    if (spriteRenderer == null) yield break;
+    private IEnumerator FlashRed()
+    {
+        if (spriteRenderer == null) yield break;
 
-    spriteRenderer.color = Color.red;
-    yield return new WaitForSeconds(flashDuration);
-    spriteRenderer.color = Color.white;
-}
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = Color.white;
+    }
 
-private IEnumerator Knockback()
-{
-    if (agent == null || player == null) yield break;
+    private IEnumerator Knockback()
+    {
+        if (agent == null || player == null) yield break;
 
-    agent.isStopped = true;
-    agent.updatePosition = false;
+        agent.isStopped = true;
+        agent.updatePosition = false;
 
-    Vector3 direction = (transform.position - player.transform.position).normalized;
-    Vector3 targetPos = transform.position + direction * 0.6f;
+        Vector3 direction = (transform.position - player.transform.position).normalized;
+        Vector3 targetPos = transform.position + direction * 0.6f;
 
-    yield return transform.DOMove(targetPos, 0.08f)
-        .SetEase(Ease.OutQuad)
-        .WaitForCompletion();
+        yield return transform.DOMove(targetPos, 0.08f)
+            .SetEase(Ease.OutQuad)
+            .WaitForCompletion();
 
-    agent.Warp(transform.position);
-    agent.updatePosition = true;
-    agent.isStopped = false;
-}
+        agent.Warp(transform.position);
+        agent.updatePosition = true;
+        agent.isStopped = false;
+    }
 }

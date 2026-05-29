@@ -221,16 +221,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379a3e608f9341c4eb733632d7f0e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTrashEnemy
-  type: 0
+  type: 1
   currentState: 0
   life: 5
   damage: 5
   cooldown: 1
   listTrashDrops:
+  - prefab: {fileID: 136027075920195957, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
+    amount: 0
   - prefab: {fileID: 389683222883019373, guid: 3f9c2edb2fe30684eafde96a4e8ec970, type: 3}
-    amount: 1
+    amount: 0
   - prefab: {fileID: 8060071050681930887, guid: 44857c48c09ab414bad1dfb0df96b9a3, type: 3}
-    amount: 1
+    amount: 0
+  maxAmount: 5
   damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
   spriteRenderer: {fileID: 1946044819978301241}
   flashDuration: 0.12

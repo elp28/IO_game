@@ -18,8 +18,8 @@ TagManager:
   - Enmey
   - Harpoon
   - ColliderAreaEnemy
-  - 
-  - 
+  - Midground
+  - Foreground
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Midground
+    uniqueID: 1006177551
     locked: 0
   - name: Foreground
     uniqueID: 4133057913

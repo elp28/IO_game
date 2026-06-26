@@ -22,20 +22,10 @@ public class ShopOfferUI : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyButtonText;
 
-    // ─────────────────────────────────────────────
-    // ESTADO
-    // ─────────────────────────────────────────────
-
+ 
     private ShopOffer _offer;
 
-    // ─────────────────────────────────────────────
-    // API PÚBLICA
-    // ─────────────────────────────────────────────
 
-    /// <summary>
-    /// Popula o banner com os dados de uma ShopOffer.
-    /// Chamado pelo ShopCanvasController ao abrir a loja.
-    /// </summary>
     public void Setup(ShopOffer offer)
     {
         _offer = offer;
@@ -54,10 +44,7 @@ public class ShopOfferUI : MonoBehaviour
         RefreshButton();
     }
 
-    /// <summary>
-    /// Atualiza o estado do botão sem recriar o banner inteiro.
-    /// Útil para chamar quando os recursos do jogador mudarem.
-    /// </summary>
+    
     public void RefreshButton()
     {
         if (buyButton == null || _offer == null) return;
@@ -75,10 +62,6 @@ public class ShopOfferUI : MonoBehaviour
         }
     }
 
-    // ─────────────────────────────────────────────
-    // EVENTO DO BOTÃO
-    // Conecte no onClick do buyButton via Inspector
-    // ─────────────────────────────────────────────
 
     public void OnBuyButtonClicked()
     {
@@ -92,10 +75,6 @@ public class ShopOfferUI : MonoBehaviour
             RefreshButton();
     }
 
-    // ─────────────────────────────────────────────
-    // HELPERS
-    // ─────────────────────────────────────────────
-
     private void BuildCostLines(List<ResourceCost> costs)
     {
         if (costContainer == null || costLinePrefab == null) return;
@@ -107,6 +86,7 @@ public class ShopOfferUI : MonoBehaviour
         {
             GameObject line = Instantiate(costLinePrefab, costContainer);
             CostLineUI costLine = line.GetComponent<CostLineUI>();
+            Debug.Log($"[ShopOfferUI] CostLine instanciado: {line.name} | CostLineUI encontrado: {costLine != null}");
             if (costLine != null)
                 costLine.Setup(cost.resourceType, cost.amount);
         }

@@ -4,22 +4,19 @@ using TMPro;
 
 public class CostLineUI : MonoBehaviour
 {
+    [Header("Referências — arraste no Inspector do prefab")]
+    [SerializeField] private Image resourceIcon;
+    [SerializeField] private TextMeshProUGUI amountText;
+
     [Header("Ícones por Tipo de Recurso")]
     [SerializeField] private Sprite iconPlastic;
     [SerializeField] private Sprite iconMetal;
     [SerializeField] private Sprite iconGlass;
 
-    private Image resourceIcon;
-    private TextMeshProUGUI amountText;
-
-    void Awake()
-    {
-        resourceIcon = transform.Find("IconCostLine").GetComponent<Image>();
-        amountText = transform.Find("ValueCostLIne").GetComponent<TextMeshProUGUI>();
-    }
-
     public void Setup(ResourceType type, int amount)
     {
+        Debug.Log($"[CostLine] Setup chamado — tipo: {type} | amount: {amount} | resourceIcon: {resourceIcon} | amountText: {amountText}");
+
         if (amountText != null) amountText.text = amount.ToString();
         if (resourceIcon != null) resourceIcon.sprite = GetIcon(type);
     }

@@ -34,7 +34,7 @@ public class ShopOfferUI : MonoBehaviour
         if (upgradeIcon     != null) upgradeIcon.sprite   = offer.Icon;
         if (nameText        != null) nameText.text        = offer.DisplayName;
         if (descriptionText != null) descriptionText.text = offer.Description;
-        if (levelText       != null) levelText.text       = $"Nível {offer.CurrentLevel} → {offer.NextLevel}";
+        if (levelText != null) levelText.text = $"Nível {offer.CurrentLevel + 1} → {offer.NextLevel + 1}";
         if (valueText       != null) valueText.text       = FormatValue(offer);
 
         BuildCosts(offer);

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca81f4f2b98a4d740a274697e5b665d5, type: 3}
+  m_Name: ResourceIconDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceIconDatabase
+  entries:
+  - resourceType: 0
+    icon: {fileID: 8393191153094585699, guid: 257a465854093534790fd631e7febc20, type: 3}
+  - resourceType: 1
+    icon: {fileID: -6750032056248569916, guid: 257a465854093534790fd631e7febc20, type: 3}
+  - resourceType: 2
+    icon: {fileID: -4354303742480711803, guid: 257a465854093534790fd631e7febc20, type: 3}

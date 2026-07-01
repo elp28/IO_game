@@ -29,20 +29,31 @@ public class UpgradeData : ScriptableObject
     [Min(1f)]
     public float costScalingFactor = 1.5f;
 
-    [Header("Custo — Ícones")]
-    [Tooltip("Ícone do primeiro recurso. Sempre preenchido.")]
-    [ShowAssetPreview(64, 64)]
-    public Sprite costIcon1;
-
-    [Tooltip("Ícone do segundo recurso. Deixe vazio se o upgrade tiver só 1 recurso.")]
-    [ShowAssetPreview(64, 64)]
-    public Sprite costIcon2;
-
     [Header("Geração Procedural")]
     [Min(0f)]
     public float spawnWeight = 1f;
 
     public UpgradeCategory category = UpgradeCategory.Combat;
+
+    // ─────────────────────────────────────────────
+    // ÍCONES DE CUSTO — buscados automaticamente
+    // ─────────────────────────────────────────────
+
+    /// <summary>
+    /// Retorna o ícone do recurso na posição indicada (0 ou 1).
+    /// Busca automaticamente no ResourceIconDatabase.
+    /// </summary>
+    public Sprite GetCostIcon(int index)
+    {
+        if (index >= baseCosts.Count) return null;
+        if (ResourceIconDatabase.instance == null)
+        {
+            Debug.LogWarning("[UpgradeData] ResourceIconDatabase não encontrado na cena.");
+            return null;
+        }
+
+        return ResourceIconDatabase.instance.GetIcon(baseCosts[index].resourceType);
+    }
 
     // ─────────────────────────────────────────────
     // MÉTODOS

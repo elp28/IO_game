@@ -17,7 +17,7 @@ public class ShopOfferUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valueCostLine1;
 
     [Header("Custo — Slot 2 (visível só se tiver 2 recursos)")]
-    [SerializeField] private GameObject      valueForBuy2; // objeto raiz do slot 2
+    [SerializeField] private GameObject      valueForBuy2;
     [SerializeField] private Image           iconCostLine2;
     [SerializeField] private TextMeshProUGUI valueCostLine2;
 
@@ -26,8 +26,6 @@ public class ShopOfferUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI buyButtonText;
 
     private ShopOffer _offer;
-
-    // ─────────────────────────────────────────────
 
     public void Setup(ShopOffer offer)
     {
@@ -72,10 +70,6 @@ public class ShopOfferUI : MonoBehaviour
             RefreshButton();
     }
 
-    // ─────────────────────────────────────────────
-    // CUSTO
-    // ─────────────────────────────────────────────
-
     private void BuildCosts(ShopOffer offer)
     {
         List<ResourceCost> costs = offer.Cost;
@@ -83,7 +77,7 @@ public class ShopOfferUI : MonoBehaviour
         // Slot 1 — sempre presente
         if (costs.Count >= 1)
         {
-            if (iconCostLine1  != null) iconCostLine1.sprite = offer.Upgrade.costIcon1;
+            if (iconCostLine1  != null) iconCostLine1.sprite = offer.Upgrade.GetCostIcon(0);
             if (valueCostLine1 != null) valueCostLine1.text  = costs[0].amount.ToString();
         }
 
@@ -93,14 +87,10 @@ public class ShopOfferUI : MonoBehaviour
 
         if (hasSecond)
         {
-            if (iconCostLine2  != null) iconCostLine2.sprite = offer.Upgrade.costIcon2;
+            if (iconCostLine2  != null) iconCostLine2.sprite = offer.Upgrade.GetCostIcon(1);
             if (valueCostLine2 != null) valueCostLine2.text  = costs[1].amount.ToString();
         }
     }
-
-    // ─────────────────────────────────────────────
-    // FORMATAÇÃO
-    // ─────────────────────────────────────────────
 
     private string FormatValue(ShopOffer offer)
     {

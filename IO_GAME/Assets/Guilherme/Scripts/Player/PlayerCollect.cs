@@ -32,11 +32,13 @@ public class PlayerCollect : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.GetComponent<BoxCollect>())
+        BoxCollect boxCollect = collision.gameObject.GetComponent<BoxCollect>();
+        if (boxCollect != null)
         {
             DeliverTrash();
             print("oiCheguei");
             hudManager.ActiveButtonStation(true);
+            hudManager.SetCurrentStation(boxCollect.ShopStation);
         }
     }
 
@@ -45,6 +47,7 @@ public class PlayerCollect : MonoBehaviour
         if (collision.gameObject.GetComponent<BoxCollect>())
         {
             hudManager.ActiveButtonStation(false);
+            hudManager.ClearCurrentStation();
         }
     }
 

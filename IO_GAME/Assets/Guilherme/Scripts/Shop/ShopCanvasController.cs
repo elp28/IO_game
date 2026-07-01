@@ -6,26 +6,28 @@ public class ShopCanvasController : MonoBehaviour
     public static ShopCanvasController instance;
 
     [Header("Referências")]
-    [Tooltip("O painel raiz da loja (ShopCanvas ou um painel filho).")]
     [SerializeField] private GameObject shopPanel;
-
-    [Tooltip("Container onde os banners ShopOfferUI serão instanciados.")]
-    [SerializeField] private Transform offersContainer;
-
-    [Tooltip("Prefab do banner de oferta.")]
+    [SerializeField] private Transform  offersContainer;
     [SerializeField] private GameObject shopOfferUIPrefab;
 
+    // Estação que abriu a loja atualmente
+    private ShopStation _currentStation;
 
     void Awake()
     {
         if (instance == null) instance = this;
-        CloseShop(); // garante que começa fechado
+        CloseShop();
     }
 
-    public void OpenShop()
+    /// <summary>
+    /// Abre a loja para uma estação específica.
+    /// Chamado pela estação quando o jogador interage com ela.
+    /// </summary>
+    public void OpenShop(ShopStation station)
     {
-        List<ShopOffer> offers = ShopManager.instance.OpenShop();
+        _currentStation = station;
 
+        List<ShopOffer> offers = station.GetOffers();
         BuildBanners(offers);
 
         shopPanel.SetActive(true);
@@ -35,11 +37,18 @@ public class ShopCanvasController : MonoBehaviour
     {
         shopPanel.SetActive(false);
         ClearBanners();
+        _currentStation = null;
     }
 
-
+    /// <summary>
+    /// Chamado pelo ShopOfferUI após uma compra bem-sucedida.
+    /// Avisa a estação que precisa regenerar as ofertas na próxima abertura.
+    /// </summary>
     public void OnPurchaseCompleted()
     {
+        if (_currentStation != null)
+            _currentStation.OnPurchaseCompleted();
+
         CloseShop();
     }
 
@@ -49,7 +58,7 @@ public class ShopCanvasController : MonoBehaviour
 
         foreach (var offer in offers)
         {
-            GameObject obj = Instantiate(shopOfferUIPrefab, offersContainer);
+            GameObject obj     = Instantiate(shopOfferUIPrefab, offersContainer);
             ShopOfferUI banner = obj.GetComponent<ShopOfferUI>();
             if (banner != null)
                 banner.Setup(offer);

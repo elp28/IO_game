@@ -28,18 +28,19 @@ public class HUDManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI metalText;
     [SerializeField] TextMeshProUGUI plasticText;
 
-
-
     private readonly Color oxyColorFull     = new Color(0.2f, 0.3f, 0.8f);
-    private readonly Color colorFull     = new Color(0.2f, 0.8f, 0.3f);
-    private readonly Color oxyColorMid      = new Color(0.5f,   0.4f, 0.7f);
-    private readonly Color colorMid      = new Color(1f,   0.7f, 0f);
+    private readonly Color colorFull        = new Color(0.2f, 0.8f, 0.3f);
+    private readonly Color oxyColorMid      = new Color(0.5f, 0.4f, 0.7f);
+    private readonly Color colorMid         = new Color(1f,   0.7f, 0f);
     private readonly Color oxyColorCritical = new Color(0.9f, 0.1f, 0.2f);
-    private readonly Color colorCritical = new Color(0.9f, 0.2f, 0.2f);
+    private readonly Color colorCritical    = new Color(0.9f, 0.2f, 0.2f);
 
     private float lastLifePercent = 1f;
-    private int lastBagTotal = 0;
+    private int   lastBagTotal    = 0;
     float lastOxygen;
+
+    // Estação atual onde o player está
+    private ShopStation _currentStation;
 
     void Update()
     {
@@ -50,7 +51,7 @@ public class HUDManager : MonoBehaviour
 
     void Start()
     {
-        lastBagTotal = -1; // força atualização inicial
+        lastBagTotal = -1;
         RefreshBag();
 
         ActiveButtonStation(false);
@@ -62,7 +63,6 @@ public class HUDManager : MonoBehaviour
         if (playerLife == null || lifeBarFill == null) return;
 
         float percent = playerLife.LifePercent;
-
         if (Mathf.Approximately(percent, lastLifePercent)) return;
         lastLifePercent = percent;
 
@@ -87,9 +87,7 @@ public class HUDManager : MonoBehaviour
         lastBagTotal = current;
 
         bagText.text = $"{current}/{max}";
-
         DoAnimText(bagText);
-
         bagText.color = (current >= max) ? new Color(1f, 0.5f, 0f) : Color.white;
     }
 
@@ -98,7 +96,6 @@ public class HUDManager : MonoBehaviour
         if (playerLife == null || oxyBarFill == null) return;
 
         float percent = playerLife.oxygenPercent;
-
         if (Mathf.Approximately(percent, lastOxygen)) return;
         lastOxygen = percent;
 
@@ -115,25 +112,48 @@ public class HUDManager : MonoBehaviour
     public void ActiveButtonStation(bool isInStation)
     {
         Color color = butStation.gameObject.GetComponent<Image>().color;
-        float alpha = 0.5f;
         butStation.GetComponent<Button>().interactable = isInStation;
 
-        if(isInStation == true)
-            color.a = alpha;   
-        else
-            color.a = 0.07f;
+        color.a = isInStation ? 0.5f : 0.07f;
     }
 
     public void ActivePanelStation(bool onStation)
     {
         panelStation.SetActive(onStation);
     }
-    
+
     public void UpdateResources(int Glass, int Plastic, int Metal)
     {
-        glassText.text = $"Vidro: {Glass}";
-        metalText.text = $"Metal: {Metal}";
+        glassText.text   = $"Vidro: {Glass}";
+        metalText.text   = $"Metal: {Metal}";
         plasticText.text = $"Plástico: {Plastic}";
+    }
+
+    /// <summary>
+    /// Chamado pelo PlayerCollect quando entra no trigger de uma estação.
+    /// </summary>
+    public void SetCurrentStation(ShopStation station)
+    {
+        _currentStation = station;
+    }
+
+    /// <summary>
+    /// Chamado pelo PlayerCollect quando sai do trigger da estação.
+    /// </summary>
+    public void ClearCurrentStation()
+    {
+        _currentStation = null;
+    }
+
+    public void OpenShop()
+    {
+        if (_currentStation == null)
+        {
+            Debug.LogWarning("[HUD] Nenhuma estação atual definida.");
+            return;
+        }
+
+        ShopCanvasController.instance.OpenShop(_currentStation);
     }
 
     void DoAnimText(TextMeshProUGUI typeText)
@@ -141,10 +161,5 @@ public class HUDManager : MonoBehaviour
         typeText.rectTransform.DOKill();
         typeText.rectTransform.localScale = Vector3.one;
         typeText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.25f, vibrato: 6);
-    }
-
-    public void OpenShop()
-    {
-        ShopCanvasController.instance.OpenShop();
     }
 }

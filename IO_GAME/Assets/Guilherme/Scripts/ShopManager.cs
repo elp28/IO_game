@@ -82,7 +82,7 @@ public class ShopManager : MonoBehaviour
     // GERAÇÃO DE OFERTAS
     // ─────────────────────────────────────────────
 
-    private List<ShopOffer> GenerateOffers()
+    public List<ShopOffer> GenerateOffers()
     {
         // 1. Filtrar upgrades inválidos
         var valid = FilterValid();

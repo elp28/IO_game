@@ -27023,9 +27023,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1054838885}
-  - {fileID: 1415368129}
   - {fileID: 1842434337}
   - {fileID: 601146065}
+  - {fileID: 1415368129}
   m_Father: {fileID: 2143425763}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29107,6 +29107,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 85636856185436456, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 85636856185436456, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 85636856185436456, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 85636856185436456, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.5545
+      objectReference: {fileID: 0}
     - target: {fileID: 388123681274701717, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -29186,6 +29202,22 @@ PrefabInstance:
     - target: {fileID: 388123681274701717, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318695216290938044, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318695216290938044, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318695216290938044, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.5545
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089717299798183575, guid: 471fa8c261401ab4286ed367dec4bf51, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

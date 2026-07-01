@@ -6,62 +6,59 @@ using TMPro;
 public class ShopOfferUI : MonoBehaviour
 {
     [Header("Visual — Upgrade")]
-    [SerializeField] private Image upgradeIcon;
+    [SerializeField] private Image           upgradeIcon;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI valueText;
 
-    [Header("Visual — Custo")]
-    [Tooltip("Container onde as linhas de custo serão instanciadas.")]
-    [SerializeField] private Transform costContainer;
-    [Tooltip("Prefab de uma linha de custo (ícone + quantidade).")]
-    [SerializeField] private GameObject costLinePrefab;
+    [Header("Custo — Slot 1 (sempre visível)")]
+    [SerializeField] private Image           iconCostLine1;
+    [SerializeField] private TextMeshProUGUI valueCostLine1;
+
+    [Header("Custo — Slot 2 (visível só se tiver 2 recursos)")]
+    [SerializeField] private GameObject      valueForBuy2; // objeto raiz do slot 2
+    [SerializeField] private Image           iconCostLine2;
+    [SerializeField] private TextMeshProUGUI valueCostLine2;
 
     [Header("Botão de Compra")]
-    [SerializeField] private Button buyButton;
+    [SerializeField] private Button          buyButton;
     [SerializeField] private TextMeshProUGUI buyButtonText;
 
- 
     private ShopOffer _offer;
 
+    // ─────────────────────────────────────────────
 
     public void Setup(ShopOffer offer)
     {
         _offer = offer;
 
-        // Ícone e textos
-        if (upgradeIcon != null) upgradeIcon.sprite = offer.Icon;
-        if (nameText != null) nameText.text = offer.DisplayName;
+        if (upgradeIcon     != null) upgradeIcon.sprite   = offer.Icon;
+        if (nameText        != null) nameText.text        = offer.DisplayName;
         if (descriptionText != null) descriptionText.text = offer.Description;
-        if (levelText != null) levelText.text = $"Nível {offer.CurrentLevel} → {offer.NextLevel}";
-        if (valueText != null) valueText.text = FormatValue(offer);
+        if (levelText       != null) levelText.text       = $"Nível {offer.CurrentLevel} → {offer.NextLevel}";
+        if (valueText       != null) valueText.text       = FormatValue(offer);
 
-        // Custos
-        BuildCostLines(offer.Cost);
-
-        // Botão
+        BuildCosts(offer);
         RefreshButton();
     }
 
-    
     public void RefreshButton()
     {
         if (buyButton == null || _offer == null) return;
 
         bool canAfford = ResourceManager.instance.CanAfford(_offer.Cost);
-        bool isMax = _offer.IsMaxLevel;
+        bool isMax     = _offer.IsMaxLevel;
 
         buyButton.interactable = canAfford && !isMax;
 
         if (buyButtonText != null)
         {
-            if (isMax) buyButtonText.text = "MAX";
+            if (isMax)          buyButtonText.text = "MAX";
             else if (canAfford) buyButtonText.text = "Comprar";
-            else buyButtonText.text = "Sem recursos";
+            else                buyButtonText.text = "Sem recursos";
         }
     }
-
 
     public void OnBuyButtonClicked()
     {
@@ -75,32 +72,45 @@ public class ShopOfferUI : MonoBehaviour
             RefreshButton();
     }
 
-    private void BuildCostLines(List<ResourceCost> costs)
+    // ─────────────────────────────────────────────
+    // CUSTO
+    // ─────────────────────────────────────────────
+
+    private void BuildCosts(ShopOffer offer)
     {
-        if (costContainer == null || costLinePrefab == null) return;
+        List<ResourceCost> costs = offer.Cost;
 
-        foreach (Transform child in costContainer)
-            Destroy(child.gameObject);
-
-        foreach (var cost in costs)
+        // Slot 1 — sempre presente
+        if (costs.Count >= 1)
         {
-            GameObject line = Instantiate(costLinePrefab, costContainer);
-            CostLineUI costLine = line.GetComponent<CostLineUI>();
-            Debug.Log($"[ShopOfferUI] CostLine instanciado: {line.name} | CostLineUI encontrado: {costLine != null}");
-            if (costLine != null)
-                costLine.Setup(cost.resourceType, cost.amount);
+            if (iconCostLine1  != null) iconCostLine1.sprite = offer.Upgrade.costIcon1;
+            if (valueCostLine1 != null) valueCostLine1.text  = costs[0].amount.ToString();
+        }
+
+        // Slot 2 — só aparece se houver 2 recursos
+        bool hasSecond = costs.Count >= 2;
+        if (valueForBuy2 != null) valueForBuy2.SetActive(hasSecond);
+
+        if (hasSecond)
+        {
+            if (iconCostLine2  != null) iconCostLine2.sprite = offer.Upgrade.costIcon2;
+            if (valueCostLine2 != null) valueCostLine2.text  = costs[1].amount.ToString();
         }
     }
+
+    // ─────────────────────────────────────────────
+    // FORMATAÇÃO
+    // ─────────────────────────────────────────────
 
     private string FormatValue(ShopOffer offer)
     {
         return offer.Upgrade.category switch
         {
-            UpgradeCategory.Survival when offer.DisplayName == "Vida" => $"+{offer.ValueAfterPurchase} HP",
+            UpgradeCategory.Survival when offer.DisplayName == "Vida"     => $"+{offer.ValueAfterPurchase} HP",
             UpgradeCategory.Survival when offer.DisplayName == "Oxigênio" => $"+{offer.ValueAfterPurchase}s O₂",
-            UpgradeCategory.Combat => $"+{offer.ValueAfterPurchase} DMG",
-            UpgradeCategory.Utility => $"+{offer.ValueAfterPurchase} slots",
-            _ => $"+{offer.ValueAfterPurchase}"
+            UpgradeCategory.Combat                                         => $"+{offer.ValueAfterPurchase} DMG",
+            UpgradeCategory.Utility                                        => $"+{offer.ValueAfterPurchase} slots",
+            _                                                              => $"+{offer.ValueAfterPurchase}"
         };
     }
 }

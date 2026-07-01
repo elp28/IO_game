@@ -6,47 +6,47 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Shop/Upgrade Data", order = 0)]
 public class UpgradeData : ScriptableObject
 {
-
-
     [Header("Visual")]
-    [Tooltip("Nome exibido na loja e no HUD.")]
     public string upgradeName = "Upgrade";
 
-    [Tooltip("Descrição curta exibida na loja.")]
     [TextArea(2, 4)]
     public string description = "";
 
-    [Tooltip("Ícone exibido na UI.")]
-    [ShowAssetPreview(64,64)]
+    [ShowAssetPreview(64, 64)]
     public Sprite icon;
 
     [Header("Progressão")]
-    [Tooltip("Valor do efeito no nível 1.")]
     public float baseValue = 1f;
-
-    [Tooltip("Quanto o valor cresce por nível.")]
     public float valuePerLevel = 0.5f;
 
-    [Tooltip("Nível máximo atingível. Use 0 para ilimitado.")]
     [Min(0)]
     public int maxLevel = 5;
 
     [Header("Custo")]
-    [Tooltip("Lista de recursos necessários para comprar o nível 1.")]
+    [Tooltip("Máximo 2 recursos.")]
     public List<ResourceCost> baseCosts = new List<ResourceCost>();
 
-    [Tooltip("Fator de escalonamento do custo por nível. Ex: 1.5 = 50% mais caro por nível.")]
     [Min(1f)]
     public float costScalingFactor = 1.5f;
 
+    [Header("Custo — Ícones")]
+    [Tooltip("Ícone do primeiro recurso. Sempre preenchido.")]
+    [ShowAssetPreview(64, 64)]
+    public Sprite costIcon1;
+
+    [Tooltip("Ícone do segundo recurso. Deixe vazio se o upgrade tiver só 1 recurso.")]
+    [ShowAssetPreview(64, 64)]
+    public Sprite costIcon2;
 
     [Header("Geração Procedural")]
-    [Tooltip("Peso relativo de aparição na loja. Valores maiores = aparece mais.")]
     [Min(0f)]
     public float spawnWeight = 1f;
 
-    [Tooltip("Categoria do upgrade para filtragem e agrupamento.")]
     public UpgradeCategory category = UpgradeCategory.Combat;
+
+    // ─────────────────────────────────────────────
+    // MÉTODOS
+    // ─────────────────────────────────────────────
 
     public float GetValueAtLevel(int level)
     {
@@ -82,26 +82,23 @@ public class UpgradeData : ScriptableObject
 [Serializable]
 public class ResourceCost
 {
-    [Tooltip("Tipo do recurso exigido.")]
     public ResourceType resourceType;
 
-    [Tooltip("Quantidade base necessária.")]
     [Min(1)]
     public int amount = 10;
 }
 
 public enum ResourceType
 {
-    Metal,         
-    Plastic,   
-    Glass,        
+    Metal,
+    Plastic,
+    Glass,
 }
-
 
 public enum UpgradeCategory
 {
-    Combat,     // Dano, crítico, velocidade de ataque
-    Survival,   // Vida, escudo, regeneração
-    Utility,    // Mochila, cooldowns, velocidade
-    Resource    // Oxigênio, geração de recursos
+    Combat,
+    Survival,
+    Utility,
+    Resource
 }

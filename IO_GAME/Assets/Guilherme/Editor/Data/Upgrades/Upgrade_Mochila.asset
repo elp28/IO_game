@@ -24,5 +24,7 @@ MonoBehaviour:
   - resourceType: 0
     amount: 2
   costScalingFactor: 1.4
+  costIcon1: {fileID: 1841930184305661864, guid: 257a465854093534790fd631e7febc20, type: 3}
+  costIcon2: {fileID: 8393191153094585699, guid: 257a465854093534790fd631e7febc20, type: 3}
   spawnWeight: 0.8
   category: 2

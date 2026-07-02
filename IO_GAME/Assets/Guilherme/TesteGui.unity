@@ -29925,10 +29925,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2229741526301107354, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
-      propertyPath: life
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
       propertyPath: m_Name
       value: EnemyTrashGeneric

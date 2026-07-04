@@ -9,9 +9,8 @@ public class GenericEnemy : MonoBehaviour
     [System.Serializable]
     public struct TrashDrop
     {
-        public GameObject prefab; // Voltamos para um único prefab por item da lista
+        public GameObject prefab;
         public int amount;
-        
     }
 
     public enum TypeDrop { fix, random }
@@ -45,6 +44,47 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] private float flashDuration = 0.12f;
     [SerializeField] private float knockbackForce = 4f;
 
+    // ─────────────────────────────────────────────
+    // ÁREA
+    // ─────────────────────────────────────────────
+
+    private PollutedArea _area;
+    private bool _playerInArea = false;
+
+    // ─────────────────────────────────────────────
+    // ANTI-STUCK (problema 3)
+    // ─────────────────────────────────────────────
+
+    private Vector3 _lastPosition;
+    private float _stuckTimer = 0f;
+    private const float StuckThreshold = 1f;    // segundos parado
+    private const float StuckMinDistance = 0.05f; // distância mínima para considerar "movendo"
+
+    public void SetArea(PollutedArea area)
+    {
+        _area = area;
+    }
+
+    public void OnPlayerEnteredArea()
+    {
+        _playerInArea = true;
+        // Player entrou na área — começa a perseguir imediatamente
+        feltPlayer = true;
+        currentState = State.chase;
+    }
+
+    public void OnPlayerExitedArea()
+    {
+        _playerInArea = false;
+        feltPlayer = false;
+        currentState = State.patrol;
+        haveAPoint = false;
+    }
+
+    // ─────────────────────────────────────────────
+    // LIFECYCLE
+    // ─────────────────────────────────────────────
+
     protected virtual void Start()
     {
         currentState = State.patrol;
@@ -56,12 +96,52 @@ public class GenericEnemy : MonoBehaviour
             agent.updateUpAxis = false;
             agent.updateRotation = false;
         }
+
+        _lastPosition = transform.position;
     }
 
     protected virtual void Update()
     {
         SwitchStates();
+        CheckStuck();
     }
+
+    // ─────────────────────────────────────────────
+    // ANTI-STUCK
+    // ─────────────────────────────────────────────
+
+    private void CheckStuck()
+    {
+        if (currentState != State.patrol) 
+        {
+            _stuckTimer = 0f;
+            _lastPosition = transform.position;
+            return;
+        }
+
+        float moved = Vector3.Distance(transform.position, _lastPosition);
+
+        if (moved < StuckMinDistance)
+        {
+            _stuckTimer += Time.deltaTime;
+
+            if (_stuckTimer >= StuckThreshold)
+            {
+                haveAPoint = false; // força novo ponto de patrulha
+                _stuckTimer = 0f;
+                Debug.Log($"[{gameObject.name}] Stuck detectado — novo ponto de patrulha.");
+            }
+        }
+        else
+        {
+            _stuckTimer = 0f;
+            _lastPosition = transform.position;
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    // DANO E MORTE
+    // ─────────────────────────────────────────────
 
     public virtual void TakeDamage(float amount)
     {
@@ -76,42 +156,40 @@ public class GenericEnemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (_area != null)
+            _area.OnEnemyDied(this);
+
         if (type == TypeDrop.fix)
         {
-            // Modo Fixo: Spawna a quantidade exata de cada item da lista
             foreach (TrashDrop drop in listTrashDrops)
             {
                 if (drop.prefab != null)
                 {
                     for (int i = 0; i < drop.amount; i++)
                     {
-                        Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
-                        Instantiate(drop.prefab, transform.position + spawnOffset, Quaternion.identity);
+                        Vector3 offset = new Vector3(
+                            Random.Range(-0.5f, 0.5f),
+                            Random.Range(-0.5f, 0.5f), 0);
+                        Instantiate(drop.prefab, transform.position + offset, Quaternion.identity);
                     }
                 }
             }
         }
-        else // Modo Random
+        else
         {
-            List<GameObject> poolDePrefabs = new List<GameObject>();
-
-            // 1. Reúne todos os prefabs da lista e descobre o maior maxAmount definido
+            List<GameObject> pool = new List<GameObject>();
             foreach (TrashDrop drop in listTrashDrops)
-            {
-                if (drop.prefab != null)
-                {
-                    poolDePrefabs.Add(drop.prefab);
-                }
-            }
-            if (poolDePrefabs.Count > 0 && maxAmount > 0)
+                if (drop.prefab != null) pool.Add(drop.prefab);
+
+            if (pool.Count > 0 && maxAmount > 0)
             {
                 for (int i = 0; i < maxAmount; i++)
                 {
-                    int randomIndex = Random.Range(0, poolDePrefabs.Count);
-                    GameObject prefabSorteado = poolDePrefabs[randomIndex];
-
-                    Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
-                    Instantiate(prefabSorteado, transform.position + spawnOffset, Quaternion.identity);
+                    int idx = Random.Range(0, pool.Count);
+                    Vector3 offset = new Vector3(
+                        Random.Range(-0.5f, 0.5f),
+                        Random.Range(-0.5f, 0.5f), 0);
+                    Instantiate(pool[idx], transform.position + offset, Quaternion.identity);
                 }
             }
         }
@@ -119,10 +197,15 @@ public class GenericEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // ─────────────────────────────────────────────
+    // TRIGGERS
+    // ─────────────────────────────────────────────
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger) return;
+        if (!_playerInArea) return;
+
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {
@@ -135,6 +218,7 @@ public class GenericEnemy : MonoBehaviour
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.isTrigger) return;
+
         PlayerMove tempPlayer = collision.gameObject.GetComponent<PlayerMove>();
         if (tempPlayer != null)
         {
@@ -143,20 +227,24 @@ public class GenericEnemy : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
+    protected virtual void OnCollisionEnter2D(Collision2D collision) { }
+    protected virtual void OnCollisionExit2D(Collision2D collision) { }
 
-    }
-
-    protected virtual void OnCollisionExit2D(Collision2D collision)
-    {
-
-    }
+    // ─────────────────────────────────────────────
+    // ESTADOS
+    // ─────────────────────────────────────────────
 
     protected virtual void Chase()
     {
         if (agent != null && !agent.enabled) agent.enabled = true;
-        if (player != null) agent.SetDestination(player.transform.position);
+        if (player == null) return;
+
+        Vector3 destination = player.transform.position;
+
+        if (_area != null && !_area.ContainsPoint(destination))
+            destination = _area.ClampToBounds(destination);
+
+        agent.SetDestination(destination);
     }
 
     protected virtual void Patrol()
@@ -166,9 +254,21 @@ public class GenericEnemy : MonoBehaviour
 
         if (!haveAPoint)
         {
-            float randomValueX = Random.Range(-5f, 5f);
-            float randomValueY = Random.Range(-5f, 5f);
-            randomPoint = new Vector2(transform.position.x - randomValueX, transform.position.y - randomValueY);
+            if (_area != null)
+            {
+                Bounds b = _area.Bounds;
+                randomPoint = new Vector2(
+                    Random.Range(b.min.x, b.max.x),
+                    Random.Range(b.min.y, b.max.y)
+                );
+            }
+            else
+            {
+                randomPoint = new Vector2(
+                    transform.position.x + Random.Range(-5f, 5f),
+                    transform.position.y + Random.Range(-5f, 5f));
+            }
+
             haveAPoint = true;
         }
 
@@ -177,9 +277,7 @@ public class GenericEnemy : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-            {
                 haveAPoint = false;
-            }
         }
     }
 
@@ -187,14 +285,14 @@ public class GenericEnemy : MonoBehaviour
     {
         switch (currentState)
         {
-            case State.patrol:
-                Patrol();
-                break;
-            case State.chase:
-                Chase();
-                break;
+            case State.patrol: Patrol(); break;
+            case State.chase:  Chase();  break;
         }
     }
+
+    // ─────────────────────────────────────────────
+    // EFEITOS
+    // ─────────────────────────────────────────────
 
     private void SpawnDamageNumber(float amount)
     {
@@ -210,7 +308,6 @@ public class GenericEnemy : MonoBehaviour
     private IEnumerator FlashRed()
     {
         if (spriteRenderer == null) yield break;
-
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(flashDuration);
         spriteRenderer.color = Color.white;
@@ -225,6 +322,9 @@ public class GenericEnemy : MonoBehaviour
 
         Vector3 direction = (transform.position - player.transform.position).normalized;
         Vector3 targetPos = transform.position + direction * 0.6f;
+
+        if (_area != null)
+            targetPos = _area.ClampToBounds(targetPos);
 
         yield return transform.DOMove(targetPos, 0.08f)
             .SetEase(Ease.OutQuad)

@@ -7,6 +7,7 @@ public class AreaUIManager : MonoBehaviour
 
     [Header("Referências")]
     [SerializeField] private GameObject areaPanel;
+    [SerializeField] private GameObject enemyCount;      // pai com icon + text
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private TextMeshProUGUI clearedText;
 
@@ -14,6 +15,7 @@ public class AreaUIManager : MonoBehaviour
     {
         instance = this;
         areaPanel.SetActive(false);
+        if (enemyCount  != null) enemyCount.SetActive(false);
         if (clearedText != null) clearedText.gameObject.SetActive(false);
     }
 
@@ -23,9 +25,8 @@ public class AreaUIManager : MonoBehaviour
 
         if (area.IsCleared)
         {
-            // Área já foi limpa — mostra só o texto de limpa
-            if (enemyCountText != null) enemyCountText.gameObject.SetActive(false);
-            if (clearedText    != null)
+            if (enemyCount  != null) enemyCount.SetActive(false);
+            if (clearedText != null)
             {
                 clearedText.text = "Área Limpa!";
                 clearedText.gameObject.SetActive(true);
@@ -33,9 +34,8 @@ public class AreaUIManager : MonoBehaviour
         }
         else
         {
-            // Área ainda tem inimigos
-            if (clearedText    != null) clearedText.gameObject.SetActive(false);
-            if (enemyCountText != null) enemyCountText.gameObject.SetActive(true);
+            if (clearedText != null) clearedText.gameObject.SetActive(false);
+            if (enemyCount  != null) enemyCount.SetActive(true);
             UpdateEnemyCount(area);
         }
     }
@@ -54,8 +54,8 @@ public class AreaUIManager : MonoBehaviour
     public void OnAreaCleared(PollutedArea area)
     {
         areaPanel.SetActive(true);
-        if (enemyCountText != null) enemyCountText.gameObject.SetActive(false);
-        if (clearedText    != null)
+        if (enemyCount  != null) enemyCount.SetActive(false);
+        if (clearedText != null)
         {
             clearedText.text = "Área Limpa!";
             clearedText.gameObject.SetActive(true);

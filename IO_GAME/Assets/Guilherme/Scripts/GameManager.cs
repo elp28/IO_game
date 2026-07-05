@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
         gameOverPanel?.SetActive(false);
         gameWinPanel?.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     // ─────────────────────────────────────────────

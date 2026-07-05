@@ -34,6 +34,8 @@ public class PollutedArea : MonoBehaviour
 
         if (station != null) station.SetActive(false);
 
+        GameManager.instance?.RegisterArea();
+
         // Checa inimigos spawnados em runtime
         StartCoroutine(WatchForNewEnemies());
     }
@@ -114,6 +116,7 @@ public class PollutedArea : MonoBehaviour
 
         Debug.Log($"[{gameObject.name}] Área limpa!");
         AreaUIManager.instance?.OnAreaCleared(this);
+        GameManager.instance?.OnAreaCleared();
 
         if (station != null)
             station.SetActive(true);

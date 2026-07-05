@@ -19,15 +19,11 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private float flashDuration = 0.12f;
 
     [Header("Regeneração Passiva")]
-    [Tooltip("Segundos sem tomar dano para começar a regenerar.")]
     [SerializeField] private float regenDelay = 5f;
-    [Tooltip("HP regenerado por segundo fora da estação.")]
     [SerializeField] private float regenPerSecond = 2f;
 
     [Header("Regeneração na Estação")]
-    [Tooltip("HP regenerado por segundo dentro da estação.")]
     [SerializeField] private float stationLifeRegenPerSecond = 20f;
-    [Tooltip("Oxigênio recuperado por segundo dentro da estação.")]
     [SerializeField] private float stationOxyRegenPerSecond = 40f;
 
     bool isAtStation;
@@ -38,7 +34,7 @@ public class PlayerLife : MonoBehaviour
         currentLife = maxLife;
         currentOxygen = maxOxygen;
         playerBag = GetComponent<PlayerCollect>();
-        _timeSinceLastDamage = regenDelay; // começa podendo regenerar
+        _timeSinceLastDamage = regenDelay;
     }
 
     void Update()
@@ -49,27 +45,21 @@ public class PlayerLife : MonoBehaviour
             return;
         }
 
-        // Oxigênio cai fora da estação
         if (currentOxygen > 0)
             currentOxygen -= Time.deltaTime;
         else
             Die();
 
-        // Regeneração passiva após delay
         _timeSinceLastDamage += Time.deltaTime;
         if (_timeSinceLastDamage >= regenDelay && currentLife < maxLife)
-        {
             currentLife = Mathf.Min(currentLife + regenPerSecond * Time.deltaTime, maxLife);
-        }
     }
 
     private void RegenAtStation()
     {
-        // Vida sobe rapidamente
         if (currentLife < maxLife)
             currentLife = Mathf.Min(currentLife + stationLifeRegenPerSecond * Time.deltaTime, maxLife);
 
-        // Oxigênio sobe rapidamente
         if (currentOxygen < maxOxygen)
             currentOxygen = Mathf.Min(currentOxygen + stationOxyRegenPerSecond * Time.deltaTime, maxOxygen);
     }
@@ -77,9 +67,8 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentLife -= damage;
-        _timeSinceLastDamage = 0f; // reseta o delay de regeneração
+        _timeSinceLastDamage = 0f;
 
-        print("Vida do Jogador: " + currentLife);
         SpawnDamageNumber(damage);
         StartCoroutine(FlashRed());
 
@@ -90,15 +79,13 @@ public class PlayerLife : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         BoxCollect boxCollect = collider.gameObject.GetComponent<BoxCollect>();
-        if (boxCollect != null)
-            isAtStation = true;
+        if (boxCollect != null) isAtStation = true;
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         BoxCollect boxCollect = collider.gameObject.GetComponent<BoxCollect>();
-        if (boxCollect != null)
-            isAtStation = false;
+        if (boxCollect != null) isAtStation = false;
     }
 
     void Die()
@@ -106,7 +93,7 @@ public class PlayerLife : MonoBehaviour
         if (playerBag != null)
             playerBag.ClearBag();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.instance.TriggerGameOver();
     }
 
     private void SpawnDamageNumber(float amount)
@@ -125,10 +112,6 @@ public class PlayerLife : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
         spriteRenderer.color = Color.white;
     }
-
-    // ─────────────────────────────────────────────
-    // API DE UPGRADES
-    // ─────────────────────────────────────────────
 
     public void SetMaxLife(float newMax)
     {

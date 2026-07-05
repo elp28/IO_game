@@ -73,7 +73,7 @@ public class GenericEnemy : MonoBehaviour
         currentState = State.chase;
     }
 
-    public void OnPlayerExitedArea()
+    public virtual void OnPlayerExitedArea()
     {
         _playerInArea = false;
         feltPlayer = false;

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootEnemy
   type: 0
   currentState: 0
-  life: 5
+  life: 6
   damage: 0
   cooldown: 5
   listTrashDrops:
@@ -287,4 +287,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 14.29
+  m_Radius: 20

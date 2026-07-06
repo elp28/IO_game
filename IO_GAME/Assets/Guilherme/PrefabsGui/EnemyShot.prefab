@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799217069086232432}
   - component: {fileID: 1930662268464042007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 4466950343461967090}
   - component: {fileID: 5824184795904858889}
   - component: {fileID: 6825947139687696836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

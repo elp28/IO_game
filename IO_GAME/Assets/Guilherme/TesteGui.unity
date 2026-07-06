@@ -3232,6 +3232,7 @@ GameObject:
   - component: {fileID: 740491818}
   - component: {fileID: 740491817}
   - component: {fileID: 740491819}
+  - component: {fileID: 740491820}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3340,6 +3341,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameOverPanel: {fileID: 726711259}
   gameWinPanel: {fileID: 1549772774}
+  openPanelTransition: {fileID: 11400000, guid: 057babd6f13132c449650d99e3c4e99c, type: 2}
+  restartTransition: {fileID: 11400000, guid: c9f7b34f761c5c342ada8a4b2ab7a716, type: 2}
+  menuTransition: {fileID: 11400000, guid: c9f7b34f761c5c342ada8a4b2ab7a716, type: 2}
+  transitionDelay: 0
+--- !u!114 &740491820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740491813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61430b0086307cc4da3ccc8d39ae88da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EasyTransition.TransitionManager
+  transitionTemplate: {fileID: 5276914992623515724, guid: 616d511151a6c554caddf1c754e4f91d, type: 3}
 --- !u!1 &748854746
 GameObject:
   m_ObjectHideFlags: 0

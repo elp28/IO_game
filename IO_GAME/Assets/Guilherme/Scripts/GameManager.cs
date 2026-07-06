@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EasyTransition;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject gameWinPanel;
 
-    // Quantas áreas existem na cena
+    [Header("Transição — Abrir Painel")]
+    [SerializeField] private TransitionSettings openPanelTransition;
+
+    [Header("Transição — Botões")]
+    [SerializeField] private TransitionSettings restartTransition;
+    [SerializeField] private TransitionSettings menuTransition;
+    [SerializeField] private float transitionDelay = 0f;
+
     private int _totalAreas = 0;
     private int _clearedAreas = 0;
+
+    // Painel pendente para ativar no cut point
+    private GameObject _pendingPanel;
 
     void Awake()
     {
@@ -19,23 +30,17 @@ public class GameManager : MonoBehaviour
 
         gameOverPanel?.SetActive(false);
         gameWinPanel?.SetActive(false);
-        Time.timeScale = 1f;
     }
 
     // ─────────────────────────────────────────────
     // REGISTRO DE ÁREAS
-    // Cada PollutedArea se registra no Start
     // ─────────────────────────────────────────────
 
-    public void RegisterArea()
-    {
-        _totalAreas++;
-    }
+    public void RegisterArea() { _totalAreas++; }
 
     public void OnAreaCleared()
     {
         _clearedAreas++;
-
         if (_clearedAreas >= _totalAreas)
             TriggerGameWin();
     }
@@ -46,15 +51,20 @@ public class GameManager : MonoBehaviour
 
     public void TriggerGameOver()
     {
-        Time.timeScale = 0f;
-        gameOverPanel?.SetActive(true);
+        ShowPanelWithTransition(gameOverPanel);
     }
 
-    // Botão "Tentar Novamente" no painel de game over
     public void OnRestartClicked()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (restartTransition != null)
+            TransitionManager.Instance().Transition(
+                SceneManager.GetActiveScene().buildIndex,
+                restartTransition,
+                transitionDelay);
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // ─────────────────────────────────────────────
@@ -63,14 +73,50 @@ public class GameManager : MonoBehaviour
 
     private void TriggerGameWin()
     {
-        Time.timeScale = 0f;
-        gameWinPanel?.SetActive(true);
+        ShowPanelWithTransition(gameWinPanel);
     }
 
-    // Botão "Menu" no painel de game win
     public void OnMenuClicked()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0); // cena 0 = menu principal
+
+        if (menuTransition != null)
+            TransitionManager.Instance().Transition(
+                0,
+                menuTransition,
+                transitionDelay);
+        else
+            SceneManager.LoadScene(0);
+    }
+
+    // ─────────────────────────────────────────────
+    // HELPER
+    // ─────────────────────────────────────────────
+
+    private void ShowPanelWithTransition(GameObject panel)
+    {
+        if (openPanelTransition == null)
+        {
+            panel.SetActive(true);
+            return;
+        }
+
+        _pendingPanel = panel;
+
+        TransitionManager manager = TransitionManager.Instance();
+        manager.onTransitionCutPointReached += OnCutPointReached;
+        manager.Transition(openPanelTransition, transitionDelay);
+    }
+
+    private void OnCutPointReached()
+    {
+        // Desinscreve imediatamente usando método nomeado — funciona corretamente
+        TransitionManager.Instance().onTransitionCutPointReached -= OnCutPointReached;
+
+        if (_pendingPanel != null)
+        {
+            _pendingPanel.SetActive(true);
+            _pendingPanel = null;
+        }
     }
 }

@@ -20,9 +20,7 @@ public class GameManager : MonoBehaviour
 
     private int _totalAreas = 0;
     private int _clearedAreas = 0;
-
-    // Painel pendente para ativar no cut point
-    private GameObject _pendingPanel;
+    private bool _gameEnded = false;
 
     void Awake()
     {
@@ -33,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     // ─────────────────────────────────────────────
-    // REGISTRO DE ÁREAS
+    // ÁREAS
     // ─────────────────────────────────────────────
 
     public void RegisterArea() { _totalAreas++; }
@@ -51,6 +49,9 @@ public class GameManager : MonoBehaviour
 
     public void TriggerGameOver()
     {
+        if (_gameEnded) return;
+        _gameEnded = true;
+
         ShowPanelWithTransition(gameOverPanel);
     }
 
@@ -73,6 +74,9 @@ public class GameManager : MonoBehaviour
 
     private void TriggerGameWin()
     {
+        if (_gameEnded) return;
+        _gameEnded = true;
+
         ShowPanelWithTransition(gameWinPanel);
     }
 
@@ -95,28 +99,16 @@ public class GameManager : MonoBehaviour
 
     private void ShowPanelWithTransition(GameObject panel)
     {
-        if (openPanelTransition == null)
+        if (openPanelTransition == null || TransitionManagerExtension.instance == null)
         {
             panel.SetActive(true);
             return;
         }
 
-        _pendingPanel = panel;
-
-        TransitionManager manager = TransitionManager.Instance();
-        manager.onTransitionCutPointReached += OnCutPointReached;
-        manager.Transition(openPanelTransition, transitionDelay);
-    }
-
-    private void OnCutPointReached()
-    {
-        // Desinscreve imediatamente usando método nomeado — funciona corretamente
-        TransitionManager.Instance().onTransitionCutPointReached -= OnCutPointReached;
-
-        if (_pendingPanel != null)
-        {
-            _pendingPanel.SetActive(true);
-            _pendingPanel = null;
-        }
+        TransitionManagerExtension.instance.TransitionWithCallback(
+            openPanelTransition,
+            transitionDelay,
+            () => panel.SetActive(true)
+        );
     }
 }

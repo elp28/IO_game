@@ -3308,6 +3308,7 @@ GameObject:
   - component: {fileID: 740491817}
   - component: {fileID: 740491819}
   - component: {fileID: 740491820}
+  - component: {fileID: 740491821}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3432,6 +3433,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61430b0086307cc4da3ccc8d39ae88da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EasyTransition.TransitionManager
+  transitionTemplate: {fileID: 5276914992623515724, guid: 616d511151a6c554caddf1c754e4f91d, type: 3}
+--- !u!114 &740491821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740491813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a10e9c7fdc09cc41857ee4bf06b4d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EasyTransition.TransitionManagerExtension
   transitionTemplate: {fileID: 5276914992623515724, guid: 616d511151a6c554caddf1c754e4f91d, type: 3}
 --- !u!1 &748854746
 GameObject:
@@ -29011,7 +29025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   maxLife: 100
-  maxOxygen: 3
+  maxOxygen: 60
   damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
   spriteRenderer: {fileID: 1653266708}
   flashDuration: 0.12

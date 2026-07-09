@@ -1,0 +1,2756 @@
+fileFormatVersion: 2
+guid: d7fa6ec1300f9a24dbca21d3eef8cb79
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3457670699228554562
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_0
+  - first:
+      213: 286306158067791419
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_1
+  - first:
+      213: -8177588282591412124
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_2
+  - first:
+      213: -1179024869579096823
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_3
+  - first:
+      213: 5171579707950420690
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_4
+  - first:
+      213: -3246424570323242004
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_5
+  - first:
+      213: 4053853454346503869
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_6
+  - first:
+      213: -6645037455958516083
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_7
+  - first:
+      213: -2029929200002235373
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_8
+  - first:
+      213: 1049902428614928695
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_9
+  - first:
+      213: -2704220181134897264
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_10
+  - first:
+      213: -4423781069696683429
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_11
+  - first:
+      213: 8204163266114265737
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_12
+  - first:
+      213: 8515947080275157926
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_13
+  - first:
+      213: -7617043330082268065
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_14
+  - first:
+      213: 5774512790975794064
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_15
+  - first:
+      213: 4215268290291911484
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_16
+  - first:
+      213: 5452091736973193621
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_17
+  - first:
+      213: -2180406139701678445
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_18
+  - first:
+      213: -6827680747031081956
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_19
+  - first:
+      213: -4530918950248096730
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_20
+  - first:
+      213: 6662582278417610435
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_21
+  - first:
+      213: 1931695692308060235
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_22
+  - first:
+      213: -6347412193234755628
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_23
+  - first:
+      213: -9019443738615908135
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_24
+  - first:
+      213: -5868650931340276577
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_25
+  - first:
+      213: -5114707678986203721
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_26
+  - first:
+      213: 3656991554138474905
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_27
+  - first:
+      213: 1586820047389427845
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_28
+  - first:
+      213: -1155308888838900844
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_29
+  - first:
+      213: 8628042490765568520
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_30
+  - first:
+      213: 8672432412262366457
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_31
+  - first:
+      213: -2686871762831394537
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_32
+  - first:
+      213: 7575600432049030232
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_33
+  - first:
+      213: -2849558645252929372
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_34
+  - first:
+      213: 5339948955920531064
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_35
+  - first:
+      213: 8492778769335411754
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_36
+  - first:
+      213: 1018482512501728234
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_37
+  - first:
+      213: -2597842769892134745
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_38
+  - first:
+      213: 8377022121828422419
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_39
+  - first:
+      213: 7753563136061637138
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_40
+  - first:
+      213: -8866368006237134338
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_41
+  - first:
+      213: 8217208136233514584
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_42
+  - first:
+      213: 3275277751337008257
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_43
+  - first:
+      213: 5978034664363446065
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_44
+  - first:
+      213: -6200511515400647829
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_45
+  - first:
+      213: 4340721911676244229
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_46
+  - first:
+      213: -7436063071392893113
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_47
+  - first:
+      213: -1849210886861011892
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_48
+  - first:
+      213: 4677230957938244629
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_49
+  - first:
+      213: 7639794565220585212
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_50
+  - first:
+      213: -4961609630066989504
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_51
+  - first:
+      213: 2774873132983551105
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_52
+  - first:
+      213: -2260801260910015014
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_53
+  - first:
+      213: -3725401168409499288
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_54
+  - first:
+      213: 8666189889581024424
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_55
+  - first:
+      213: -2804276037042432264
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_56
+  - first:
+      213: -4003551691830066007
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_57
+  - first:
+      213: 2487252580393573383
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_58
+  - first:
+      213: -4461575766407681853
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_59
+  - first:
+      213: -5123337374205895978
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_60
+  - first:
+      213: -3736185077746412900
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_61
+  - first:
+      213: 4113031233510526938
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_62
+  - first:
+      213: 1792831430616728825
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_63
+  - first:
+      213: 3060733234360862644
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_64
+  - first:
+      213: -5869918490442782729
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_65
+  - first:
+      213: -4366033500718516986
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_66
+  - first:
+      213: 6406031917517328738
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_67
+  - first:
+      213: 8583665725813806664
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_68
+  - first:
+      213: 6901542971709079982
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_69
+  - first:
+      213: 8979693225794927290
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_70
+  - first:
+      213: 2915013392419009761
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_71
+  - first:
+      213: -6100431487047757863
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_72
+  - first:
+      213: -6454982916939446654
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_73
+  - first:
+      213: 5998675636564777211
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_74
+  - first:
+      213: 8089755466544719183
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_75
+  - first:
+      213: 1046843961940028620
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_76
+  - first:
+      213: -3319120106473258339
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_77
+  - first:
+      213: 6338484965554217678
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_78
+  - first:
+      213: 93403598382352763
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_79
+  - first:
+      213: 4146176870411784646
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_80
+  - first:
+      213: 7030071630925578718
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_81
+  - first:
+      213: 4111537983221218743
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_82
+  - first:
+      213: 8495095608863072044
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_83
+  - first:
+      213: 2330678582110427184
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_84
+  - first:
+      213: 3506331903636363852
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_85
+  - first:
+      213: 6760815416197442508
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_86
+  - first:
+      213: -750657272525559522
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_87
+  - first:
+      213: 20329252722307166
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_88
+  - first:
+      213: 1698871166781000385
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_89
+  - first:
+      213: -9213829358464743881
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_90
+  - first:
+      213: 6056605642175599761
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_91
+  - first:
+      213: -2092024604681567113
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_92
+  - first:
+      213: 1123285324975876129
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_93
+  - first:
+      213: -5560601024399461945
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_94
+  - first:
+      213: 387512324229305679
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_95
+  - first:
+      213: -1309582499331805627
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_96
+  - first:
+      213: 5908434765753122937
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_97
+  - first:
+      213: -7120693000600090813
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_98
+  - first:
+      213: -4363088279174735229
+    second: SpriteSheet_TravellersPouch_BigWander(16x16)_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 146
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2456bc17e2d1cff20800000000000000
+      internalID: 3457670699228554562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 146
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3633a01fe929f300800000000000000
+      internalID: 286306158067791419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 146
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4600eb0a8ce538e80800000000000000
+      internalID: -8177588282591412124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 146
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90df26bb02343afe0800000000000000
+      internalID: -1179024869579096823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2d00c185425c740800000000000000
+      internalID: 5171579707950420690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce378c7bd0262f2d0800000000000000
+      internalID: -3246424570323242004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db640dd0d3e224830800000000000000
+      internalID: 4053853454346503869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e5d6604a518c3a0800000000000000
+      internalID: -6645037455958516083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3148caac52e34d3e0800000000000000
+      internalID: -2029929200002235373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 145
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739a96a32b0029e00800000000000000
+      internalID: 1049902428614928695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 129
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f0305a21ea87ad0800000000000000
+      internalID: -2704220181134897264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_11
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 129
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52b1a82e829b92c0800000000000000
+      internalID: -4423781069696683429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 129
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 982ac04e50b0bd170800000000000000
+      internalID: 8204163266114265737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 129
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a363d500c8be2670800000000000000
+      internalID: 8515947080275157926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c10b7b273da4690800000000000000
+      internalID: -7617043330082268065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09bcf09e9c0332050800000000000000
+      internalID: 5774512790975794064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b41d33d24af7a30800000000000000
+      internalID: 4215268290291911484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_17
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59131216c88b9ab40800000000000000
+      internalID: 5452091736973193621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_18
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e20011b24adb1e0800000000000000
+      internalID: -2180406139701678445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_19
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 129
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c407109843f31a0800000000000000
+      internalID: -6827680747031081956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c50687831fe11c0800000000000000
+      internalID: -4530918950248096730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_21
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 112
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c6f4e7484f367c50800000000000000
+      internalID: 6662582278417610435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 112
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b489c226ff2ceca10800000000000000
+      internalID: 1931695692308060235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_23
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 112
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df52438d3679e7a0800000000000000
+      internalID: -6347412193234755628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_24
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d87d20f4bf74d280800000000000000
+      internalID: -9019443738615908135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c82b6421d5e8ea0800000000000000
+      internalID: -5868650931340276577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd80100778e409b0800000000000000
+      internalID: -5114707678986203721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_27
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9990703617e30c230800000000000000
+      internalID: 3656991554138474905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_28
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 114
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5888d1ffc64850610800000000000000
+      internalID: 1586820047389427845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_29
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 113
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493f7eacfa487ffe0800000000000000
+      internalID: -1155308888838900844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 96
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80aee099ee6fcb770800000000000000
+      internalID: 8628042490765568520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_31
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 96
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc7b77945baa5870800000000000000
+      internalID: 8672432412262366457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_32
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 96
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719386b0e5056bad0800000000000000
+      internalID: -2686871762831394537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_33
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 96
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8540498a470f12960800000000000000
+      internalID: 7575600432049030232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_34
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a84e0f72855478d0800000000000000
+      internalID: -2849558645252929372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_35
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e7c5c784f4b1a40800000000000000
+      internalID: 5339948955920531064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_36
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2467364b496cd570800000000000000
+      internalID: 8492778769335411754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_37
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae3ec9fe270622e00800000000000000
+      internalID: 1018482512501728234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_38
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 98
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a03346c3cb92fbd0800000000000000
+      internalID: -2597842769892134745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_39
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 97
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3131c278c39214470800000000000000
+      internalID: 8377022121828422419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 81
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212848497903a9b60800000000000000
+      internalID: 7753563136061637138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_41
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 81
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1e85c364554f480800000000000000
+      internalID: -8866368006237134338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_42
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 81
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856f5a56343690270800000000000000
+      internalID: 8217208136233514584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_43
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 81
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cbe2df2cf147d20800000000000000
+      internalID: 3275277751337008257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_44
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13fca50bade36f250800000000000000
+      internalID: 5978034664363446065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_45
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b43d2e0ab53f9a0800000000000000
+      internalID: -6200511515400647829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 501973e94975d3c30800000000000000
+      internalID: 4340721911676244229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_47
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747f936d80ccdc890800000000000000
+      internalID: -7436063071392893113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_48
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 82
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c444dd5fe784656e0800000000000000
+      internalID: -1849210886861011892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_49
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 81
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c7e5476ccd8e040800000000000000
+      internalID: 4677230957938244629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfecee00ea0060a60800000000000000
+      internalID: 7639794565220585212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_51
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04623b54452d42bb0800000000000000
+      internalID: -4961609630066989504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_52
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184824c9964528620800000000000000
+      internalID: 2774873132983551105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_53
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add04bf3b3500a0e0800000000000000
+      internalID: -2260801260910015014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_54
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 64
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86960271067bc4cc0800000000000000
+      internalID: -3725401168409499288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_55
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 64
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a40f840acd744870800000000000000
+      internalID: 8666189889581024424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_56
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 64
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f612ff4dc53519d0800000000000000
+      internalID: -2804276037042432264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_57
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 64
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a40e80b2f68078c0800000000000000
+      internalID: -4003551691830066007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_58
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c58093b0f748220800000000000000
+      internalID: 2487252580393573383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_59
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 65
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c867c89a7c4512c0800000000000000
+      internalID: -4461575766407681853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 50
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da99f18dcf36e8b0800000000000000
+      internalID: -5123337374205895978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_61
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 50
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c925fc98777662cc0800000000000000
+      internalID: -3736185077746412900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_62
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 50
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf4b777d1c641930800000000000000
+      internalID: 4113031233510526938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_63
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 50
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4c014ffaa61e810800000000000000
+      internalID: 1792831430616728825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_64
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 48
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7cf4209a8e97a20800000000000000
+      internalID: 3060733234360862644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_65
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 48
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f729acab3cd98ea0800000000000000
+      internalID: -5869918490442782729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_66
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 48
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 605b730d9abb863c0800000000000000
+      internalID: -4366033500718516986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_67
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 48
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2615f6f961cc6e850800000000000000
+      internalID: 6406031917517328738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_68
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 48
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 846d3d9df7e4f1770800000000000000
+      internalID: 8583665725813806664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_69
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 49
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea140de44c437cf50800000000000000
+      internalID: 6901542971709079982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_70
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abafc7399674e9c70800000000000000
+      internalID: 8979693225794927290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_71
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e434aa6c35347820800000000000000
+      internalID: 2915013392419009761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_72
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df09ed42e9e65ba0800000000000000
+      internalID: -6100431487047757863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_73
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2860c9cac3b4b66a0800000000000000
+      internalID: -6454982916939446654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_74
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8db3885b39f3350800000000000000
+      internalID: 5998675636564777211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_75
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f452c274cb5944070800000000000000
+      internalID: 8089755466544719183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_76
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccca2b67903278e00800000000000000
+      internalID: 1046843961940028620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_77
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 32
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d920ece39dd10f1d0800000000000000
+      internalID: -3319120106473258339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_78
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 32
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec263025e72d6f750800000000000000
+      internalID: 6338484965554217678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_79
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 33
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79c25ee316db4100800000000000000
+      internalID: 93403598382352763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1d5d075ed2a8930800000000000000
+      internalID: 4146176870411784646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_81
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1ced2c6e4df8160800000000000000
+      internalID: 7030071630925578718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_82
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd3d6a030e1f0930800000000000000
+      internalID: 4111537983221218743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_83
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f93438274a4e570800000000000000
+      internalID: 8495095608863072044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_84
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 16
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0389d4c62db385020800000000000000
+      internalID: 2330678582110427184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_85
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 16
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a5ddcf94ef8a030800000000000000
+      internalID: 3506331903636363852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_86
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 16
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbee6afccd33dd50800000000000000
+      internalID: 6760815416197442508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_87
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 16
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19ec0310312595f0800000000000000
+      internalID: -750657272525559522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_88
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 16
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50ff0ff859384000800000000000000
+      internalID: 20329252722307166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_89
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 17
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca822f335a939710800000000000000
+      internalID: 1698871166781000385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736c4a3f307e12080800000000000000
+      internalID: -9213829358464743881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_91
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194d0860eb26d0450800000000000000
+      internalID: 6056605642175599761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_92
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7740490c4b2a7f2e0800000000000000
+      internalID: -2092024604681567113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_93
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128a8983d06b69f00800000000000000
+      internalID: 1123285324975876129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_94
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c13ff264d6c4d2b0800000000000000
+      internalID: -5560601024399461945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_95
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4516cfd768b06500800000000000000
+      internalID: 387512324229305679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_96
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e6243c7ad63dde0800000000000000
+      internalID: -1309582499331805627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_97
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970884f7d1afef150800000000000000
+      internalID: 5908434765753122937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_98
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3470f9861773e2d90800000000000000
+      internalID: -7120693000600090813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_TravellersPouch_BigWander(16x16)_99
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a9e14a3523373c0800000000000000
+      internalID: -4363088279174735229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpriteSheet_TravellersPouch_BigWander(16x16)_0: 3457670699228554562
+      SpriteSheet_TravellersPouch_BigWander(16x16)_1: 286306158067791419
+      SpriteSheet_TravellersPouch_BigWander(16x16)_10: -2704220181134897264
+      SpriteSheet_TravellersPouch_BigWander(16x16)_11: -4423781069696683429
+      SpriteSheet_TravellersPouch_BigWander(16x16)_12: 8204163266114265737
+      SpriteSheet_TravellersPouch_BigWander(16x16)_13: 8515947080275157926
+      SpriteSheet_TravellersPouch_BigWander(16x16)_14: -7617043330082268065
+      SpriteSheet_TravellersPouch_BigWander(16x16)_15: 5774512790975794064
+      SpriteSheet_TravellersPouch_BigWander(16x16)_16: 4215268290291911484
+      SpriteSheet_TravellersPouch_BigWander(16x16)_17: 5452091736973193621
+      SpriteSheet_TravellersPouch_BigWander(16x16)_18: -2180406139701678445
+      SpriteSheet_TravellersPouch_BigWander(16x16)_19: -6827680747031081956
+      SpriteSheet_TravellersPouch_BigWander(16x16)_2: -8177588282591412124
+      SpriteSheet_TravellersPouch_BigWander(16x16)_20: -4530918950248096730
+      SpriteSheet_TravellersPouch_BigWander(16x16)_21: 6662582278417610435
+      SpriteSheet_TravellersPouch_BigWander(16x16)_22: 1931695692308060235
+      SpriteSheet_TravellersPouch_BigWander(16x16)_23: -6347412193234755628
+      SpriteSheet_TravellersPouch_BigWander(16x16)_24: -9019443738615908135
+      SpriteSheet_TravellersPouch_BigWander(16x16)_25: -5868650931340276577
+      SpriteSheet_TravellersPouch_BigWander(16x16)_26: -5114707678986203721
+      SpriteSheet_TravellersPouch_BigWander(16x16)_27: 3656991554138474905
+      SpriteSheet_TravellersPouch_BigWander(16x16)_28: 1586820047389427845
+      SpriteSheet_TravellersPouch_BigWander(16x16)_29: -1155308888838900844
+      SpriteSheet_TravellersPouch_BigWander(16x16)_3: -1179024869579096823
+      SpriteSheet_TravellersPouch_BigWander(16x16)_30: 8628042490765568520
+      SpriteSheet_TravellersPouch_BigWander(16x16)_31: 8672432412262366457
+      SpriteSheet_TravellersPouch_BigWander(16x16)_32: -2686871762831394537
+      SpriteSheet_TravellersPouch_BigWander(16x16)_33: 7575600432049030232
+      SpriteSheet_TravellersPouch_BigWander(16x16)_34: -2849558645252929372
+      SpriteSheet_TravellersPouch_BigWander(16x16)_35: 5339948955920531064
+      SpriteSheet_TravellersPouch_BigWander(16x16)_36: 8492778769335411754
+      SpriteSheet_TravellersPouch_BigWander(16x16)_37: 1018482512501728234
+      SpriteSheet_TravellersPouch_BigWander(16x16)_38: -2597842769892134745
+      SpriteSheet_TravellersPouch_BigWander(16x16)_39: 8377022121828422419
+      SpriteSheet_TravellersPouch_BigWander(16x16)_4: 5171579707950420690
+      SpriteSheet_TravellersPouch_BigWander(16x16)_40: 7753563136061637138
+      SpriteSheet_TravellersPouch_BigWander(16x16)_41: -8866368006237134338
+      SpriteSheet_TravellersPouch_BigWander(16x16)_42: 8217208136233514584
+      SpriteSheet_TravellersPouch_BigWander(16x16)_43: 3275277751337008257
+      SpriteSheet_TravellersPouch_BigWander(16x16)_44: 5978034664363446065
+      SpriteSheet_TravellersPouch_BigWander(16x16)_45: -6200511515400647829
+      SpriteSheet_TravellersPouch_BigWander(16x16)_46: 4340721911676244229
+      SpriteSheet_TravellersPouch_BigWander(16x16)_47: -7436063071392893113
+      SpriteSheet_TravellersPouch_BigWander(16x16)_48: -1849210886861011892
+      SpriteSheet_TravellersPouch_BigWander(16x16)_49: 4677230957938244629
+      SpriteSheet_TravellersPouch_BigWander(16x16)_5: -3246424570323242004
+      SpriteSheet_TravellersPouch_BigWander(16x16)_50: 7639794565220585212
+      SpriteSheet_TravellersPouch_BigWander(16x16)_51: -4961609630066989504
+      SpriteSheet_TravellersPouch_BigWander(16x16)_52: 2774873132983551105
+      SpriteSheet_TravellersPouch_BigWander(16x16)_53: -2260801260910015014
+      SpriteSheet_TravellersPouch_BigWander(16x16)_54: -3725401168409499288
+      SpriteSheet_TravellersPouch_BigWander(16x16)_55: 8666189889581024424
+      SpriteSheet_TravellersPouch_BigWander(16x16)_56: -2804276037042432264
+      SpriteSheet_TravellersPouch_BigWander(16x16)_57: -4003551691830066007
+      SpriteSheet_TravellersPouch_BigWander(16x16)_58: 2487252580393573383
+      SpriteSheet_TravellersPouch_BigWander(16x16)_59: -4461575766407681853
+      SpriteSheet_TravellersPouch_BigWander(16x16)_6: 4053853454346503869
+      SpriteSheet_TravellersPouch_BigWander(16x16)_60: -5123337374205895978
+      SpriteSheet_TravellersPouch_BigWander(16x16)_61: -3736185077746412900
+      SpriteSheet_TravellersPouch_BigWander(16x16)_62: 4113031233510526938
+      SpriteSheet_TravellersPouch_BigWander(16x16)_63: 1792831430616728825
+      SpriteSheet_TravellersPouch_BigWander(16x16)_64: 3060733234360862644
+      SpriteSheet_TravellersPouch_BigWander(16x16)_65: -5869918490442782729
+      SpriteSheet_TravellersPouch_BigWander(16x16)_66: -4366033500718516986
+      SpriteSheet_TravellersPouch_BigWander(16x16)_67: 6406031917517328738
+      SpriteSheet_TravellersPouch_BigWander(16x16)_68: 8583665725813806664
+      SpriteSheet_TravellersPouch_BigWander(16x16)_69: 6901542971709079982
+      SpriteSheet_TravellersPouch_BigWander(16x16)_7: -6645037455958516083
+      SpriteSheet_TravellersPouch_BigWander(16x16)_70: 8979693225794927290
+      SpriteSheet_TravellersPouch_BigWander(16x16)_71: 2915013392419009761
+      SpriteSheet_TravellersPouch_BigWander(16x16)_72: -6100431487047757863
+      SpriteSheet_TravellersPouch_BigWander(16x16)_73: -6454982916939446654
+      SpriteSheet_TravellersPouch_BigWander(16x16)_74: 5998675636564777211
+      SpriteSheet_TravellersPouch_BigWander(16x16)_75: 8089755466544719183
+      SpriteSheet_TravellersPouch_BigWander(16x16)_76: 1046843961940028620
+      SpriteSheet_TravellersPouch_BigWander(16x16)_77: -3319120106473258339
+      SpriteSheet_TravellersPouch_BigWander(16x16)_78: 6338484965554217678
+      SpriteSheet_TravellersPouch_BigWander(16x16)_79: 93403598382352763
+      SpriteSheet_TravellersPouch_BigWander(16x16)_8: -2029929200002235373
+      SpriteSheet_TravellersPouch_BigWander(16x16)_80: 4146176870411784646
+      SpriteSheet_TravellersPouch_BigWander(16x16)_81: 7030071630925578718
+      SpriteSheet_TravellersPouch_BigWander(16x16)_82: 4111537983221218743
+      SpriteSheet_TravellersPouch_BigWander(16x16)_83: 8495095608863072044
+      SpriteSheet_TravellersPouch_BigWander(16x16)_84: 2330678582110427184
+      SpriteSheet_TravellersPouch_BigWander(16x16)_85: 3506331903636363852
+      SpriteSheet_TravellersPouch_BigWander(16x16)_86: 6760815416197442508
+      SpriteSheet_TravellersPouch_BigWander(16x16)_87: -750657272525559522
+      SpriteSheet_TravellersPouch_BigWander(16x16)_88: 20329252722307166
+      SpriteSheet_TravellersPouch_BigWander(16x16)_89: 1698871166781000385
+      SpriteSheet_TravellersPouch_BigWander(16x16)_9: 1049902428614928695
+      SpriteSheet_TravellersPouch_BigWander(16x16)_90: -9213829358464743881
+      SpriteSheet_TravellersPouch_BigWander(16x16)_91: 6056605642175599761
+      SpriteSheet_TravellersPouch_BigWander(16x16)_92: -2092024604681567113
+      SpriteSheet_TravellersPouch_BigWander(16x16)_93: 1123285324975876129
+      SpriteSheet_TravellersPouch_BigWander(16x16)_94: -5560601024399461945
+      SpriteSheet_TravellersPouch_BigWander(16x16)_95: 387512324229305679
+      SpriteSheet_TravellersPouch_BigWander(16x16)_96: -1309582499331805627
+      SpriteSheet_TravellersPouch_BigWander(16x16)_97: 5908434765753122937
+      SpriteSheet_TravellersPouch_BigWander(16x16)_98: -7120693000600090813
+      SpriteSheet_TravellersPouch_BigWander(16x16)_99: -4363088279174735229
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

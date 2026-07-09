@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Neckel/Menu.unity
     guid: 58071bd753de6f044a4d670fe21a94bf
   - enabled: 1
-    path: Assets/Erick/Underwater Diving/Scenes/game_test.unity
-    guid: 1dc5cbfe35e9b234983d5ec13ae6012d
+    path: Assets/Guilherme/TesteGui.unity
+    guid: 36c7ac29a615b0247b67b7e3a604ac93
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

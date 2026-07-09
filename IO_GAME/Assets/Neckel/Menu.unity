@@ -2057,7 +2057,7 @@ MonoBehaviour:
   playButton: {fileID: 1914780289}
   optionsButton: {fileID: 834711032}
   quitButton: {fileID: 1131137308}
-  gameSceneName: Fase1
+  gameSceneName: TesteGui
   optionsPanel: {fileID: 2023973288}
 --- !u!1 &468604513
 GameObject:
@@ -3867,7 +3867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &942233550
 Grid:
   m_ObjectHideFlags: 0

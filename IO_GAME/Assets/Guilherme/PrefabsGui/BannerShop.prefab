@@ -61,6 +61,7 @@ MonoBehaviour:
   valueCostLine2: {fileID: 750684953148335515}
   buyButton: {fileID: 2238461081024956255}
   buyButtonText: {fileID: 6617336756715772213}
+  iconDatabase: {fileID: 11400000, guid: e9ab0d5f5b5f06b4f99740d5f831dba5, type: 2}
 --- !u!1 &1890153203494415400
 GameObject:
   m_ObjectHideFlags: 0

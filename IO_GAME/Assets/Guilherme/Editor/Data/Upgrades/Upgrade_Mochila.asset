@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Mochila
   description: Aumenta o tamanho da mochila
-  icon: {fileID: 8755054611862819910, guid: 66fabb405731f7b4db185834fbf135e4, type: 3}
+  icon: {fileID: -5502988243203379351, guid: 6972b2691746a4a4aa23ffa6779a65f8, type: 3}
   baseValue: 15
   valuePerLevel: 5
   maxLevel: 4
@@ -24,7 +24,5 @@ MonoBehaviour:
   - resourceType: 0
     amount: 2
   costScalingFactor: 1.4
-  costIcon1: {fileID: 1841930184305661864, guid: 257a465854093534790fd631e7febc20, type: 3}
-  costIcon2: {fileID: 8393191153094585699, guid: 257a465854093534790fd631e7febc20, type: 3}
   spawnWeight: 0.8
   category: 2

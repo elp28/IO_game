@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Dano
   description: Aumenta o dano base em 5
-  icon: {fileID: -412924043903456810, guid: 66fabb405731f7b4db185834fbf135e4, type: 3}
+  icon: {fileID: 2648487608014023427, guid: a6de04846bfe1414fb9d3caf3986f883, type: 3}
   baseValue: 5
   valuePerLevel: 1.5
   maxLevel: 5
@@ -24,7 +24,5 @@ MonoBehaviour:
   - resourceType: 1
     amount: 2
   costScalingFactor: 1.6
-  costIcon1: {fileID: 8393191153094585699, guid: 257a465854093534790fd631e7febc20, type: 3}
-  costIcon2: {fileID: 1841930184305661864, guid: 257a465854093534790fd631e7febc20, type: 3}
   spawnWeight: 1
   category: 0

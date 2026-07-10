@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: "Oxig\xEAnio"
   description: "Aumenta o tanque de oxig\xEAnio"
-  icon: {fileID: -2276259661975475453, guid: 8edb79495bc58ea4c91b5c266dc46bb0, type: 3}
+  icon: {fileID: -27476631926248740, guid: e4d7bd2a7550e1245955c35efa2e9875, type: 3}
   baseValue: 30
   valuePerLevel: 15
   maxLevel: 4
@@ -24,7 +24,5 @@ MonoBehaviour:
   - resourceType: 2
     amount: 2
   costScalingFactor: 1.5
-  costIcon1: {fileID: 8393191153094585699, guid: 257a465854093534790fd631e7febc20, type: 3}
-  costIcon2: {fileID: -4354303742480711803, guid: 257a465854093534790fd631e7febc20, type: 3}
   spawnWeight: 0.9
   category: 3

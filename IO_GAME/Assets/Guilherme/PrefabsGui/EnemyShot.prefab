@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 4466950343461967090}
   - component: {fileID: 5824184795904858889}
   - component: {fileID: 6825947139687696836}
+  - component: {fileID: -1044842872354733899}
   m_Layer: 7
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -289,6 +290,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-1044842872354733899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665186290697521552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411094efb6d6f441b3537a0e38b74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCuller
 --- !u!1 &1682294015712797925
 GameObject:
   m_ObjectHideFlags: 0

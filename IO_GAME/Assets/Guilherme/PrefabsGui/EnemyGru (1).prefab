@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3896374824934489178}
   - component: {fileID: 53715098739664038}
   - component: {fileID: 2369157487349629956}
+  - component: {fileID: -4182645196745249820}
   m_Layer: 7
   m_Name: EnemyGru (1)
   m_TagString: Untagged
@@ -220,6 +221,18 @@ MonoBehaviour:
   shotPrefab: {fileID: 3909720406848283518, guid: 2e80e33f1f9b57644841f0ea0b578867, type: 3}
   distacePlayer: 5
   maxSpawnedEnemies: 4
+--- !u!114 &-4182645196745249820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331170564352442062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411094efb6d6f441b3537a0e38b74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCuller
 --- !u!1 &4938933448787105582
 GameObject:
   m_ObjectHideFlags: 0

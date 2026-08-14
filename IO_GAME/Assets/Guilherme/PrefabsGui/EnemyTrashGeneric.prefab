@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 2229741526301107354}
   - component: {fileID: 8714237362674292109}
   - component: {fileID: 671535184029632949}
+  - component: {fileID: 5589674428044773159}
   m_Layer: 7
   m_Name: EnemyTrashGeneric
   m_TagString: Untagged
@@ -287,3 +288,15 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5589674428044773159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909720406848283518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411094efb6d6f441b3537a0e38b74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCuller

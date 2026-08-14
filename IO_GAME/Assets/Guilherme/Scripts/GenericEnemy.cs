@@ -68,9 +68,6 @@ public class GenericEnemy : MonoBehaviour
     public void OnPlayerEnteredArea()
     {
         _playerInArea = true;
-        // Player entrou na área — começa a perseguir imediatamente
-        feltPlayer = true;
-        currentState = State.chase;
     }
 
     public virtual void OnPlayerExitedArea()
@@ -112,7 +109,7 @@ public class GenericEnemy : MonoBehaviour
 
     private void CheckStuck()
     {
-        if (currentState != State.patrol) 
+        if (currentState != State.patrol)
         {
             _stuckTimer = 0f;
             _lastPosition = transform.position;
@@ -247,6 +244,9 @@ public class GenericEnemy : MonoBehaviour
         agent.SetDestination(destination);
     }
 
+    private float _patrolPathTimer;
+    private const float PatrolPathInterval = 0.3f;
+
     protected virtual void Patrol()
     {
         if (agent != null && !agent.enabled) agent.enabled = true;
@@ -259,8 +259,7 @@ public class GenericEnemy : MonoBehaviour
                 Bounds b = _area.Bounds;
                 randomPoint = new Vector2(
                     Random.Range(b.min.x, b.max.x),
-                    Random.Range(b.min.y, b.max.y)
-                );
+                    Random.Range(b.min.y, b.max.y));
             }
             else
             {
@@ -270,9 +269,9 @@ public class GenericEnemy : MonoBehaviour
             }
 
             haveAPoint = true;
+            agent.SetDestination(randomPoint); // seta imediatamente ao escolher novo ponto
+            _patrolPathTimer = 0f;
         }
-
-        agent.SetDestination(randomPoint);
 
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -286,7 +285,7 @@ public class GenericEnemy : MonoBehaviour
         switch (currentState)
         {
             case State.patrol: Patrol(); break;
-            case State.chase:  Chase();  break;
+            case State.chase: Chase(); break;
         }
     }
 

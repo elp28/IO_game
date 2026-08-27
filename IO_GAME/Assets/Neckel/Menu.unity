@@ -2746,8 +2746,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Op\xE7\xF5es"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2dd46d77ce4a346be974539431a497, type: 2}
-  m_sharedMaterial: {fileID: -1277847821139189796, guid: 5b2dd46d77ce4a346be974539431a497, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+  m_sharedMaterial: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11937,8 +11937,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Iniciar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2dd46d77ce4a346be974539431a497, type: 2}
-  m_sharedMaterial: {fileID: -1277847821139189796, guid: 5b2dd46d77ce4a346be974539431a497, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+  m_sharedMaterial: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

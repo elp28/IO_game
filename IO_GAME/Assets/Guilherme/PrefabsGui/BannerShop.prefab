@@ -129,8 +129,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Comprar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+  m_sharedMaterial: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -674,8 +674,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: XXX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+  m_sharedMaterial: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1041,8 +1041,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Descri\xE7\xE3o\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+  m_sharedMaterial: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1183,6 +1183,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 119.492004
       objectReference: {fileID: 0}
+    - target: {fileID: 3660935924017617551, guid: 26384596ae1d02f4b9aa867ef024be82, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
+    - target: {fileID: 3660935924017617551, guid: 26384596ae1d02f4b9aa867ef024be82, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -988001726292060433, guid: 2c879274799729f4ea4a4bf041770a47, type: 2}
     - target: {fileID: 4734914648328726358, guid: 26384596ae1d02f4b9aa867ef024be82, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

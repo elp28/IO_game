@@ -80,9 +80,9 @@ GameObject:
   - component: {fileID: 1946044819978301241}
   - component: {fileID: 7078337177486972002}
   - component: {fileID: 2229741526301107354}
-  - component: {fileID: 8714237362674292109}
   - component: {fileID: 671535184029632949}
-  - component: {fileID: 5589674428044773159}
+  - component: {fileID: -4654743928610620882}
+  - component: {fileID: 3486126444593793998}
   m_Layer: 7
   m_Name: EnemyTrashGeneric
   m_TagString: Untagged
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTrashEnemy
   type: 1
   currentState: 0
-  life: 3
+  life: 15
   damage: 5
   cooldown: 1
   listTrashDrops:
@@ -239,33 +239,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1946044819978301241}
   flashDuration: 0.12
   knockbackForce: 4
---- !u!50 &8714237362674292109
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3909720406848283518}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  deathSound: {fileID: 0}
+  deathAnimDuration: 0.4
 --- !u!195 &671535184029632949
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -275,7 +250,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3909720406848283518}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -288,7 +263,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5589674428044773159
+--- !u!114 &-4654743928610620882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909720406848283518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2f0f828aae4414991226687a4ae558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PulseAnimation
+  pulseScale: 1.15
+  duration: 0.6
+  easeType: 4
+--- !u!114 &3486126444593793998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

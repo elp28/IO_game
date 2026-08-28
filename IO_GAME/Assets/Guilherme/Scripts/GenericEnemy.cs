@@ -44,6 +44,9 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] private float flashDuration = 0.12f;
     [SerializeField] private float knockbackForce = 4f;
 
+    [Header("Efeitos de Morte")]
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private float deathAnimDuration = 0.4f;
     // ─────────────────────────────────────────────
     // ÁREA
     // ─────────────────────────────────────────────
@@ -156,6 +159,36 @@ public class GenericEnemy : MonoBehaviour
         if (_area != null)
             _area.OnEnemyDied(this);
 
+        // Spawna os drops imediatamente (não precisa esperar a animação)
+        SpawnDrops();
+
+        // Desliga a lógica do inimigo pra ele não continuar perseguindo/atacando enquanto morre
+        if (agent != null) agent.enabled = false;
+        if (fisCollider != null) fisCollider.enabled = false;
+        if (areaCollider != null) areaCollider.enabled = false;
+
+        StopAllCoroutines();
+
+        // Toca o som de morte (funciona mesmo depois do objeto ser destruído)
+        if (deathSound != null)
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+
+        // Animação de morte: encolhe e faz fade, depois destrói
+        transform.DOKill();
+
+        Sequence deathSequence = DOTween.Sequence();
+        deathSequence.Join(transform.DOScale(Vector3.zero, deathAnimDuration).SetEase(Ease.InBack));
+
+        if (spriteRenderer != null)
+        {
+            deathSequence.Join(spriteRenderer.DOFade(0f, deathAnimDuration));
+        }
+
+        deathSequence.OnComplete(() => Destroy(gameObject));
+    }
+
+    private void SpawnDrops()
+    {
         if (type == TypeDrop.fix)
         {
             foreach (TrashDrop drop in listTrashDrops)
@@ -190,8 +223,6 @@ public class GenericEnemy : MonoBehaviour
                 }
             }
         }
-
-        Destroy(gameObject);
     }
 
     // ─────────────────────────────────────────────

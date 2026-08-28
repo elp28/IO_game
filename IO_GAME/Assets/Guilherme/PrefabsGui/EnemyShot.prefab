@@ -81,8 +81,8 @@ GameObject:
   - component: {fileID: 8057931470963980967}
   - component: {fileID: 4466950343461967090}
   - component: {fileID: 5824184795904858889}
-  - component: {fileID: 6825947139687696836}
-  - component: {fileID: -1044842872354733899}
+  - component: {fileID: 2634438891222157087}
+  - component: {fileID: 4404491983062198261}
   m_Layer: 7
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileEnemy
   type: 0
   currentState: 0
-  life: 6
+  life: 40
   damage: 9
   cooldown: 2
   listTrashDrops:
@@ -238,6 +238,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 9094040463925047041}
   flashDuration: 0.12
   knockbackForce: 4
+  deathSound: {fileID: 0}
+  deathAnimDuration: 0.4
   projectilePrefab: {fileID: 3039303254612865580, guid: b5570a65910c3a54ab848fe615d9b206, type: 3}
   firePoint: {fileID: 0}
   shootRange: 6
@@ -250,7 +252,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1665186290697521552}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -263,34 +265,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!50 &6825947139687696836
-Rigidbody2D:
-  serializedVersion: 5
+--- !u!114 &2634438891222157087
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665186290697521552}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!114 &-1044842872354733899
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2f0f828aae4414991226687a4ae558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PulseAnimation
+  pulseScale: 1.15
+  duration: 0.6
+  easeType: 4
+--- !u!114 &4404491983062198261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

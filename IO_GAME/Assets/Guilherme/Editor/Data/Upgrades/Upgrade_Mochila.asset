@@ -21,8 +21,6 @@ MonoBehaviour:
   baseCosts:
   - resourceType: 1
     amount: 5
-  - resourceType: 0
-    amount: 2
   costScalingFactor: 1.4
   spawnWeight: 0.8
   category: 2

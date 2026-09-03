@@ -81,6 +81,21 @@ public class GenericEnemy : MonoBehaviour
         haveAPoint = false;
     }
 
+    /// <summary>
+    /// Reavalia manualmente se o player já está na área/perto do inimigo.
+    /// Usado pelo EnemyCuller ao reativar o inimigo (OnBecameVisible),
+    /// já que enquanto o script estava "dormindo" ele pode ter perdido
+    /// o evento de OnTriggerEnter2D do player.
+    /// </summary>
+    public virtual void RecheckPlayerProximity()
+    {
+        if (_playerInArea && player != null)
+        {
+            feltPlayer = true;
+            currentState = State.chase;
+        }
+    }
+
     // ─────────────────────────────────────────────
     // LIFECYCLE
     // ─────────────────────────────────────────────

@@ -28,13 +28,17 @@ public class ShopOfferUI : MonoBehaviour
     [Header("Banco de Ícones")]
     [SerializeField] private ResourceIconDatabase iconDatabase;
 
+    [Header("Tamanho máximo do ícone (mantém proporção da sprite)")]
+    [SerializeField] private float maxUpgradeIconSize = 64f;
+    [SerializeField] private float maxCostIconSize = 32f;
+
     private ShopOffer _offer;
 
     public void Setup(ShopOffer offer)
     {
         _offer = offer;
 
-        if (upgradeIcon != null) upgradeIcon.sprite = offer.Icon;
+        if (upgradeIcon != null) SetIconWithNativeAspect(upgradeIcon, offer.Icon, maxUpgradeIconSize);
         if (nameText != null) nameText.text = offer.DisplayName;
         if (descriptionText != null) descriptionText.text = offer.Description;
         if (levelText != null) levelText.text = $"Nível {offer.CurrentLevel + 1} → {offer.NextLevel + 1}";
@@ -79,7 +83,7 @@ public class ShopOfferUI : MonoBehaviour
 
         if (costs.Count >= 1)
         {
-            if (iconCostLine1 != null) iconCostLine1.sprite = GetCostIcon(offer, 0);
+            SetIconWithNativeAspect(iconCostLine1, GetCostIcon(offer, 0), maxCostIconSize);
             if (valueCostLine1 != null) valueCostLine1.text = costs[0].amount.ToString();
         }
 
@@ -88,9 +92,44 @@ public class ShopOfferUI : MonoBehaviour
 
         if (hasSecond)
         {
-            if (iconCostLine2 != null) iconCostLine2.sprite = GetCostIcon(offer, 1);
+            SetIconWithNativeAspect(iconCostLine2, GetCostIcon(offer, 1), maxCostIconSize);
             if (valueCostLine2 != null) valueCostLine2.text = costs[1].amount.ToString();
         }
+    }
+
+    /// <summary>
+    /// Define a sprite no Image e ajusta o RectTransform pra respeitar a
+    /// proporção real (largura/altura) da sprite, encaixando dentro de um
+    /// tamanho máximo (comportamento tipo "object-fit: contain").
+    /// </summary>
+    private void SetIconWithNativeAspect(Image image, Sprite sprite, float maxSize)
+    {
+        if (image == null) return;
+
+        image.sprite = sprite;
+
+        if (sprite == null) return;
+
+        RectTransform rt = image.rectTransform;
+        Rect spriteRect = sprite.rect;
+
+        if (spriteRect.height <= 0f) return;
+
+        float aspect = spriteRect.width / spriteRect.height;
+
+        float width, height;
+        if (aspect >= 1f)
+        {
+            width = maxSize;
+            height = maxSize / aspect;
+        }
+        else
+        {
+            height = maxSize;
+            width = maxSize * aspect;
+        }
+
+        rt.sizeDelta = new Vector2(width, height);
     }
 
     private Sprite GetCostIcon(ShopOffer offer, int index)
@@ -116,4 +155,4 @@ public class ShopOfferUI : MonoBehaviour
             _ => $"+{offer.ValueAfterPurchase}"
         };
     }
-}
+}   

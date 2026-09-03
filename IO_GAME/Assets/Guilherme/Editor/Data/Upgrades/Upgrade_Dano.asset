@@ -19,7 +19,7 @@ MonoBehaviour:
   valuePerLevel: 1.5
   maxLevel: 5
   baseCosts:
-  - resourceType: 0
+  - resourceType: 2
     amount: 5
   - resourceType: 1
     amount: 2

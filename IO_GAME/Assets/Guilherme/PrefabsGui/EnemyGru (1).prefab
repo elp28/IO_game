@@ -183,9 +183,9 @@ MonoBehaviour:
   cooldown: 5
   listTrashDrops:
   - prefab: {fileID: 136027075920195957, guid: a53c8956bb0a6ee4a81402b561f5a8dc, type: 3}
-    amount: 2
+    amount: 1
   - prefab: {fileID: 8060071050681930887, guid: 44857c48c09ab414bad1dfb0df96b9a3, type: 3}
-    amount: 3
+    amount: 2
   maxAmount: 5
   damageNumberPrefab: {fileID: 1924144126847076309, guid: 2bb83a72fa2f12544ae7a61a68e30c1b, type: 3}
   spriteRenderer: {fileID: 4116816303612947449}

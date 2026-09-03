@@ -3,10 +3,13 @@ using DG.Tweening;
 
 public class PulseAnimation : MonoBehaviour
 {
-    [Header("Configurações")]
-    [SerializeField] private float pulseScale = 1.15f; // quanto ele cresce (1.15 = 15% maior)
-    [SerializeField] private float duration = 0.6f;     // tempo de cada ida (cresce ou diminui)
+    [Header("ConfiguraÃ§Ãµes")]
+    [SerializeField] private float pulseScale = 1.15f;
+    [SerializeField] private float duration = 0.6f;
     [SerializeField] private Ease easeType = Ease.InOutSine;
+
+    [Header("Desaparecer")]
+    [SerializeField] private float disappearDuration = 0.3f;
 
     private Vector3 originalScale;
 
@@ -22,7 +25,19 @@ public class PulseAnimation : MonoBehaviour
 
         transform.DOScale(originalScale * pulseScale, duration)
             .SetEase(easeType)
-            .SetLoops(-1, LoopType.Yoyo); // -1 = infinito, Yoyo = vai e volta
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
+    public void Disappear()
+    {
+        transform.DOKill();
+
+        transform.DOScale(Vector3.zero, disappearDuration)
+            .SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
     }
 
     private void OnDisable()

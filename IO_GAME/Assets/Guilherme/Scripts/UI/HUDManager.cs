@@ -119,7 +119,27 @@ public class HUDManager : MonoBehaviour
 
     public void ActivePanelStation(bool onStation)
     {
-        panelStation.SetActive(onStation);
+    if (onStation)
+    {
+        panelStation.SetActive(true);
+
+        panelStation.transform.DOKill();
+        panelStation.transform.localScale = Vector3.zero;
+
+        panelStation.transform.DOScale(Vector3.one, 0.3f)
+            .SetEase(Ease.OutBack);
+    }
+    else
+    {
+        panelStation.transform.DOKill();
+
+        panelStation.transform.DOScale(Vector3.zero, 0.25f)
+            .SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                panelStation.SetActive(false);
+            });
+    }
     }
 
     public void UpdateResources(int Glass, int Plastic, int Metal)

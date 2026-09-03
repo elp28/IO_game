@@ -69,8 +69,18 @@ public class GenericEnemy : MonoBehaviour
     }
 
     public void OnPlayerEnteredArea()
-    {
+    {   
         _playerInArea = true;
+
+    // Garante que o player seja encontrado
+        if (player == null)
+        player = FindObjectOfType<PlayerMove>();
+
+        if (player != null)
+        {
+            feltPlayer = true;
+            currentState = State.chase;
+        }
     }
 
     public virtual void OnPlayerExitedArea()
@@ -277,16 +287,31 @@ public class GenericEnemy : MonoBehaviour
     // ESTADOS
     // ─────────────────────────────────────────────
 
-    protected virtual void Chase()
+   protected virtual void Chase()
     {
-        if (agent != null && !agent.enabled) agent.enabled = true;
-        if (player == null) return;
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerMove>();
+
+            if (player == null)
+            return;
+        }
+
+        if (agent == null)
+            return;
+
+        if (!agent.enabled)
+            agent.enabled = true;
+
+        if (!agent.isOnNavMesh)
+            return;
 
         Vector3 destination = player.transform.position;
 
         if (_area != null && !_area.ContainsPoint(destination))
             destination = _area.ClampToBounds(destination);
 
+        agent.isStopped = false;
         agent.SetDestination(destination);
     }
 
